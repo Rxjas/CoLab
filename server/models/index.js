@@ -1,3 +1,7 @@
+const Todo = require('./todo');
+const User = require('./user');
+
 module.exports = {
-  Todo: require('./todo')
+  Todo: Todo,
+  User: User
 };
