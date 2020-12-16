@@ -1,5 +1,7 @@
 Just a reference to help navigate this mess of components I made
-things in parenthesis aren't components we need to build...
+(not in components directory)
+[relevant instructions]
+
 
 (Page) <- aka, App
   |
@@ -7,7 +9,7 @@ things in parenthesis aren't components we need to build...
   |
   |__ Sidebar
   |     |
-  |     |__ UserModal (when area of Sidebar is clicked)
+  |     |__ UserModal [when area of Sidebar is clicked]
   |           |
   |           |__ AboutMe
   |           |
@@ -17,8 +19,8 @@ things in parenthesis aren't components we need to build...
   |
   |__ (grid)
   |     |
-  |     |__ Card (repeated for each relevant entry)
+  |     |__ Card [repeated for each relevant entry]
   |           |
-  |           |__ MatchModal (when "match" button on card is clicked)
+  |           |__ MatchModal [when "match" button on card is clicked]
   |
   |__ Footer
