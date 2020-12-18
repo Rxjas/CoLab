@@ -2,7 +2,9 @@ const mongoose = require('mongoose');
 
 async function db() {
   try {
-    await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/todo_db', {
+    //use the one below to use the user db
+    //mongodb://localhost/user_db'
+    await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/user_db', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false,
