@@ -10,19 +10,19 @@ const userSchema = new Schema({
         type: String,
         trim: true,
         unique: true,
-        required: 'Please Enter a Username'
+        required: 'Please enter a username'
     },
 
     firstname: {
         type: String,
         trim: true,
-        required: 'Please Enter a first name'
+        required: 'Please enter a first name'
     },
 
     lastname: {
         type: String,
         trim: true,
-        required: 'Please Enter a last name'
+        required: 'Please enter a last name'
     },
 
     pronouns: {
@@ -34,7 +34,7 @@ const userSchema = new Schema({
         type: String,
         unique: true,
         trim: true,
-        required: 'Please Enter a email'
+        required: 'Please enter an email address'
     },
 
     password: {
