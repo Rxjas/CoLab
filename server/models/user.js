@@ -39,7 +39,7 @@ const userSchema = new Schema({
 
     password: {
         type: String,
-        required: 'please enter a password'
+        required: 'Please enter a password'
     },
 
     roles: [{
@@ -48,13 +48,13 @@ const userSchema = new Schema({
 
     age: {
         type: Number,
-        required: 'please enter a age'
+        required: 'Please enter your age'
     },
 
     bio: {
         type: String,
         trim: true,
-        default: "Sorry! my Bio is currently under construction!"
+        default: "Sorry! My Bio is currently under construction!"
     },
 
     //push genres they like into the array
