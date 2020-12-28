@@ -12,7 +12,6 @@ const Profile = () => {
     <>
       <Tabs defaultActiveKey="aboutme">
         <Tab eventKey="aboutme" title="About Me">
-          <p>some stuff about me</p>
           <AboutMe />
         </Tab>
         <Tab eventKey="messages" title="Messages">
