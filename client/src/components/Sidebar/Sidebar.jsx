@@ -51,7 +51,7 @@ const Sidebar = () => {
               <Form.Label>Keywords</Form.Label>
               <Form.Control as="textarea" rows={1} />
               <Form.Text id="keywordHelp" muted>
-                Enter keywords (e.g., terms not included in filters) separated by spaces
+                Enter comma-separated keywords (e.g., terms not included in filters)
               </Form.Text>
             </Form.Group>
           </Form>
