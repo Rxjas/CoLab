@@ -11,10 +11,7 @@ const Grid = () => {
       {/* need to pass through search terms and loop over results */}
       {/* {element.map(infos => {
         <PersonalCard
-          name={infos.name}
-          image={infos.image}
-          info={infos.info}
-          keywords={infos.keywords}
+          {{ infos }} <-- is that how we deconstruct an object within react parenthesis?
         />
       })} */}
       </CardDeck>
