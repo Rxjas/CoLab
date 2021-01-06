@@ -1,7 +1,7 @@
 import React from "react";
 import CardDeck from 'react-bootstrap/CardDeck';
 import Sidebar from "../components/Sidebar";
-import PersonalCard from "../components/";
+import PersonalCard from "../components/PersonalCard";
 
 const Grid = () => {
   return (

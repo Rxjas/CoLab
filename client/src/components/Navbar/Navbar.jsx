@@ -10,12 +10,16 @@ const Navbar = () => {
       </div>
 
       <ul className="Navbar-links">
-        <li className="Navbar-link">
+        {/* <li className="Navbar-link">
           <Link to="/">
             Home
           </Link>
-        </li>
-
+        </li> */}
+        {/* we don't actually want a link to the homepage,
+        that's just for logging in and signing up */}
+        
+        {/* is there a way to use passport to redirect them to the login/signup page
+        if they haven't signed up or logged in? */}
         <li className="Navbar-link">
           <Link to="/profile">
             Profile

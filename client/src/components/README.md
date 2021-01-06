@@ -2,25 +2,27 @@ Just a reference to help navigate this mess of components I made
 (not in components directory)
 [relevant instructions]
 
-
-(Page) <- aka, App
+App
   |
-  |__ Header
-  |
-  |__ Sidebar
+  |__ Homepage
   |     |
-  |     |__ UserModal [when area of Sidebar is clicked]
-  |           |
-  |           |__ AboutMe
-  |           |
-  |           |__ Messages
-  |           |
-  |           |__ Matches
-  |
-  |__ (grid)
+  |     |__ Login
   |     |
-  |     |__ Card [repeated for each relevant entry]
-  |           |
-  |           |__ MatchModal [when "match" button on card is clicked]
+  |     |__ Signup
   |
-  |__ Footer
+  |
+  |__ Profile
+  |     |
+  |     |__ AboutMe
+  |     |
+  |     |__ Messages
+  |     |     |
+  |     |     |__ Channel
+  |     |
+  |     |__ Matches
+  |
+  |__ Grid
+        |
+        |__ Sidebar
+        |
+        |__ PersonalCard
