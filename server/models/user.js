@@ -10,19 +10,19 @@ const userSchema = new Schema({
         type: String,
         trim: true,
         unique: true,
-        required: 'Please Enter a Username'
+        required: 'Please enter a username'
     },
 
     firstname: {
         type: String,
         trim: true,
-        required: 'Please Enter a first name'
+        required: 'Please enter a first name'
     },
 
     lastname: {
         type: String,
         trim: true,
-        required: 'Please Enter a last name'
+        required: 'Please enter a last name'
     },
 
     pronouns: {
@@ -34,12 +34,12 @@ const userSchema = new Schema({
         type: String,
         unique: true,
         trim: true,
-        required: 'Please Enter a email'
+        required: 'Please enter an email address'
     },
 
     password: {
         type: String,
-        required: 'please enter a password'
+        required: 'Please enter a password'
     },
 
     roles: [{
@@ -48,13 +48,13 @@ const userSchema = new Schema({
 
     age: {
         type: Number,
-        required: 'please enter a age'
+        required: 'Please enter your age'
     },
 
     bio: {
         type: String,
         trim: true,
-        default: "Sorry! my Bio is currently under construction!"
+        default: "Sorry! My Bio is currently under construction!"
     },
 
     //push genres they like into the array
