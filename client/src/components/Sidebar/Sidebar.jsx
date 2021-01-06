@@ -1,17 +1,18 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
+import "./Sidebar.css";
 // import FilterMusic from "../FilterMusic";
 
 const Sidebar = () => {
   return (
     <>
-      <div id="sidebar">
+      <div id="sidenav">
         <div id="user">
-          <h3>I am a...</h3>
+          <h5>I am a...</h5>
           <div id="autopop" />
         </div>
         <div id="seeking">
-          <h3>looking to CoLaborate with...</h3>
+          <h5>looking to CoLaborate with...</h5>
           {/* for more categories, need some way to make form change */}
           {/* maybe a tab, like on profile page... or useState with another form (just a dropdown) */}
           <Form>
