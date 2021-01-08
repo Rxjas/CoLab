@@ -1,70 +1,81 @@
 import React, { Component } from "react";
-import Channel from '../Channel';
+// import Channel from '../Channel';
 // import Profile from "../../pages/Profile";
-import pubnub from 'pubnub';
+import PubNub from 'pubnub';
+// import PubNubReact from 'pubnub-react';
 
-// Needs portfolio information from database: the messageId for the channel and the userId for the other users subscribed to the channel
-// Needs username from context OR props
-
-// pubnub object needs to be initalized in a Context provider and utilized here. 
+// Needs profile information from database: the messageId for the channel and the userId for the other users subscribed to the channel
+// Needs username from context
 
 class Messages extends Component {
   constructor() {
     super();
 
     this.state = {
-      channels: {}
+      channels: [],
+      pubState: {}
     }
   }
 
   componentDidMount() {
     // on component mount hook sends api request to get db info, maybe send api request to pubnub for each channel to see which have updated
     // order in order of latest message
-    fetch('http://example.com/movies.json')
-    // NEED API ROUTE FROM DB HERE
+    fetch('/api/pubnub')
+      // NEED API ROUTE FROM DB HERE
       .then(response => response.json())
       .then(data => {
-        // for each one loop
-          data.channel.forEach(channelId => {
-            // make api request to pubnub for each channel to get the latest message
-            pubnub.fetchMessages({
-              channel: [channelId],
-              start: "unknown",
-              end: "unkown",
-              count: 1
-            },
-            (status, response) => {
-              // handle reponse
-            }
-            )
-          });
-           // .then put into the object    
+        const tempNub = new PubNub({
+          publishKey: data.pubkey,
+          subscribeKey: data.subkey,
+          uuid: "demouser"
+        })
+        console.log(tempNub)
+        this.setState({pubState: tempNub})
       })
-      .then(data => this.setState({channels: data}))
+      .then(() => {
+        this.state.pubState.addListener({
+          message: function(m) {
+            console.log(m.channel)
+          }
+        })
+      })
+      .then(() => {
+        this.state.pubState.subscribe({channels: ["demochannel"]})
+      })
   };
 
-  // state holds received db info
+  showState = () => {
+    console.log(this.state.pubState)
+  }
 
-
-  // context OR props holds the profile information, i.e. the username, to pass to api request to database
-
-  // child component repeats for each channel subscribed to
-
-  render() {
-
-    const receivedChannels = this.state.channels
-    const chans = receivedChannels.map((data, index) => {
-      return (
-        <Channel
-          key={data.id}
-          users={data.users}
-          lastMessage={data.lastMessage}
-        />
-
+  sendPracMessage = () => {
+    console.log("button pushed")
+      this.state.pubState.publish(
+        {
+          channel: "demochannel",
+          message: {"text": "practice message"}
+        },
+        function(status, response) {
+          console.log(status);
+          console.log(response)
+        }
       )
-    });
+  }
 
-    return chans;
+  
+  render() {
+    return (
+      
+      <div>
+        <h1>
+          Messages
+          </h1>
+
+        <button onClick={this.showState}>Console.log pubnub object</button>
+        <button onClick={this.sendPracMessage}>Send practice message</button>
+
+      </div>
+    )
   };
 }
 
