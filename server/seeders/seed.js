@@ -34,7 +34,7 @@ let userSeed = [
     chats: [
       {
         involvedUUIDs: ["DanaStoreSuper"],
-        channelID: ["chats.room1"]
+        channelID: "chats.room1"
       }
     ]
   },//end of john doe user
@@ -62,7 +62,7 @@ let userSeed = [
     chats: [
       {
         involvedUUIDs: ["exampleUserNames"],
-        channelID: ["chats.room1"]
+        channelID: "chats.room1"
       }
     ]
   },//end of Dana Happy user
@@ -90,7 +90,7 @@ let userSeed = [
     chats: [
       {
         involvedUUIDs: ["RealScreamer"],
-        channelID: ["chats.room2"]
+        channelID: "chats.room2"
       }
     ]
   }, //end of Tom Nook user
@@ -118,11 +118,11 @@ let userSeed = [
     chats: [
       {
         involvedUUIDs: ["TomNookConfirmed"],
-        channelID: ["chats.room2"]
+        channelID: "chats.room2"
       },
       {
         involvedUUIDs: ["RoboT3"],
-        channelID: ["chats.room3"]
+        channelID: "chats.room3"
       }
     ]
   },//end of Timouthy Loud user
@@ -146,10 +146,10 @@ let userSeed = [
       youtube: "Test@working",
       audiomack: "Test@working",
     }],
-    lookingfor: "World domintation",
+    lookingfor: "World domination",
     chats: [{
       involvedUUIDs: ["RealScreamer"],
-      channelID: ["chats.room3"]
+      channelID: "chats.room3"
     }]
   }//end of ROBOTT3
 ]
