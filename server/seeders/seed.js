@@ -96,8 +96,30 @@ let userSeed = [
       youtube: "Test@working",
       audiomack: "Test@working",
     }],
-    lookingfor: "A cool calm singer for covers"
-  }//end of john doe user
+    lookingfor: "I need more loud people for a loud band"
+  },//end of Timouthy Loud user
+  {
+    created: new Date(),
+    username: "RoboT3",
+    firstname: "Robo",
+    lastname: "T3",
+    pronouns: "They/them",
+    email: "ROBOTROBOTROBOT@1234.com",
+    password: "123ROBOT",
+    roles: ["Robot"],
+    age: 28,
+    bio: "I am a robot. Very big brained.",
+    links: [{
+      instagram: "Test@working",
+      twitter: "Test@working",
+      soundcloud: "Test@working",
+      spotify: "Test@working",
+      bandcamp: "Test@working",
+      youtube: "Test@working",
+      audiomack: "Test@working",
+    }],
+    lookingfor: "World domintation"
+  }//end of ROBOTT3
 ]
 
 db.User.deleteMany({})
