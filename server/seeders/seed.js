@@ -30,7 +30,13 @@ let userSeed = [
       youtube: "Test@working",
       audiomack: "Test@working",
     }],
-    lookingfor: "A cool calm singer for covers"
+    lookingfor: "A cool calm singer for covers",
+    chats: [
+      {
+        involvedUUIDs: ["DanaStoreSuper"],
+        channelID: ["chats.room1"]
+      }
+    ]
   },//end of john doe user
   {
     created: new Date(),
@@ -52,7 +58,13 @@ let userSeed = [
       youtube: "Test@working",
       audiomack: "Test@working",
     }],
-    lookingfor: "A cool calm pianist for covers"
+    lookingfor: "A cool calm pianist for covers",
+    chats: [
+      {
+        involvedUUIDs: ["exampleUserNames"],
+        channelID: ["chats.room1"]
+      }
+    ]
   },//end of Dana Happy user
   {
     created: new Date(),
@@ -74,7 +86,13 @@ let userSeed = [
       youtube: "Test@working",
       audiomack: "Test@working",
     }],
-    lookingfor: "Bells I need and crave bells."
+    lookingfor: "Bells I need and crave bells.",
+    chats: [
+      {
+        involvedUUIDs: ["RealScreamer"],
+        channelID: ["chats.room2"]
+      }
+    ]
   }, //end of Tom Nook user
   {
     created: new Date(),
@@ -96,7 +114,17 @@ let userSeed = [
       youtube: "Test@working",
       audiomack: "Test@working",
     }],
-    lookingfor: "I need more loud people for a loud band"
+    lookingfor: "I need more loud people for a loud band",
+    chats: [
+      {
+        involvedUUIDs: ["TomNookConfirmed"],
+        channelID: ["chats.room2"]
+      },
+      {
+        involvedUUIDs: ["RoboT3"],
+        channelID: ["chats.room3"]
+      }
+    ]
   },//end of Timouthy Loud user
   {
     created: new Date(),
@@ -118,7 +146,11 @@ let userSeed = [
       youtube: "Test@working",
       audiomack: "Test@working",
     }],
-    lookingfor: "World domintation"
+    lookingfor: "World domintation",
+    chats: [{
+      involvedUUIDs: ["RealScreamer"],
+      channelID: ["chats.room3"]
+    }]
   }//end of ROBOTT3
 ]
 
