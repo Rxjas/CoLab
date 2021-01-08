@@ -18,19 +18,19 @@ const userSchema = new Schema({
         type: String,
         trim: true,
         unique: true,
-        required: 'Please enter a username' 
+        // required: 'Please enter a username' 
     },
 
     firstname: {
         type: String,
         trim: true,
-        required: 'Please enter a first name'
+        // required: 'Please enter a first name'
     },
 
     lastname: {
         type: String,
         trim: true,
-        required: 'Please enter a last name'
+        // required: 'Please enter a last name'
     },
 
     pronouns: {
@@ -42,12 +42,12 @@ const userSchema = new Schema({
         type: String,
         unique: true,
         trim: true,
-        required: 'Please enter an email address'
+        // required: 'Please enter an email address'
     },
 
     password: {
         type: String,
-        required: 'Please enter a password'
+        // required: 'Please enter a password'
     },
 
     roles: [{
@@ -56,12 +56,12 @@ const userSchema = new Schema({
 
     age: {
         type: Number,
-        required: 'Please enter your age'
+        // required: 'Please enter your age'
     },
 
     bio: {
         type: String,
-        required: "please enter bio",
+        // required: "please enter bio",
         trim: true,
         default: "Sorry! My Bio is currently under construction!"
     },
@@ -69,7 +69,7 @@ const userSchema = new Schema({
     //push genres they like into the array
     likedgenres: [{}],
 
-
+//For links it may be easier to take them out of the array
     links: [{
 
         instagram: { type: String, trim: true },
@@ -86,7 +86,7 @@ const userSchema = new Schema({
     lookingfor: {
         type: String,
         trim: true,
-        required: "enter what you looking for",
+        // required: "enter what you looking for",
         default: "Just Browsing"
     },
 
