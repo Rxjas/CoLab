@@ -80,7 +80,7 @@ const userSchema = new Schema({
     lookingfor: {
         type: String,
         trim: true,
-        required: true,
+        required: "enter what you looking for",
         default: "Just Browsing"
     },
 
