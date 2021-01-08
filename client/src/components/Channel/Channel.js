@@ -5,11 +5,11 @@ class Channel extends Component {
     // maybe? on mount component makes api request to pubnub to get last message. Display. 
 
     // props are passed down
-    render() {
+    render(props) {
         return (
             <div>
-                <h4>{this.props.users}</h4>
-                    <p></p>
+                <hr />
+                <h5>Conversation with {props.involvedUUIDs}</h5>
 
             </div>
         )
