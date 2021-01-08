@@ -15,11 +15,9 @@ const Profile = () => {
           <AboutMe />
         </Tab>
         <Tab eventKey="messages" title="Messages">
-          <p>my messages yay</p>
           <Messages />
         </Tab>
         <Tab eventKey="matches" title="Matches">
-          <p>ones with whom I've matched</p>
           <Matches />
         </Tab>
       </Tabs>
