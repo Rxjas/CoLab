@@ -4,7 +4,7 @@ import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 
 import AboutMe from "../components/AboutMe";
-// import Messages from "../components/Messages";
+import Messages from "../components/Messages";
 import Matches from "../components/Matches";
 
 const Profile = () => {
@@ -21,7 +21,7 @@ const Profile = () => {
         </Tab>
         <Tab eventKey="messages" title="Messages">
           <p>my messages yay</p>
-          {/* <Messages /> */}
+          <Messages />
         </Tab>
         <Tab eventKey="matches" title="Matches">
           <p>ones with whom I've matched</p>
