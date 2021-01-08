@@ -3,6 +3,7 @@ import React, { Component } from "react";
 // import Profile from "../../pages/Profile";
 import PubNub from 'pubnub';
 // import PubNubReact from 'pubnub-react';
+import Channel from "../Channel";
 
 // Needs profile information from database: the messageId for the channel and the userId for the other users subscribed to the channel
 // Needs username from context
@@ -30,17 +31,17 @@ class Messages extends Component {
           uuid: "demouser"
         })
         console.log(tempNub)
-        this.setState({pubState: tempNub})
+        this.setState({ pubState: tempNub })
       })
       .then(() => {
         this.state.pubState.addListener({
-          message: function(m) {
+          message: function (m) {
             console.log(m.channel)
           }
         })
       })
       .then(() => {
-        this.state.pubState.subscribe({channels: ["demochannel"]})
+        this.state.pubState.subscribe({ channels: ["demochannel"] })
       })
   };
 
@@ -50,27 +51,26 @@ class Messages extends Component {
 
   sendPracMessage = () => {
     console.log("button pushed")
-      this.state.pubState.publish(
-        {
-          channel: "demochannel",
-          message: {"text": "practice message"}
-        },
-        function(status, response) {
-          console.log(status);
-          console.log(response)
-        }
-      )
+    this.state.pubState.publish(
+      {
+        channel: "demochannel",
+        message: { "text": "practice message" }
+      },
+      function (status, response) {
+        console.log(status);
+        console.log(response)
+      }
+    )
   }
 
-  
+
   render() {
     return (
-      
-      <div>
-        <h1>
-          Messages
-          </h1>
 
+      <div>
+        {this.state.channels.foreach(channel => {
+          <Channel {...channel}/>
+        })}
         <button onClick={this.showState}>Console.log pubnub object</button>
         <button onClick={this.sendPracMessage}>Send practice message</button>
 
