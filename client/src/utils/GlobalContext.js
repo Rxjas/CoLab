@@ -5,13 +5,13 @@ export const GlobalContext = createContext();
 
 // set up Global Provider & reducer
 const defaultState = {
-  todos: []
+  me: {},
 };
 
 const reducer = (state, action) => {
   console.log({action});
   switch(action.type) {
-    case 'setTodos':
+    case 'match':
       return {
         ...state,
         todos: action.payload

@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col"
 
-const AboutMe = () => {
+const AboutMe = (props) => {
   return (
     <>
       <Container>
@@ -15,10 +15,19 @@ const AboutMe = () => {
           </Col>
             <Col>
             {/* these will be populated with database info */}
-              <h3>Name</h3>
-              <h3>City</h3>
-              <h3>skillz</h3>
-              <h3>idk summary about me</h3>
+              <input type="text" value={props.username} />
+              <input type="text" value={props.firstname} />
+              <input type="text" value={props.lastname} />
+              <input type="number" value={props.age} />
+              <input type="text" value={props.pronouns} />
+              <input type="email" value={props.email} />
+              <h3>Roles</h3>
+              <ul>
+                {props.roles.forEach(role => {
+                  return <input type="text" value={role} />
+                })}
+              </ul>
+              <input type="text" value={props.bio} />
             </Col>
         </Row>
       </Container>
