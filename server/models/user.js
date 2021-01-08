@@ -3,14 +3,22 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-//username, firstame, lastname, email, password, age, and looking for are required for  a user
+// subdocument for the chats
+const chatSchema = new Schema({
+    involvedUUIDs: Array,
+    channelID: String
+})
+
+//username, firstname, lastname, email, password, age, and looking for are required for  a user
 const userSchema = new Schema({
+
+    created: { type: Date, default: new Date() },
 
     username: {
         type: String,
         trim: true,
         unique: true,
-        required: 'Please enter a username'
+        required: 'Please enter a username' 
     },
 
     firstname: {
@@ -53,6 +61,7 @@ const userSchema = new Schema({
 
     bio: {
         type: String,
+        required: "please enter bio",
         trim: true,
         default: "Sorry! My Bio is currently under construction!"
     },
@@ -77,17 +86,12 @@ const userSchema = new Schema({
     lookingfor: {
         type: String,
         trim: true,
-        required: true,
+        required: "enter what you looking for",
         default: "Just Browsing"
     },
 
     //TO BE CONTINUED
-    chats: [{
-        userID: [{}],
-        messageID: [{}]
-    }],
-
-    created: { type: Date, default: new Date() },
+    chats: [chatSchema],
 
 },
     {
