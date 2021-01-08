@@ -1,9 +1,10 @@
 const router = require('express').Router();
-const todos = require('./todo.routes');
-const pb = require('./pb.routes');
+const user = require('./user.routes.js');
+const pb = require('./pb.routes.js');
 
-// /api/todo
-router.use('/api/todo', todos);
+//api/user
+router.use('/api/user', user);
+// /api/pubnub
 router.use('/api/pubnub', pb);
 
 module.exports = router;
