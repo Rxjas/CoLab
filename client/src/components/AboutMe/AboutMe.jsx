@@ -20,15 +20,15 @@ const AboutMe = (props) => {
             <Form>
               <Form.Group controlId="username">
                 <Form.Label>username</Form.Label>
-                <Form.Control type="input" placeholder={props.username || "please enter username"} />
+                <Form.Control type="input" autoComplete="off" placeholder={props.username || "please enter username"} />
               </Form.Group>
               <Form.Group controlId="firstname">
                 <Form.Label>first name</Form.Label>
-                <Form.Control type="input" placeholder={props.firstname || "please enter first name"} />
+                <Form.Control type="input" autoComplete="off" placeholder={props.firstname || "please enter first name"} />
               </Form.Group>
               <Form.Group controlId="lastname">
                 <Form.Label>last name</Form.Label>
-                <Form.Control type="input" placeholder={props.lastname || "please enter last name"} />
+                <Form.Control type="input" autoComplete="off" placeholder={props.lastname || "please enter last name"} />
               </Form.Group>
               <Form.Group controlId="age">
                 <Form.Label>age</Form.Label>
@@ -46,7 +46,7 @@ const AboutMe = (props) => {
               </Form.Group>
               <Form.Group controlId="email">
                 <Form.Label>email</Form.Label>
-                <Form.Control type="email" placeholder={props.email || "example@mail.com"} />
+                <Form.Control type="email" autoComplete="off" placeholder={props.email || "example@mail.com"} />
               </Form.Group>
               <Form.Group controlId="roles">
                 <Form.Label>roles</Form.Label>
@@ -59,11 +59,11 @@ const AboutMe = (props) => {
               </Form.Group>
               <Form.Group controlId="bio">
                 <Form.Label>bio</Form.Label>
-                <Form.Control as="textarea" rows={3} />
+                <Form.Control as="textarea" autoComplete="off" rows={3} />
               </Form.Group>
               <Form.Group controlId="lookingfor">
                 <Form.Label>looking for</Form.Label>
-                <Form.Control as="textarea" rows={3} />
+                <Form.Control as="textarea" autoComplete="off" rows={3} />
               </Form.Group>
               <Button type="submit">save</Button>
             </Form>

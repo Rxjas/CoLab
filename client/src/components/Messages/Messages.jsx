@@ -68,9 +68,9 @@ class Messages extends Component {
     return (
 
       <div>
-        {this.state.channels.foreach(channel => {
+        {/* {this.state.channels.foreach(channel => {
           <Channel {...channel}/>
-        })}
+        })} */}
         <button onClick={this.showState}>Console.log pubnub object</button>
         <button onClick={this.sendPracMessage}>Send practice message</button>
 
