@@ -12,7 +12,17 @@ const Profile = () => {
     <>
       <Tabs defaultActiveKey="aboutme">
         <Tab eventKey="aboutme" title="About Me">
-          <AboutMe />
+          <AboutMe 
+            username="thisisatest"
+            firstname="buster"
+            lastname="scruggs"
+            age="42"
+            pronouns="he/him"
+            email="buster@scruggs.com"
+            roles={["gunslinger", "singer", "varmint"]}
+            bio="cheerful singing cowboy"
+            lookingfor="Frenchman's Gulch"
+          />
         </Tab>
         <Tab eventKey="messages" title="Messages">
           <Messages />
