@@ -25,3 +25,4 @@ a {
   height: 37px;
   border-radius: 4px;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
