@@ -28,5 +28,6 @@ function App() {
 // need to add this after the render function (from hackernoon.com by @balasubramanim)
 <a href="/auth/google" class="button"></a>
 <div></div>
+<span class="svgIcon t-popup-svg"></span>
 
 export default App;
