@@ -65,7 +65,11 @@ class Messages extends Component {
     this.state.pubState.publish(
       {
         channel: this.state.renderConvo,
-        message: { "text": "practice message" }
+        message: { 
+          "text": "practice message",
+          // needs to be user key for history API
+          "user": "DanaStoreSuper"
+         }
       },
       function (status, response) {
         console.log(status);
