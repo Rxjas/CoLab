@@ -33,6 +33,7 @@ function App() {
 class="svgIcon-use"
 width="25"
 height="37"
+viewBox="0 0 25 25"
 
 
 export default App;
