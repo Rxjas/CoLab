@@ -14,24 +14,30 @@ class Messages extends Component {
 
     this.state = {
       channels: [],
-      pubState: {}
+      pubState: {},
+      channelsToSubscribeTo: [],
+      renderConvo: ""
     }
   }
 
   componentDidMount() {
     // on component mount hook sends api request to get db info, maybe send api request to pubnub for each channel to see which have updated
     // order in order of latest message
-    fetch('/api/pubnub')
-      // NEED API ROUTE FROM DB HERE
+    fetch('/api/pubnub/DanaStoreSuper')
+      // normally, it would be sending a request using the user's username, but DanaStoreSuper is for development
       .then(response => response.json())
       .then(data => {
         const tempNub = new PubNub({
           publishKey: data.pubkey,
           subscribeKey: data.subkey,
-          uuid: "demouser"
+          uuid: "DanaStoreSuper"
         })
         console.log(tempNub)
-        this.setState({ pubState: tempNub })
+        let subscribeTo = [];
+        for (let i = 0; i < data.userinfo.length; i++) {
+          subscribeTo.push(data.userinfo[i].channelID)
+        }
+        this.setState({ pubState: tempNub, channels: data.userinfo, channelsToSubscribeTo: subscribeTo })
       })
       .then(() => {
         this.state.pubState.addListener({
@@ -41,12 +47,13 @@ class Messages extends Component {
         })
       })
       .then(() => {
-        this.state.pubState.subscribe({ channels: ["demochannel"] })
+        // open line to the subscribed channels received from db
+        this.state.pubState.subscribe({ channels: this.state.channelsToSubscribeTo })
       })
   };
 
   showState = () => {
-    console.log(this.state.pubState)
+    console.log(this.state.renderConvo)
   }
 
   sendPracMessage = () => {
@@ -63,20 +70,36 @@ class Messages extends Component {
     )
   }
 
+  handleRenderClick = (event) => {
+    event.preventDefault();
+    console.log(event.target.value)
+    this.setState({renderConvo: event.target.value})
+  }
 
-  render() {
-    return (
+render() {
+  return (
 
-      <div>
-        {/* {this.state.channels.foreach(channel => {
-          <Channel {...channel}/>
-        })} */}
-        <button onClick={this.showState}>Console.log pubnub object</button>
-        <button onClick={this.sendPracMessage}>Send practice message</button>
+    <div>
+      <button onClick={this.showState}>Console.log pubnub object</button>
+      <button onClick={this.sendPracMessage}>Send practice message</button>
+      {this.state.channels.map(channel => {
+        let concatArray = channel.involvedUUIDs[0];
+        for (let i=1; i<channel.involvedUUIDs.length; i++){
+          concatArray = concatArray + ", " + channel.involvedUUIDs[i]
+        }
+        console.log(concatArray)
+        return (
+          <Channel 
+            forChannelId={channel.channelID} 
+            withUsers={concatArray}
+            handleRenderClick={this.handleRenderClick}
+            />
+        )
+      })}
 
-      </div>
-    )
-  };
+    </div>
+  )
+};
 }
 
 export default Messages;
