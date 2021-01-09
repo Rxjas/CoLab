@@ -31,3 +31,4 @@ a {
   fill: rgba(0, 0, 0, 0.84) !important;
   box-shadow: 0 1px 7px rgba(0, 0, 0, 0.05);
   font: inherit;
+  outline: none;
