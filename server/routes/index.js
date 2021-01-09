@@ -22,5 +22,6 @@ ReactDOM.render(
     </Switch>
     </BrowserRouter>
     document.getElementById("root")
+    );
 
 module.exports = router;
