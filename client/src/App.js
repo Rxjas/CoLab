@@ -25,7 +25,7 @@ function App() {
   );
 }
 
-// need to add this after the render funct
+// need to add this after the render functi
 
 
 export default App;
