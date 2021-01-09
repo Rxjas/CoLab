@@ -21,6 +21,8 @@ class Messages extends Component {
     }
   }
 
+
+
   componentDidMount() {
     // on component mount hook sends api request to get db info, maybe send api request to pubnub for each channel to see which have updated
     // order in order of latest message
@@ -62,7 +64,7 @@ class Messages extends Component {
     console.log("button pushed")
     this.state.pubState.publish(
       {
-        channel: "chats.room4",
+        channel: this.state.renderConvo,
         message: { "text": "practice message" }
       },
       function (status, response) {
@@ -88,7 +90,6 @@ render() {
         for (let i=1; i<channel.involvedUUIDs.length; i++){
           concatArray = concatArray + ", " + channel.involvedUUIDs[i]
         }
-        console.log(concatArray)
         return (
           <Channel 
             forChannelId={channel.channelID} 
