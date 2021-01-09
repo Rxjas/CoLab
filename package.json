@@ -8,14 +8,16 @@
     "start:server": "nodemon server/server.js",
     "start:client": "cd client && npm run start",
     "dev": "concurrently \"npm run start:server\" \"npm run start:client\"",
-    "seed": "node seeders/seed.js",
+    "seed": "node server/seeders/seed.js",
     "install": "cd client && npm i",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "concurrently": "^5.3.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.11.7"
+    "mongoose": "^5.11.7",
+    "morgan": "^1.10.0"
   }
 }

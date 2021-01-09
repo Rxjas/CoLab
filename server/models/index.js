@@ -1,7 +1,4 @@
-const Todo = require('./todo');
-const User = require('./user');
-
+//export the schemas
 module.exports = {
-  Todo: Todo,
-  User: User
+  User: require('./user.js')
 };
