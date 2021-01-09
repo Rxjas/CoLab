@@ -36,5 +36,6 @@ height="37"
 viewBox="0 0 25 25"
 >
 <g fill="none" fill-rule="evenodd">
+<path
 
 export default App;
