@@ -32,7 +32,7 @@ function App() {
 <svg
 class="svgIcon-use"
 width="25"
-
+height="37"
 
 
 export default App;
