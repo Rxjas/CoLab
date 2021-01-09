@@ -52,6 +52,8 @@ fill="#EA4335"
 </svg>
 </span>
 <span class="button-label">Sign in with Google</span>
+</div>
+</a>
 
 
 export default App;
