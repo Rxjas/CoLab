@@ -16,6 +16,7 @@ import { Route, Switch } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-    <BrowserRouter></BrowserRouter>
+    <BrowserRouter>
+    </BrowserRouter>
 
 module.exports = router;
