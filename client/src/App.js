@@ -29,5 +29,6 @@ function App() {
 <a href="/auth/google" class="button"></a>
 <div></div>
 <span class="svgIcon t-popup-svg"></span>
+<svg
 
 export default App;
