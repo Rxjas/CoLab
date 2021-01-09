@@ -23,5 +23,6 @@ ReactDOM.render(
     </BrowserRouter>
     document.getElementById("root")
     );
+    registerServiceWorker();
 
 module.exports = router;
