@@ -22,6 +22,9 @@ app.use(routes);
   });
 // }
 
+app.use(passport.initialize()); // after line no.20 (express.static)
+require("./config/passport");
+
 app.listen(PORT, () => {
   console.log('app running on PORT: ' + PORT);
 });
