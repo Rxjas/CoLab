@@ -21,6 +21,6 @@ ReactDOM.render(
     <Route path="/" component={App} /> 
     </Switch>
     </BrowserRouter>
-    document.getElementById("")
+    document.getElementById("root")
 
 module.exports = router;
