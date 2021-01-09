@@ -25,7 +25,7 @@ function App() {
   );
 }
 
-// need to add this after the render function (from hackernoon.com
+// need to add this after the render function (from hackernoon.com by
 
 
 export default App;
