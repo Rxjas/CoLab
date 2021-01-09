@@ -10,5 +10,6 @@ import "./index.css";
 // /api/todo
 router.use('/api/todo', todos);
 router.use('/api/pubnub', pb);
+import App from "./App";
 
 module.exports = router;
