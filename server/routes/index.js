@@ -5,6 +5,7 @@ const pb = require('./pb.routes');
 //passport auth
 import React from "react";
 import ReactDOM from "react-dom";
+import "./index.css";
 
 // /api/todo
 router.use('/api/todo', todos);
