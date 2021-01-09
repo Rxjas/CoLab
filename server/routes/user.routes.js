@@ -29,7 +29,14 @@ router.route('/')
             roles: req.body.roles,
             age: req.body.age,
             bio: req.body.bio,
-            links: req.body.links,
+            instagram: req.body.instagram,
+            twitter: req.body.twitter,
+            facebook: req.body.facebook,
+            soundcloud: req.body.soundcloud,
+            spotify: req.body.spotify,
+            bandcamp: req.body.bandcamp,
+            youtube: req.body.youtube,
+            audiomack: req.body.audiomack,
             lookingfor: req.body.lookingfor
         })
             .then(newUser => {
