@@ -31,7 +31,7 @@ function App() {
 <span class="svgIcon t-popup-svg"></span>
 <svg
 class="svgIcon-use"
-
+width="25"
 
 
 
