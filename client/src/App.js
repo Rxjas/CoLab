@@ -50,6 +50,7 @@ fill="#EA4335"
 />
 </g>
 </svg>
+</span>
 
 
 export default App;
