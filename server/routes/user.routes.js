@@ -6,15 +6,15 @@ const { User } = require('../models');
 router.route('/')
     //  get users
     .get((req, res) => {
-         User.find({})
+        User.find({})
             .then(data => {
-                res.json({ success: true, data})
+                res.json({ success: true, data })
             })
             .catch(err => {
                 console.log(err)
                 res.json({ success: false });
             });
-        })
+    })
     // add user
     .post((req, res) => {
         console.log({ reqBody: req.body });
@@ -41,12 +41,39 @@ router.route('/')
         })
             .then(newUser => {
                 console.log(newUser);
-                res.json({success:true})
+                res.json({ success: true })
             })
             .catch((err) => {
                 console.log(err);
-                res.json({success: false});
+                res.json({ success: false });
             })
+    });
+
+
+// api/user/:id   This path is used so you can search by username not the object ID
+router.route('/:id')
+    //get specific user
+    .get((req, res) => {
+        console.log(req.params.id)
+        User.find({username: req.params.id})
+
+            .then((data) => {
+                console.log(data)
+                res.json({ success: true, data })
+            })
+
+            .catch( err => {
+                console.log(err)
+                res.json( { success: false } )
+            })
+    })
+    //update specific user
+    .put((req, res) => {
+
+    })
+    //delete a user
+    .delete((req, res) => {
+
     })
 
 //export the module
