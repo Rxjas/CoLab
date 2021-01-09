@@ -27,5 +27,6 @@ function App() {
 
 // need to add this after the render function (from hackernoon.com by @balasubramanim)
 <a href="/auth/google" class="button"></a>
+<div></div>
 
 export default App;
