@@ -70,10 +70,9 @@ class Messages extends Component {
     )
   }
 
-  handleRenderClick = (event) => {
-    event.preventDefault();
-    console.log(event.target.value)
-    this.setState({renderConvo: event.target.value})
+  handleRenderClick = (childData) => {
+    // event.preventDefault();
+    this.setState({renderConvo: childData})
   }
 
 render() {
@@ -96,6 +95,9 @@ render() {
             />
         )
       })}
+
+      {/* p tag symbolizing what conversation gets rendered */}
+      <p>{this.state.renderConvo}</p>
 
     </div>
   )
