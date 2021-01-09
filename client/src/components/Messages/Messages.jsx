@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import PubNub from 'pubnub';
 // import PubNubReact from 'pubnub-react';
 import Channel from "../Channel";
+import Convo from './../Convo';
 
 // Needs profile information from database: the messageId for the channel and the userId for the other users subscribed to the channel
 // Needs username from context
@@ -42,6 +43,7 @@ class Messages extends Component {
       .then(() => {
         this.state.pubState.addListener({
           message: function (m) {
+            console.log(m)
             console.log(m.channel)
           }
         })
@@ -60,7 +62,7 @@ class Messages extends Component {
     console.log("button pushed")
     this.state.pubState.publish(
       {
-        channel: "demochannel",
+        channel: "chats.room4",
         message: { "text": "practice message" }
       },
       function (status, response) {
@@ -98,6 +100,8 @@ render() {
 
       {/* p tag symbolizing what conversation gets rendered */}
       <p>{this.state.renderConvo}</p>
+
+      <Convo pubState={this.state.pubState} renderConvo={this.state.renderConvo}/>
 
     </div>
   )
