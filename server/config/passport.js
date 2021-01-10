@@ -1,5 +1,6 @@
 var passport = require("passport");
 var GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+var 
 
 passport.serializeUser(function (user, done) {
   done(null, user);
@@ -11,9 +12,9 @@ passport.deserializeUser(function (user, done) {
 
 passport.use(
   new GoogleStrategy(
-    {
-      clientID: "GOOGLE_CLIENT_ID",
-      clientSecret: "GOOGLE_CLIENT_SECRET",
+    { 
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL: "http://localhost:4500/auth/google/callback",
     },
     function (accessToken, refreshToken, profile, done) {
