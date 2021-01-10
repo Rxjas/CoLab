@@ -15,8 +15,10 @@ body {
 
 .App {
   max-width: 900px;
-  margin: 0 0 60px 0;
+  margin-bottom: 60px;
   flex: 1 0 auto;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 a {
