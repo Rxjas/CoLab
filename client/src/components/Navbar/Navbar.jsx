@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import Container from "react-bootstrap/Container";
 
 const Navbar = () => {
   return (
     <nav className="Navbar">
       <div className="Navbar-brand">
-        <span>CoLab</span>
+        <img src="/assets/images/CoLab_Logo1.png" alt="CoLab logo, round potion bottle"/>
+        <span id="title">CoLab</span>
       </div>
 
       <ul className="Navbar-links">
