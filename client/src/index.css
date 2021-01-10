@@ -4,9 +4,19 @@
   padding: 0;
 }
 
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
 .App {
   max-width: 900px;
-  margin: 0 auto;
+  margin: 0 0 60px 0;
+  flex: 1 0 auto;
 }
 
 a {
