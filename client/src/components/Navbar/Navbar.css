@@ -7,6 +7,7 @@
   height: 3rem;
   margin-right: 1rem;
   margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
 }
 
 #title {
@@ -23,7 +24,16 @@
   margin-left: 1rem;
 }
 
+#hambut {
+  outline: none;
+}
+
 #hamberder {
   width: 1.5rem;
   height: 1.5rem;
+}
+
+.menulink:active {
+  color: white!important;
+  background-color: #343a40!important;
 }
