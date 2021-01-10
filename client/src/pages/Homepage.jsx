@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useEffect, Component } from "react";
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import Login from "../components/Login";
 import Signup from "../components/Signup";
+import queryString from "query-string";
 
-const Homepage = () => {
+class Homepage extends Component {
+  componentWillMount() {
+    console.log(this.props)
+    var query = queryString.parse(this.props.location.search);
+    if (query.token) {
+      window.localStorage.setItem("jwt", query.token);
+      this.props.history.push("/");
+    }
+    console.log(this.props)
+  }
+  render(){
   return (
     <>
       <Tabs defaultActiveKey="login" id="homeTabs">
@@ -15,7 +26,7 @@ const Homepage = () => {
           <Signup />
         </Tab>
       </Tabs>
-      // need to add this after the render function (from hackernoon.com by @balasubramanim)
+      {/* // need to add this after the render function (from hackernoon.com by @balasubramanim) */}
 <a href="/auth/google" class="button">
           <div>
             <span class="svgIcon t-popup-svg">
@@ -50,6 +61,7 @@ const Homepage = () => {
 </a>
     </>
   );
+}
 };
 
 export default Homepage;
