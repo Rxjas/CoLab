@@ -1,6 +1,5 @@
 var passport = require("passport");
 var GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
-var 
 
 passport.serializeUser(function (user, done) {
   done(null, user);
@@ -15,7 +14,7 @@ passport.use(
     { 
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:4500/auth/google/callback",
+      callbackURL: "https://afternoon-eyrie-78094.herokuapp.com/auth/google/callback",
     },
     function (accessToken, refreshToken, profile, done) {
       var userData = {
