@@ -15,7 +15,7 @@ router.get(
     passport.authenticate("google", { failureRedirect: "/", session: false }),
     function(req, res) {
         var token = req.user.token;
-        res.redirect("http://localhost:3000?token=" + token);
+        res.redirect("https://afternoon-eyrie-78094.herokuapp.com/?token=" + token);
     }
 );
 
