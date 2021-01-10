@@ -87,8 +87,9 @@ render() {
   return (
 
     <div>
+      {/* For  development purposes*/}
       <button onClick={this.showState}>Console.log pubnub object</button>
-      <button onClick={this.sendPracMessage}>Send practice message</button>
+      
       {this.state.channels.map(channel => {
         let concatArray = channel.involvedUUIDs[0];
         for (let i=1; i<channel.involvedUUIDs.length; i++){
