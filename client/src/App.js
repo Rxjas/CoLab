@@ -9,6 +9,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import queryString from "query-string";
 
 function App() {
+  componentWillMount() {
+    var query = queryString.parse(this.props.location.search);
+    if (query.token) {
+      window.localStorage.setItem("jwt", query.token);
+      this.props.history.push("/");
+   }
+}
   return (
     <Router>
       <GlobalProvider>
