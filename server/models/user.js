@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-//username, firstame, lastname, email, password, age, and looking for are required for  a user
+//username, firstname, lastname, email, password, age, and looking for are required for  a user
 const userSchema = new Schema({
 
     created: { type: Date, default: new Date() },
@@ -86,8 +86,8 @@ const userSchema = new Schema({
 
     //TO BE CONTINUED
     chats: [{
-        userID: [{}],
-        messageID: [{}]
+        involvedUUIDs: { type: Array },
+        channelIDs: { type: String }
     }],
 
 },

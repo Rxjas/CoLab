@@ -1,4 +1,4 @@
-import React, { useEffect, Component } from "react";
+import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import GlobalProvider from "./utils/GlobalContext";
 import Homepage from "./pages/Homepage";
@@ -8,13 +8,13 @@ import Navbar from "./components/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import queryString from "query-string";
 
+
 class App extends Component {
   render() {
     return (
       <Router>
         <GlobalProvider>
           <Navbar />
-
           <div className="App">
             <Switch>
               <Route exact path="/" component={Homepage} />
