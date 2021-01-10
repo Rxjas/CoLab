@@ -70,7 +70,9 @@ const userSchema = new Schema({
     likedgenres: [{}],
 
     //For links it may be easier to take them out of the array
+    links: [{
 
+    
     instagram: { type: String, trim: true },
     twitter: { type: String, trim: true },
     facebook: { type: String, trim: true },
@@ -79,7 +81,7 @@ const userSchema = new Schema({
     bandcamp: { type: String, trim: true },
     youtube: { type: String, trim: true },
     audiomack: { type: String, trim: true },
-
+    }],
     lookingfor: {
         type: String,
         trim: true,
