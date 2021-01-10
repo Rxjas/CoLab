@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import GlobalProvider from './utils/GlobalContext';
 import Homepage from './pages/Homepage';
@@ -9,13 +9,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import queryString from "query-string";
 
 function App() {
-  componentWillMount() {
+  useEffect(() =>
+   {
     var query = queryString.parse(this.props.location.search);
     if (query.token) {
       window.localStorage.setItem("jwt", query.token);
       this.props.history.push("/");
    }
-}
+  },[])
   return (
     <Router>
       <GlobalProvider>
