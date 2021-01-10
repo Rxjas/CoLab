@@ -69,7 +69,7 @@ const userSchema = new Schema({
     //push genres they like into the array
     likedgenres: [{}],
 
-    links: [{
+    // links: [{
     instagram: { type: String, trim: true },
     twitter: { type: String, trim: true },
     facebook: { type: String, trim: true },
@@ -78,8 +78,8 @@ const userSchema = new Schema({
     bandcamp: { type: String, trim: true },
     youtube: { type: String, trim: true },
     audiomack: { type: String, trim: true },
-    }],
-    
+    // }],
+
     lookingfor: {
         type: String,
         trim: true,
