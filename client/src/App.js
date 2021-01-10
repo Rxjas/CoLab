@@ -6,6 +6,7 @@ import Profile from './pages/Profile';
 import Grid from './pages/Grid';
 import Navbar from './components/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import queryString from "query-string";
 
 function App() {
   return (
