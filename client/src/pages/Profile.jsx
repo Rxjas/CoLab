@@ -7,6 +7,8 @@ import AboutMe from "../components/AboutMe";
 import Messages from "../components/Messages";
 import Matches from "../components/Matches";
 
+import "./Profile.css";
+
 const Profile = () => {
   return (
     <>    
