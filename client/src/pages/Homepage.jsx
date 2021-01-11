@@ -5,7 +5,7 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 // import Login from "../components/Login";
 // import Signup from "../components/Signup";
 import queryString from "query-string";
-import "./Homepage.css";
+import "./styles/Homepage.css";
 
 class Homepage extends Component {
   componentWillMount() {
