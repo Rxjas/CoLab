@@ -19,19 +19,41 @@ const Editme = (props) => {
             <Col className="formcol" xs={12} sm={6}>
               <Form.Group controlId="username">
                 <Form.Label>username</Form.Label>
-                <Form.Control type="input" autoComplete="off" placeholder={props.username || "please enter username"} />
+                <Form.Control
+                  required
+                  type="input"
+                  autoComplete="off"
+                  placeholder="please enter username"
+                  defaultValue={props.username}
+                />
               </Form.Group>
               <Form.Group controlId="firstname">
                 <Form.Label>first name</Form.Label>
-                <Form.Control type="input" autoComplete="off" placeholder={props.firstname || "please enter first name"} />
+                <Form.Control
+                  required
+                  type="input"
+                  autoComplete="off"
+                  placeholder="please enter first name"
+                  defaultValue={props.firstname}
+                />
               </Form.Group>
               <Form.Group controlId="lastname">
                 <Form.Label>last name</Form.Label>
-                <Form.Control type="input" autoComplete="off" placeholder={props.lastname || "please enter last name"} />
+                <Form.Control
+                  required type="input"
+                  autoComplete="off"
+                  placeholder="please enter last name"
+                  defaultValue={props.lastname}
+                />
               </Form.Group>
               <Form.Group controlId="age">
                 <Form.Label>age</Form.Label>
-                <Form.Control type="number" defaultValue={props.age || 18} max={150} />
+                <Form.Control
+                  required
+                  type="number"
+                  defaultValue={props.age || 18}
+                  max={150}
+                />
               </Form.Group>
             </Col>
           </Row>
@@ -39,7 +61,13 @@ const Editme = (props) => {
             <Col className="formcol" xs={12} sm={6}>
               <Form.Group controlId="email">
                 <Form.Label>email</Form.Label>
-                <Form.Control type="email" autoComplete="off" placeholder={props.email || "example@mail.com"} />
+                <Form.Control
+                  required
+                  type="email"
+                  autoComplete="off"
+                  placeholder="example@mail.com"
+                  defaultValue={props.email}
+                />
               </Form.Group>
               <Form.Group controlId="roles">
                 <Form.Label>roles</Form.Label>
@@ -54,7 +82,12 @@ const Editme = (props) => {
             <Col className="formcol" xs={12} sm={6}>
               <Form.Group controlId="pronouns">
                 <Form.Label>pronouns</Form.Label>
-                <Form.Control as="select" placeholder={props.pronouns || "they/them"}>
+                <Form.Control
+                  required
+                  as="select"
+                  placeholder="they/them"
+                  defaultValue={props.pronouns}
+                >
                   <option>they/them</option>
                   <option>she/hers</option>
                   <option>he/him</option>
@@ -63,13 +96,24 @@ const Editme = (props) => {
               </Form.Group>
               <Form.Group controlId="bio">
                 <Form.Label>bio</Form.Label>
-                <Form.Control as="textarea" autoComplete="off" rows={3} />
+                <Form.Control
+                  required
+                  as="textarea"
+                  autoComplete="off"
+                  rows={3}
+                />
               </Form.Group>
               <Form.Group controlId="lookingfor">
                 <Form.Label>looking for</Form.Label>
-                <Form.Control as="textarea" autoComplete="off" rows={3} />
+                <Form.Control
+                  required
+                  as="textarea"
+                  autoComplete="off"
+                  rows={3}
+                />
               </Form.Group>
               <Button
+                variant="outline-dark"
                 type="submit"
                 onClick={props.btnclick}
               >save</Button>
