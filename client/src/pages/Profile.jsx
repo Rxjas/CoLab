@@ -7,11 +7,13 @@ import AboutMe from "../components/AboutMe";
 import Messages from "../components/Messages";
 import Matches from "../components/Matches";
 
+import "./Profile.css";
+
 const Profile = () => {
   return (
-    <>
-      <Tabs defaultActiveKey="aboutme">
-        <Tab eventKey="aboutme" title="About Me">
+    <>    
+      <Tabs justify variant="pills" className="tabscont" defaultActiveKey="aboutme">
+        <Tab eventKey="aboutme" className="tabber" variant="outline-dark" title="About Me">
           <AboutMe 
             username="thisisatest"
             firstname="buster"
@@ -24,10 +26,10 @@ const Profile = () => {
             lookingfor="Frenchman's Gulch"
           />
         </Tab>
-        <Tab eventKey="messages" title="Messages">
+        <Tab eventKey="messages" className="tabber" title="Messages">
           <Messages />
         </Tab>
-        <Tab eventKey="matches" title="Matches">
+        <Tab eventKey="matches" className="tabber" title="Matches">
           <Matches />
         </Tab>
       </Tabs>
