@@ -13,7 +13,8 @@ const Showme = (props) => {
           <img id="profilepic" src={props.image || "/assets/images/placeholder.png"} alt={`${props.firstname} ${props.lastname}'s profile`} />
         </Col>
         <Col xs={12} sm={6}>
-          <h2 className="header2">{props.firstname || "firstname"} {props.lastname || "lastname"} <span className="details">{props.pronouns || "they/them"}, {props.age || 18}</span></h2>
+          <h2 className="header2">{props.firstname || "firstname"} {props.lastname || "lastname"}</h2>
+          <p className="details paragraph">{props.pronouns || "they/them"}, {props.age || 18}</p>
           <h5 className="header5">{props.username || "username"}</h5>
           <h5 className="header5">{props.email || "email@example.com"}</h5>
           <h5 className="header5 title">Roles</h5>
