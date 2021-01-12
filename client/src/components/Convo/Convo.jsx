@@ -19,12 +19,18 @@ class Convo extends Component {
   }
 
   componentDidUpdate() {
-
     if (this.props.renderConvo !== this.state.renderConvo || this.state.needToRender === true) {
 
       if (this.props.renderConvo !== "") {
         console.log("working")
         this.findMessageHistory();
+        let chatWindow = document.getElementById("chatWindow");
+        let observer = new MutationObserver(scrollToBottom);
+        let config = { childList: true };
+        observer.observe(chatWindow, config);
+        function scrollToBottom() {
+          chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
       }
     }
   }
@@ -84,13 +90,7 @@ class Convo extends Component {
         }
       )
       event.target.parentNode.parentNode.firstChild.value = "";
-      let chatWindow = document.getElementById("chatWindow");
-      let observer = new MutationObserver(scrollToBottom);
-      let config = { childList: true };
-      observer.observe(chatWindow, config);
-      function scrollToBottom() {
-        chatWindow.scrollTop = chatWindow.scrollHeight;
-      }
+
     }
     // console.log(event.target.parentNode.parentNode.firstChild.value)
   }
