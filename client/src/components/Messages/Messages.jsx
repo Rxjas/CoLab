@@ -5,6 +5,8 @@ import PubNub from 'pubnub';
 // import PubNubReact from 'pubnub-react';
 import Channel from "../Channel";
 import Convo from './../Convo';
+import Jumbotron from "react-bootstrap/Jumbotron";
+import "./Messages.css";
 
 // Needs profile information from database: the messageId for the channel and the userId for the other users subscribed to the channel
 // Needs username from context
@@ -65,11 +67,11 @@ class Messages extends Component {
     this.state.pubState.publish(
       {
         channel: this.state.renderConvo,
-        message: { 
+        message: {
           "text": "practice message",
           // needs to be user key for history API
           "user": "DanaStoreSuper"
-         }
+        }
       },
       function (status, response) {
         console.log(status);
@@ -80,38 +82,41 @@ class Messages extends Component {
 
   handleRenderClick = (childData) => {
     // event.preventDefault();
-    this.setState({renderConvo: childData})
+    this.setState({ renderConvo: childData })
   }
 
-render() {
-  return (
+  render() {
+    return (
+      <>
+        <Jumbotron id="messjum">
+          <div>
+            {/* For  development purposes*/}
+            <button onClick={this.showState}>Console.log pubnub object</button>
 
-    <div>
-      {/* For  development purposes*/}
-      <button onClick={this.showState}>Console.log pubnub object</button>
-      
-      {this.state.channels.map(channel => {
-        let concatArray = channel.involvedUUIDs[0];
-        for (let i=1; i<channel.involvedUUIDs.length; i++){
-          concatArray = concatArray + ", " + channel.involvedUUIDs[i]
-        }
-        return (
-          <Channel 
-            forChannelId={channel.channelID} 
-            withUsers={concatArray}
-            handleRenderClick={this.handleRenderClick}
-            />
-        )
-      })}
+            {this.state.channels.map(channel => {
+              let concatArray = channel.involvedUUIDs[0];
+              for (let i = 1; i < channel.involvedUUIDs.length; i++) {
+                concatArray = concatArray + ", " + channel.involvedUUIDs[i]
+              }
+              return (
+                <Channel
+                  forChannelId={channel.channelID}
+                  withUsers={concatArray}
+                  handleRenderClick={this.handleRenderClick}
+                />
+              )
+            })}
 
-      {/* p tag symbolizing what conversation gets rendered */}
-      <p>{this.state.renderConvo}</p>
+            {/* p tag symbolizing what conversation gets rendered */}
+            <p>{this.state.renderConvo}</p>
 
-      <Convo pubState={this.state.pubState} renderConvo={this.state.renderConvo}/>
+            <Convo pubState={this.state.pubState} renderConvo={this.state.renderConvo} />
 
-    </div>
-  )
-};
+          </div>
+        </Jumbotron>
+      </>
+    )
+  };
 }
 
 export default Messages;

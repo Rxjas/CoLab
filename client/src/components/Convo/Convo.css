@@ -2,7 +2,8 @@
   overflow: auto;
   /* margin-bottom: 5rem; */
   height: 20rem;
-  background-color: #92e2c2;
+  background-color: white;
+  border-radius: 0.5rem;
 }
 
 #messageInput {

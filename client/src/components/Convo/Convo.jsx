@@ -81,11 +81,21 @@ class Convo extends Component {
             },
             timetoken: response.timetoken
           })
-          this.setState({ messageHistory: currentState })
         }
       )
+      event.target.parentNode.parentNode.firstChild.value = "";
+      let chatWindow = document.getElementById("chatWindow");
+      let observer = new MutationObserver(scrollToBottom);
+      let config = { childList: true };
+      observer.observe(chatWindow, config);
+      function scrollToBottom() {
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+      }
     }
+    // console.log(event.target.parentNode.parentNode.firstChild.value)
   }
+
+
 
   render() {
 
@@ -127,7 +137,7 @@ class Convo extends Component {
             <input type="text" id="messageInput" name="messageInput" onChange={this.handleMessageInput} />
             <button id="sendMess" onClick={this.handleMessageClick}>Send</button>
           </form> */}
-          <InputGroup className="mt-3 justify-content-end">
+          <InputGroup className="mt-2 justify-content-end">
             <FormControl
               className="col-6"
               placeholder="message"
