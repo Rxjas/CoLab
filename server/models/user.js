@@ -3,12 +3,6 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-// subdocument for the chats
-const chatSchema = new Schema({
-    involvedUUIDs: Array,
-    channelID: String
-})
-
 //username, firstname, lastname, email, password, age, and looking for are required for  a user
 const userSchema = new Schema({
 
@@ -88,7 +82,10 @@ const userSchema = new Schema({
     },
 
     //TO BE CONTINUED
-    chats: [chatSchema],
+    chats: [{
+        involvedUUIDs: { type: Array },
+        channelIDs: { type: String }
+    }],
 
 },
     {

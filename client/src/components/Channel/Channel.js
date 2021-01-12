@@ -2,15 +2,17 @@ import React, { Component } from 'react';
 
 class Channel extends Component {
 
-    // maybe? on mount component makes api request to pubnub to get last message. Display. 
+    sendRender = (event) => {
+        this.props.handleRenderClick(event.target.value)
+    }
 
     // props are passed down
     render() {
         return (
             <div>
-                <h4>{this.props.users}</h4>
-                    <p></p>
-
+                <hr />
+                <h5>Conversation with {this.props.withUsers}</h5>
+                <button value={this.props.forChannelId} onClick={this.sendRender}>Click me to render this conversation!</button>
             </div>
         )
     }

@@ -9,6 +9,7 @@ router
         User
             .find({ username: req.params.username})
             .then(data => {
+                console.log(data[0].chats)
                 res.send({
                     pubkey: process.env.PB_PUB,
                     subkey: process.env.PB_SUB,

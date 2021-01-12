@@ -2,11 +2,11 @@ let mongoose = require("mongoose");
 let db = require("../models");
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/user_db', {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false,
-      useCreateIndex: true
-    });
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+  useCreateIndex: true
+});
 
 //username, firstame, lastname, email, password, age, and looking for are required for  a user
 let userSeed = [
@@ -34,7 +34,7 @@ let userSeed = [
     chats: [
       {
         involvedUUIDs: ["DanaStoreSuper"],
-        channelID: ["chats.room1"]
+        channelID: "chats.room1"
       }
     ]
   },//end of john doe user
@@ -62,7 +62,11 @@ let userSeed = [
     chats: [
       {
         involvedUUIDs: ["exampleUserNames"],
-        channelID: ["chats.room1"]
+        channelID: "chats.room1"
+      },
+      {
+        involvedUUIDs: ["TomNookConfirmed", "RoboT3"],
+        channelID: "chats.room4"
       }
     ]
   },//end of Dana Happy user
@@ -74,7 +78,7 @@ let userSeed = [
     pronouns: "They/them",
     email: "RealTomNook@1234.com",
     password: "123Money",
-    roles: ["Harp", "Vocal","Everything"],
+    roles: ["Harp", "Vocal", "Everything"],
     age: 28,
     bio: "I am a Racoon from Animal Crossing",
     links: [{
@@ -90,7 +94,11 @@ let userSeed = [
     chats: [
       {
         involvedUUIDs: ["RealScreamer"],
-        channelID: ["chats.room2"]
+        channelID: "chats.room2"
+      },
+      {
+        involvedUUIDs: ["DanaStoreSuper", "RoboT3"],
+        channelID: "chats.room4"
       }
     ]
   }, //end of Tom Nook user
@@ -118,11 +126,11 @@ let userSeed = [
     chats: [
       {
         involvedUUIDs: ["TomNookConfirmed"],
-        channelID: ["chats.room2"]
+        channelID: "chats.room2"
       },
       {
         involvedUUIDs: ["RoboT3"],
-        channelID: ["chats.room3"]
+        channelID: "chats.room3"
       }
     ]
   },//end of Timouthy Loud user
@@ -146,11 +154,17 @@ let userSeed = [
       youtube: "Test@working",
       audiomack: "Test@working",
     }],
-    lookingfor: "World domintation",
-    chats: [{
-      involvedUUIDs: ["RealScreamer"],
-      channelID: ["chats.room3"]
-    }]
+    lookingfor: "World domination",
+    chats: [
+      {
+        involvedUUIDs: ["RealScreamer"],
+        channelID: "chats.room3"
+      },
+      {
+        involvedUUIDs: ["exampleUserNames", "DanaStoreSuper"],
+        channelID: "chats.room4"
+      }
+    ]
   }//end of ROBOTT3
 ]
 

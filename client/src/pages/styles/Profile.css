@@ -1,0 +1,20 @@
+/* a.active {
+  background-color: #e9ecef!important;
+} */
+
+.tabscont > a {
+  background-color: #343a40;
+  color: white;
+  border-radius: 0!important;
+  font-family: 'Rock Salt', cursive;
+}
+
+.tabscont > a:hover {
+  background-color: #4a4e52;
+  /* color: #343a40; */
+}
+
+.tabscont > a.active {
+  background-color: #e9ecef!important;
+  color: #4a4e52!important;
+}

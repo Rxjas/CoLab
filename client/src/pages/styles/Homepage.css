@@ -1,0 +1,56 @@
+#jumbotron {
+  margin: 1rem;
+}
+
+h3 {
+  font-family: 'Rock Salt', cursive;
+}
+
+#jumbop {
+  text-align: left;
+  color: black;
+}
+
+a {
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  margin-top: 0;
+}
+
+#googlink {
+  margin: 0;
+}
+
+.button {
+  display: inline-block;
+  max-width: 300px;
+  margin-top: 50px;
+  border: 0;
+  padding: 0 18px;
+  text-align: left;
+  /* width: fit-content; */
+  height: 37px;
+  border-radius: 4px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: "liga"on;
+  color: rgba(0, 0, 0, 0.84) !important;
+  fill: rgba(0, 0, 0, 0.84) !important;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.05);
+  font: inherit;
+  outline: none;
+  background-color: white;
+}
+
+.button .svgIcon {
+  vertical-align: middle;
+  fill: rgba(0, 0, 0, 0.54);
+  padding-right: 4px;
+  height: 37px;
+  display: inline-block;
+}
+
+#text-container {
+  width: fit-content;
+  margin: 0!important;
+}

@@ -5,6 +5,7 @@ const app = express();
 const logger = require("morgan");
 require('./config/db')();
 require('dotenv').config();
+var passport = require('passport');
 
 const PORT = process.env.PORT || 5000;
 
@@ -20,6 +21,9 @@ app.use(routes);
     res.sendFile(path.join(__dirname, "../client/build/index.html"));
   });
 // }
+
+app.use(passport.initialize()); // after line no.20 (express.static)
+require("./config/passport");
 
 app.listen(PORT, () => {
   console.log('app running on PORT: ' + PORT);

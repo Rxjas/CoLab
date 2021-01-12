@@ -1,0 +1,18 @@
+footer {
+  flex-shrink: 0;
+  height: 40px;
+  background-color: #343a40;
+}
+
+#footcontent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  color: white;
+}

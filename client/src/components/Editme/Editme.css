@@ -1,0 +1,29 @@
+#profilepic {
+  border-radius: 50%;
+  width: 100%;
+  height: auto;
+  min-width: 100px;
+  max-width: 300px;
+  /* margin-right: 1rem; */
+  /* align-self: center; */
+}
+
+#picrow {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+#editform {
+  border-right-color: black;
+  border-right-width: 3px;
+  border-right-style: solid;
+  display: flex;
+  justify-content: space-between;
+}
+
+#formcont {
+  margin: 0;
+  flex-grow: 1;
+  /* width: auto; */
+}
