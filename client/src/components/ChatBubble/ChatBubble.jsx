@@ -8,7 +8,7 @@ function ChatBubble(props) {
   // so they can be styled differently if sent by
   // person who is currently logged in
   return (
-    <div>
+    <div className="messageDiv col-7">
       <br />
       <p className="sentby">{props.sentByUser}</p>
       <p className="message">{props.text}</p>

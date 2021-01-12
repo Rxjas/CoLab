@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ChatBubble from './../ChatBubble';
 import moment from 'moment';
+import "./Convo.css";
 
 class Convo extends Component {
 
@@ -99,13 +100,22 @@ class Convo extends Component {
                     {this.state.messageHistory.map((messageObj) => {
                         const divideNano = messageObj.timetoken / 10000;
                         const roundNano = Math.ceil(divideNano)
-                        const humanTime = moment.utc(roundNano).local();
-                        const humanString = humanTime._d.toString();
-
+                        // const humanTime = moment.utc(roundNano).local();
+                        // const humanString = humanTime._d.toString();
+                        
+                        const date = new Date(roundNano);
+                        const options = {
+                          day: 'numeric',
+                          month: 'short',
+                          hour: "2-digit",
+                          minute: "2-digit"
+                        }
+                        const formattedTimestamp = date.toLocaleString('en-US', options);
+                        console.log(formattedTimestamp);
                         return (
                             <ChatBubble text={messageObj.entry.text}
                                 sentByUser={messageObj.entry.user}
-                                timeStamp={humanString}
+                                timeStamp={formattedTimestamp}
                             />
                         )
                     })}

@@ -1,3 +1,7 @@
+.messageDiv {
+  padding-left: 1rem;
+}
+
 .sentby {
   font-size: 0.5rem;
   color: grey;
@@ -5,11 +9,12 @@
 }
 
 .message {
-  background-color: grey;
+  background-color: #3a827f;
   color: black;
   padding: 5px;
   margin: 2px;
-  border-radius: 50%;
+  border-radius: 1rem;
+  width: auto;
 }
 
 .me {
