@@ -3,7 +3,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import ChatBubble from './../ChatBubble';
-import moment from 'moment';
+// import moment from 'moment';
 import "./Convo.css";
 
 class Convo extends Component {

@@ -1,28 +1,42 @@
 .messageDiv {
-  padding-left: 1rem;
+  /* padding-left: 1rem; */
 }
 
 .sentby {
   font-size: 0.5rem;
-  color: grey;
+  color: black;
   text-align: left;
+  margin-bottom: 0;
+  /* padding-left: 1rem; */
 }
 
 .message {
-  background-color: #3a827f;
+  background-color: #92e2c2;
   color: black;
-  padding: 5px;
+  
+  padding: 0.5rem 1rem;;
   margin: 2px;
   border-radius: 1rem;
   width: auto;
+  display: inline-block;
+  text-align: left;
+  /* clear: both;
+  float: left; */
 }
 
+/* need another class to be added to parent element with
+class col-8 so it aligns to the right */
+
+/* this class gets added to the p.message element */
 .me {
-  background-color: #92e2c2;
+  background-color: whitesmoke;
+  color: #3a827f;
 }
 
 .timestamp {
   font-size: 0.5rem;
   color: grey;
   text-align: right;
+  padding-right: 1rem;
+  margin-bottom: 0.5rem;
 }
