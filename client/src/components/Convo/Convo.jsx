@@ -111,7 +111,7 @@ class Convo extends Component {
                           minute: "2-digit"
                         }
                         const formattedTimestamp = date.toLocaleString('en-US', options);
-                        console.log(formattedTimestamp);
+                        // console.log(formattedTimestamp);
                         return (
                             <ChatBubble text={messageObj.entry.text}
                                 sentByUser={messageObj.entry.user}
