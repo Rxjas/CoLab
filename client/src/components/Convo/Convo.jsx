@@ -89,13 +89,10 @@ class Convo extends Component {
           })
         }
       )
+      // clear out input field when message is sent
       event.target.parentNode.parentNode.firstChild.value = "";
-
     }
-    // console.log(event.target.parentNode.parentNode.firstChild.value)
   }
-
-
 
   render() {
 
