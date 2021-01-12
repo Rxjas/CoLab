@@ -1,19 +1,77 @@
-import React from "react";
+import React, { useState } from "react";
 import "./AboutMe.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import axios from 'axios'
 
 const AboutMe = (props) => {
+
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [imageUrl, setImageUrl] = useState(null);
+
+
+  const showImage = () => {
+    // add useEffect hook (componentDidMount equivalent) to check DB if there is an image already
+    if (selectedImage === null) {
+      return (
+        <img src="/assets/images/placeholder.png" alt="placeholder profile pic" />
+      )
+    } else {
+      return <img src={imageUrl} alt="selected profile pic" />;
+    }
+  }
+
+  const handleImageSubmit = (event) => {
+    event.preventDefault();
+
+    const formData = new FormData();
+
+    formData.append(
+      "file",
+      selectedImage,
+      selectedImage.name
+      // add user id from global context
+    )
+
+    // send the image to the server
+    axios.post("api/image/", formData)
+      // Add function to say that the image has been successfully saved
+      .then(response => console.log(response))
+      .catch(err => console.log(err))
+  }
+
+  // prepare image to be sent to the server and to display to the user on upload
+  const onFileChange = event => {
+    setSelectedImage(event.target.files[0]);
+    const fileUrl = URL.createObjectURL(event.target.files[0])
+    setImageUrl(fileUrl)
+  }
+
+
   return (
     <>
       <Container>
         <Row id="mainRow">
           <Col>
-            <img src="/assets/images/placeholder.png" alt="placeholder profile pic"/>
-            {/* <div id="placeholder"></div> */}
+            <form>
+              <Row>
+                <Col>
+                  {showImage()}
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <label htmlFor="file">Upload Image</label>
+                </Col>
+              </Row>
+              <Row>
+                <input type="file" id="file" onChange={onFileChange} name="file" accept="image/*" />
+                <button onClick={handleImageSubmit}>Save Photo</button>
+              </Row>
+            </form>
           </Col>
           <Col>
             {/* these will be populated with database info */}
@@ -50,12 +108,12 @@ const AboutMe = (props) => {
               </Form.Group>
               <Form.Group controlId="roles">
                 <Form.Label>roles</Form.Label>
-                <Form.Check type="checkbox" id="vocalist" label="vocalist"/>
-                <Form.Check type="checkbox" id="guitarist" label="guitarist"/>
-                <Form.Check type="checkbox" id="pianist" label="pianist"/>
-                <Form.Check type="checkbox" id="bassist" label="bassist"/>
-                <Form.Check type="checkbox" id="saxophonist" label="saxophonist"/>
-                <Form.Check type="checkbox" id="percussionist" label="percussionist"/>
+                <Form.Check type="checkbox" id="vocalist" label="vocalist" />
+                <Form.Check type="checkbox" id="guitarist" label="guitarist" />
+                <Form.Check type="checkbox" id="pianist" label="pianist" />
+                <Form.Check type="checkbox" id="bassist" label="bassist" />
+                <Form.Check type="checkbox" id="saxophonist" label="saxophonist" />
+                <Form.Check type="checkbox" id="percussionist" label="percussionist" />
               </Form.Group>
               <Form.Group controlId="bio">
                 <Form.Label>bio</Form.Label>
