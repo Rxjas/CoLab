@@ -11,6 +11,7 @@
 
 .tabscont > a:hover {
   background-color: #4a4e52;
+  color: white;
   /* color: #343a40; */
 }
 
