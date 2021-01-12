@@ -130,7 +130,8 @@ class Convo extends Component {
               )
             })}
           </div>
-          {/* <form>
+
+          {/* <form >
             <input type="text" id="messageInput" name="messageInput" onChange={this.handleMessageInput} />
             <button id="sendMess" onClick={this.handleMessageClick}>Send</button>
           </form> */}
