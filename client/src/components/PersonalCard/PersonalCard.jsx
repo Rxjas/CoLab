@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import "./PersonalCard.css";
 
 const PersonalCard = (props) => {
   return (

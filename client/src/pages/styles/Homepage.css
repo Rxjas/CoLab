@@ -54,3 +54,16 @@ a {
   width: fit-content;
   margin: 0!important;
 }
+
+a.tabhead {
+  background-color: white!important;
+  color: #3a827f!important;
+}
+
+a.tabhead.active {
+
+}
+
+div.containerDiv {
+
+}
