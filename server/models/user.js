@@ -86,7 +86,12 @@ const userSchema = new Schema({
         involvedUUIDs: { type: Array },
         channelIDs: { type: String }
     }],
-
+    
+    img:
+    {
+        data: Buffer,
+        contentType: String
+    },
 },
     {
 
