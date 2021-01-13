@@ -165,7 +165,71 @@ let userSeed = [
         channelID: "chats.room4"
       }
     ]
-  }//end of ROBOTT3
+  },//end of ROBOTT3
+  {
+    created: new Date(),
+    username: "JBravo",
+    firstname: "Johnny",
+    lastname: "Bravo",
+    pronouns: "He/Him",
+    email: "jbravo@123.com",
+    password: "mrclassic123",
+    roles: ["Lead Guitar", "Bass", "Violin"],
+    age: 22,
+    bio: "I'm a mild mannered man ready to start a band that will really rock the socks off people",
+
+      instagram: "https://www.instagram.com/",
+      twitter: "https://twitter.com/?lang=en",
+      soundcloud: "https://soundcloud.com/",
+      spotify: "https://www.spotify.com/us/",
+      bandcamp: "https://bandcamp.com/",
+      youtube: "https://www.youtube.com/",
+      audiomack: "https://audiomack.com/",
+
+    lookingfor: "New Rock Band",
+    chats: [
+      // {
+      //   involvedUUIDs: ["RealScreamer"],
+      //   channelID: "chats.room3"
+      // },
+      // {
+      //   involvedUUIDs: ["exampleUserNames", "DanaStoreSuper"],
+      //   channelID: "chats.room4"
+      // }
+    ]
+  },//end og Johnny bravo
+  {
+    created: new Date(),
+    username: "FreshToast",
+    firstname: "Ronald",
+    lastname: "Money",
+    pronouns: "He/Him",
+    email: "moneyronald@123.com",
+    password: "goodPassword1",
+    roles: ["vocals", "Bass", "Spanish Guitar"],
+    age: 25,
+    bio: "Trying to find another person who would like to just hangout and jam.",
+
+      instagram: "https://www.instagram.com/",
+      twitter: "https://twitter.com/?lang=en",
+      soundcloud: "https://soundcloud.com/",
+      spotify: "https://www.spotify.com/us/",
+      bandcamp: "https://bandcamp.com/",
+      youtube: "https://www.youtube.com/",
+      audiomack: "https://audiomack.com/",
+
+    lookingfor: "A jam session partner",
+    chats: [
+      // {
+      //   involvedUUIDs: ["RealScreamer"],
+      //   channelID: "chats.room3"
+      // },
+      // {
+      //   involvedUUIDs: ["exampleUserNames", "DanaStoreSuper"],
+      //   channelID: "chats.room4"
+      // }
+    ]
+  },//end of johnny money
 ]
 
 db.User.deleteMany({})
