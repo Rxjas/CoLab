@@ -8,12 +8,13 @@ function ChatBubble(props) {
   // so they can be styled differently if sent by
   // person who is currently logged in
   return (
-    <div>
-      <br />
-      <p className="sentby">{props.sentByUser}</p>
-      <p className="message">{props.text}</p>
-      <p className="timestamp">{props.timeStamp}</p>
-      {/* <p className="timestamp">At this time: {props.timeStamp}</p> */}
+    <div className="col-8">
+      {/* <br /> */}
+      <div className="messageDiv">
+        <p className="sentby">{props.sentByUser}</p>
+        <p className="message">{props.text}</p>
+        <p className="timestamp">{props.timeStamp}</p>
+      </div>
     </div>
 
   )

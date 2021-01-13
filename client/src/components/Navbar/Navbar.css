@@ -18,6 +18,11 @@
   color: white;
 }
 
+.dropdown {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .navtext {
   font-family: "Monaco", cursive;
   font-size: 1rem;

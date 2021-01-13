@@ -18,29 +18,7 @@ router.route('/')
     })
     // add user
     .post((req, res) => {
-        console.log({ reqBody: req.body });
-        User.create(req.body
-            // username: req.body.username,
-            // firstname: req.body.firstname,
-            // lastname: req.body.lastname,
-            // pronouns: req.body.pronouns,
-            // email: req.body.email,
-            // password: req.body.password,
-            // roles: req.body.roles,
-            // age: req.body.age,
-            // bio: req.body.bio,
-            // links:[{
-            // instagram: req.body.instagram,
-            // twitter: req.body.twitter,
-            // facebook: req.body.facebook,
-            // soundcloud: req.body.soundcloud,
-            // spotify: req.body.spotify,
-            // bandcamp: req.body.bandcamp,
-            // youtube: req.body.youtube,
-            // audiomack: req.body.audiomack
-            // }],
-            // lookingfor: req.body.lookingfor
-        )
+        User.create(req.body)
             .then(newUser => {
                 console.log(newUser);
                 res.json({ success: true })

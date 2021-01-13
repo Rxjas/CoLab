@@ -1,6 +1,8 @@
 const router = require('express').Router();
+const todos = require('./todo.routes');
+const pb = require('./pb.routes');
+const img = require('./image.routes');
 const user = require('./user.routes.js');
-const pb = require('./pb.routes.js');
 
 var passport = require('passport');
 
@@ -15,7 +17,7 @@ router.get(
     passport.authenticate("google", { failureRedirect: "/", session: false }),
     function(req, res) {
         var token = req.user.token;
-        res.redirect("https://afternoon-eyrie-78094.herokuapp.com/?token=" + token);
+        res.redirect("https://afternoon-eyrie-78094.herokuapp.com/profile/?token=" + token);
     }
 );
 
@@ -25,5 +27,6 @@ router.use('/api/user', user);
 // /api/todo
 router.use('/api/todo', todos);
 router.use('/api/pubnub', pb);
+router.use('/api/image', img);
 
 module.exports = router;
