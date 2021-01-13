@@ -1,0 +1,26 @@
+#profilepic {
+  min-width: 10rem;
+  margin-bottom: 2rem;
+}
+
+.header2 {
+  color: #343a40;
+}
+
+.details {
+  font-size: 1rem;
+  color: #343a40;
+}
+
+.header5 {
+}
+
+.title {
+  font-family: 'Rock Salt', cursive;
+  margin-top: 1rem;
+}
+
+.paragraph {
+  text-align: left;
+  color: #343a40;
+}
