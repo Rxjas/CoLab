@@ -21,7 +21,7 @@ let userSeed = [
     roles: ["Pianist", "violinist"],
     age: 28,
     bio: "I am a pianist classicaly trained and big brained",
-    links: [{
+ 
       instagram: "Test@working",
       twitter: "Test@working",
       soundcloud: "Test@working",
@@ -29,7 +29,7 @@ let userSeed = [
       bandcamp: "Test@working",
       youtube: "Test@working",
       audiomack: "Test@working",
-    }],
+
     lookingfor: "A cool calm singer for covers",
     chats: [
       {
@@ -49,7 +49,7 @@ let userSeed = [
     roles: ["Vocalist", "violinist"],
     age: 28,
     bio: "I am a Vocalist classicaly trained and big brained",
-    links: [{
+
       instagram: "Test@working",
       twitter: "Test@working",
       soundcloud: "Test@working",
@@ -57,7 +57,7 @@ let userSeed = [
       bandcamp: "Test@working",
       youtube: "Test@working",
       audiomack: "Test@working",
-    }],
+
     lookingfor: "A cool calm pianist for covers",
     chats: [
       {
@@ -81,7 +81,7 @@ let userSeed = [
     roles: ["Harp", "Vocal", "Everything"],
     age: 28,
     bio: "I am a Racoon from Animal Crossing",
-    links: [{
+
       instagram: "Test@working",
       twitter: "Test@working",
       soundcloud: "Test@working",
@@ -89,7 +89,7 @@ let userSeed = [
       bandcamp: "Test@working",
       youtube: "Test@working",
       audiomack: "Test@working",
-    }],
+
     lookingfor: "Bells I need and crave bells.",
     chats: [
       {
@@ -113,7 +113,7 @@ let userSeed = [
     roles: ["Bassist", "Screamer", "Choir"],
     age: 28,
     bio: "I am a man that plays loud and screams loud",
-    links: [{
+
       instagram: "Test@working",
       twitter: "Test@working",
       soundcloud: "Test@working",
@@ -121,7 +121,7 @@ let userSeed = [
       bandcamp: "Test@working",
       youtube: "Test@working",
       audiomack: "Test@working",
-    }],
+
     lookingfor: "I need more loud people for a loud band",
     chats: [
       {
@@ -145,7 +145,7 @@ let userSeed = [
     roles: ["Robot"],
     age: 28,
     bio: "I am a robot. Very big brained.",
-    links: [{
+
       instagram: "Test@working",
       twitter: "Test@working",
       soundcloud: "Test@working",
@@ -153,7 +153,7 @@ let userSeed = [
       bandcamp: "Test@working",
       youtube: "Test@working",
       audiomack: "Test@working",
-    }],
+
     lookingfor: "World domination",
     chats: [
       {
