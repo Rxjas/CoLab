@@ -1,20 +1,74 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./Editme.css";
+import axios from 'axios';
+
 
 const Editme = (props) => {
+
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [imageUrl, setImageUrl] = useState(null);
+
+  const showImage = () => {
+    // add useEffect hook (componentDidMount equivalent) to check DB if there is an image already
+    if (selectedImage === null) {
+      return (
+        <img src="/assets/images/placeholder.png" id="profilepic" alt="placeholder profile pic" />
+      )
+    } else {
+      return <img src={imageUrl} alt="selected profile pic" />;
+    }
+  }
+
+  const handleImageSubmit = (event) => {
+    event.preventDefault();
+
+    const formData = new FormData();
+
+    formData.append(
+      "file",
+      selectedImage,
+      selectedImage.name
+      // add user id from global context
+    )
+
+    // send the image to the server
+    axios.post("api/image/", formData)
+      // Add function to say that the image has been successfully saved
+      .then(response => {
+        console.log(response)
+        if (response.status === 200){
+          window.alert("Image saved!")
+        }
+      })
+      .catch(err => console.log(err))
+  }
+
+    // prepare image to be sent to the server and to display to the user on upload
+    const onFileChange = event => {
+      setSelectedImage(event.target.files[0]);
+      const fileUrl = URL.createObjectURL(event.target.files[0])
+      setImageUrl(fileUrl)
+    }
+
   return (
     <>
       <Form id="editform">
         <Container id="formcont">
           <Row id="picrow">
             <Col xs={12} sm={6}>
-              <img id="profilepic" src="/assets/images/placeholder.png" alt="placeholder profile pic" />
-              <Button id="uploadbut" variant="outline-dark">select...</Button>
+              {/* <img id="profilepic" src="/assets/images/placeholder.png" alt="placeholder profile pic" /> */}
+              {/* <Button id="uploadbut" variant="outline-dark">select...</Button> */}
+              {showImage()}
+              <form>
+                <label htmlFor="file">Upload image</label>
+                <input type="file" id="file" onChange={onFileChange} name="file" accept="image/*" />
+                <button onClick={handleImageSubmit}>Save Photo</button>
+              </form>
             </Col>
             <Col className="formcol" xs={12} sm={6}>
               <Form.Group controlId="username">
