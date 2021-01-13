@@ -229,7 +229,71 @@ let userSeed = [
       //   channelID: "chats.room4"
       // }
     ]
-  },//end of johnny money
+  },//end of ronald money
+  {
+    created: new Date(),
+    username: "ultimatepianist",
+    firstname: "Jeremy",
+    lastname: "Cosco",
+    pronouns: "They/Him",
+    email: "coscoJ@123.com",
+    password: "mrclassic123",
+    roles: ["pianist"],
+    age: 18,
+    bio: "I'm a piano player with a passion for making piano covers of songs I like.",
+
+      instagram: "https://www.instagram.com/",
+      twitter: "https://twitter.com/?lang=en",
+      soundcloud: "https://soundcloud.com/",
+      spotify: "https://www.spotify.com/us/",
+      bandcamp: "https://bandcamp.com/",
+      youtube: "https://www.youtube.com/",
+      audiomack: "https://audiomack.com/",
+
+    lookingfor: "A singer for covers.",
+    chats: [
+      // {
+      //   involvedUUIDs: ["RealScreamer"],
+      //   channelID: "chats.room3"
+      // },
+      // {
+      //   involvedUUIDs: ["exampleUserNames", "DanaStoreSuper"],
+      //   channelID: "chats.room4"
+      // }
+    ]
+  },//end of jeremy cosco
+  {
+    created: new Date(),
+    username: "QuickTapper",
+    firstname: "Marie",
+    lastname: "Ring",
+    pronouns: "Her/She",
+    email: "Marie4@123.com",
+    password: "mrclassic123",
+    roles: ["Violin"],
+    age: 23,
+    bio: "I'm a new violinist and I really want to get much better!",
+
+      instagram: "https://www.instagram.com/",
+      twitter: "https://twitter.com/?lang=en",
+      soundcloud: "https://soundcloud.com/",
+      spotify: "https://www.spotify.com/us/",
+      bandcamp: "https://bandcamp.com/",
+      youtube: "https://www.youtube.com/",
+      audiomack: "https://audiomack.com/",
+
+    lookingfor: "A violin instructor",
+    chats: [
+      // {
+      //   involvedUUIDs: ["RealScreamer"],
+      //   channelID: "chats.room3"
+      // },
+      // {
+      //   involvedUUIDs: ["exampleUserNames", "DanaStoreSuper"],
+      //   channelID: "chats.room4"
+      // }
+    ]
+  }//end of marie ring
 ]
 
 db.User.deleteMany({})
