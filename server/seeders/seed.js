@@ -293,7 +293,39 @@ let userSeed = [
       //   channelID: "chats.room4"
       // }
     ]
-  }//end of marie ring
+  },//end of marie ring
+  {
+    created: new Date(),
+    username: "WalmartDrummer",
+    firstname: "Cade",
+    lastname: "England",
+    pronouns: "He/Him",
+    email: "cadeeengland@123.com",
+    password: "mrclassic123",
+    roles: ["Bass", "Violin"],
+    age: 22,
+    bio: "Hanging out and having a good time with oldies and newies.",
+
+      instagram: "https://www.instagram.com/",
+      twitter: "https://twitter.com/?lang=en",
+      soundcloud: "https://soundcloud.com/",
+      spotify: "https://www.spotify.com/us/",
+      bandcamp: "https://bandcamp.com/",
+      youtube: "https://www.youtube.com/",
+      audiomack: "https://audiomack.com/",
+
+    lookingfor: "3 person music group",
+    chats: [
+      // {
+      //   involvedUUIDs: ["RealScreamer"],
+      //   channelID: "chats.room3"
+      // },
+      // {
+      //   involvedUUIDs: ["exampleUserNames", "DanaStoreSuper"],
+      //   channelID: "chats.room4"
+      // }
+    ]
+  }// end of cade england
 ]
 
 db.User.deleteMany({})
