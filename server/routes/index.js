@@ -2,6 +2,7 @@ const router = require('express').Router();
 const todos = require('./todo.routes');
 const pb = require('./pb.routes');
 const img = require('./image.routes');
+const user = require('./user.routes.js');
 
 var passport = require('passport');
 
@@ -19,6 +20,9 @@ router.get(
         res.redirect("https://afternoon-eyrie-78094.herokuapp.com/profile/?token=" + token);
     }
 );
+
+//api/user
+router.use('/api/user', user);
 
 // /api/todo
 router.use('/api/todo', todos);
