@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const todos = require('./todo.routes');
 const pb = require('./pb.routes');
+const img = require('./image.routes');
 
 var passport = require('passport');
 
@@ -22,5 +23,6 @@ router.get(
 // /api/todo
 router.use('/api/todo', todos);
 router.use('/api/pubnub', pb);
+router.use('/api/image', img);
 
 module.exports = router;
