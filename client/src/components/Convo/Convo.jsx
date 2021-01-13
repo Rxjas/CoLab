@@ -19,6 +19,7 @@ class Convo extends Component {
   }
 
   componentDidUpdate() {
+    console.log("did it update on submit")
     if (this.props.renderConvo !== this.state.renderConvo || this.state.needToRender === true) {
 
       if (this.props.renderConvo !== "") {
@@ -36,7 +37,6 @@ class Convo extends Component {
   }
 
   findMessageHistory = () => {
-    console.log('FIND MESSAGE HISTORY')
 
     // get messages from PB API
     this.props.pubState.history(
@@ -53,7 +53,6 @@ class Convo extends Component {
         // Stop infinite loop
         const readThis = this.props.renderConvo;
         this.setState({ renderConvo: readThis })
-        console.log("working")
       }
     )
   }
@@ -65,6 +64,7 @@ class Convo extends Component {
   handleMessageClick = (event) => {
     event.preventDefault();
     if (this.state.messageInput !== "") {
+
 
       this.props.pubState.publish(
         {
@@ -85,8 +85,9 @@ class Convo extends Component {
               // to be obtained from global store
               user: "DanaStoreSuper"
             },
-            timetoken: response.timetoken
+            timetoken: parseInt(response.timetoken)
           })
+          this.setState({ messageHistory: currentState})
         }
       )
       // clear out input field when message is sent
