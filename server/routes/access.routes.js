@@ -33,7 +33,14 @@ router.post('/login', passport.authenticate('local'), function (req, res) {
 
 router.get('/allow',checkAuthentication,function(req,res){
     //do something only if user is authenticated, future development for issue# 40
-    res.json({allowed: "allow"})
+    console.log("INSIDE")
+    console.log(req.session)
+    const usernameSent = req.session.passport.user;
+    console.log(usernameSent)
+    res.json({
+        allowed: "allow",
+        userLoggedIn: usernameSent
+    })
 });
 function checkAuthentication(req,res,next){
     if(req.isAuthenticated()){

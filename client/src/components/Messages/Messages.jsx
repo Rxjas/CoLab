@@ -20,7 +20,7 @@ class Messages extends Component {
       pubState: {},
       channelsToSubscribeTo: [],
       renderConvo: "",
-      redirect: ""
+      username: ""
     }
   }
 
@@ -29,12 +29,6 @@ class Messages extends Component {
   componentDidMount() {
     // on component mount hook sends api request to get db info, maybe send api request to pubnub for each channel to see which have updated
     // order in order of latest message
-    fetch('api/access/allow')
-      .then(response => {
-        return response.json()
-      }).then(data => {
-        console.log(data);
-      })
     fetch('/api/pubnub/DanaStoreSuper')
       // normally, it would be sending a request using the user's username, but DanaStoreSuper is for development
       .then(response => response.json())
@@ -123,7 +117,7 @@ class Messages extends Component {
         </Jumbotron>
       </>
     )
-  };
-}
+  }
+};
 
 export default Messages;
