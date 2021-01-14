@@ -72,7 +72,34 @@ router.route('/:id')
 
     });
 
-//route to search for cetain kinds of users
+//route to look a matched users
+// /api/user/matches/:id   full route to call for 
+router.route('/matches/:id')
+    
+    // get request to get matches for a specific user
+    .get((req, res) => {
+        User.find({username: req.params.id})
+            .then( data => {
+                console.log(data)
+            })
+            .catch( err => {
+                console.log(err);
+                res.json( {success: false} )
+            })
+    })
+    // put request to add matches to array
 
+    .put((req, res) => {
+        User.findOneAndUpdate({username: req.params.id}, {$push: {matches: req.body.matches} } )
+        .then( data => {
+            console.log(data)
+            res.json({success: true})
+
+        })
+        .catch(err => {
+            console.log(err);
+            res.json({success: false})
+        })
+    })
 //export the module
 module.exports = router;

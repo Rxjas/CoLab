@@ -81,6 +81,9 @@ const userSchema = new Schema({
         default: "Just Browsing"
     },
 
+    //matches array to push usernames of people matched with
+    matches:[],
+
     //TO BE CONTINUED
     chats: [{
         involvedUUIDs: { type: Array },

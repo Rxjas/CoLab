@@ -27,7 +27,7 @@ app.use(bodyParser.json())
 // }
 
 app.use(passport.initialize()); // after (express.static)
-require("./config/passport");
+// require("./config/passport");
 
 app.listen(PORT, () => {
   console.log('app running on PORT: ' + PORT);
