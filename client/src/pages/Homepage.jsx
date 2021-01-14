@@ -2,8 +2,8 @@ import React, { Component } from "react";
 // import Tabs from 'react-bootstrap/Tabs';
 // import Tab from 'react-bootstrap/Tab';
 import Jumbotron from "react-bootstrap/Jumbotron";
-// import Login from "../components/Login";
-// import Signup from "../components/Signup";
+import Login from "../components/Login";
+import Signup from "../components/Signup";
 import queryString from "query-string";
 import "./styles/Homepage.css";
 
@@ -32,7 +32,7 @@ class Homepage extends Component {
         <Jumbotron id="jumbotron">
           <h3>Welcome to CoLab!</h3>
           <p id="jumbop">The brand new way to connect like-minded individuals who are looking to collaborate with others in their profession. Currently there's only support for musicians, but we're working on expanding to encompass other creativce professions such as filmmaking, photography, and programming.</p>
-          <a id="googlink" href="/auth/google" class="button">
+          {/* <a id="googlink" href="/auth/google" class="button">
             <div id="text-container">
               <span class="svgIcon t-popup-svg">
                 <svg
@@ -63,8 +63,10 @@ class Homepage extends Component {
               </span>
               <span class="button-label">Sign in with Google</span>
             </div>
-          </a>
+          </a> */}
         </Jumbotron>
+        <Signup />
+        <Login />
       </>
     );
   }

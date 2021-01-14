@@ -1,28 +1,13 @@
-var passport = require("passport");
-var GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+const passport = require('passport');
+const LocalStrategy = require("passport-local").Strategy;
 
-passport.serializeUser(function (user, done) {
-  done(null, user);
-});
+const { User } = require('./../models');
 
-passport.deserializeUser(function (user, done) {
-  done(null, user);
-});
+// authenticate user using username and password
+passport.use(new LocalStrategy(User.authenticate()));
 
-passport.use(
-  new GoogleStrategy(
-    { 
-      clientID: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "https://afternoon-eyrie-78094.herokuapp.com/auth/google/callback",
-    },
-    function (accessToken, refreshToken, profile, done) {
-      var userData = {
-        email: profile.emails[0].value,
-        name: profile.displayName,
-        token: accessToken,
-      };
-      done(null, userData);
-    }
-  )
-);
+// serialize cookie request header to keep user logged in throughout session
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+module.exports = passport;
