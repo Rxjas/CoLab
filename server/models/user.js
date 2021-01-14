@@ -3,6 +3,9 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
+// package that supplies hashing and salt
+const passportLocalMongoose = require("passport-local-mongoose");
+
 //username, firstname, lastname, email, password, age, and looking for are required for  a user
 const userSchema = new Schema({
 
@@ -102,6 +105,9 @@ const userSchema = new Schema({
         }
 
     });// end of user schema
+
+// plug in salt and hash package to keep passwords secure
+userSchema.plugin(passportLocalMongoose);
 
 const User = mongoose.model("user", userSchema);
 

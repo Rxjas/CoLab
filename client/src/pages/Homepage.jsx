@@ -70,6 +70,8 @@ class Homepage extends Component {
             </Tab>
           </Tabs>
         </Jumbotron>
+        <Signup />
+        <Login />
       </>
     );
   }
