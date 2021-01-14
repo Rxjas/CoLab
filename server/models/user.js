@@ -87,6 +87,10 @@ const userSchema = new Schema({
         channelIDs: { type: String }
     }],
     
+    matches: [{
+      username: { type: String }
+    }],
+
     img:
     {
         data: Buffer,

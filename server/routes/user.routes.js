@@ -76,6 +76,17 @@ router.route('/')
     //   })
     // });
 
+    router
+      .route('/add/:username')
+      .put((req, res) => {
+        User.update(
+          { username: req.body.username },
+          { $push: { matches: req.params.username }}
+        )
+        .then(res.json({ success: true }))
+        .catch( err => console.log(err));
+      })
+
     // api/user/:id   This path is used so you can search by username not the object ID
     router.route('/:id')
       //get specific user

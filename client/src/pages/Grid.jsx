@@ -27,6 +27,7 @@ const Grid = () => {
         pronouns="he/him"
         roles={["vocalist", "pianist", "guitarist"]}
         lookingfor="a good singer"
+        showButton="show"
       />
       <PersonalCard 
         username="musicman"

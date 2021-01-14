@@ -36,7 +36,6 @@ const Editme = (props) => {
       // add user id from global context
     )
 
-    // send the image to the server
     axios.post("api/image/", formData)
       // Add function to say that the image has been successfully saved
       .then(response => {
@@ -77,6 +76,9 @@ const Editme = (props) => {
         formData[key] = value;
       }
     }
+    axios
+      .put("api/user/", formData)
+      .catch(err => console.log(err))
 
     console.log(formData);
 
