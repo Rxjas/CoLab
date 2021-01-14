@@ -8,7 +8,7 @@ const PersonalCard = (props) => {
   const addPerson = (event) => {
     event.preventDefault();
     console.log(window.location.href);
-    const route = `${window.location.href}/api/user/add/${event.target.id}`;
+    const route = `/api/user/add/${event.target.id}`;
     axios
       .put(route, {user: props.currentUser})
       .then()

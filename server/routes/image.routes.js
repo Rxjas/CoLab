@@ -29,6 +29,9 @@ router
             .catch(error => console.log(error))
     })
 
+// might want to make these put requests with an update rather than create,
+// so we just find an entry with the username and update the image for it,
+// rather than creating a new entry every time they change their picture
 router.post('/', upload.single("file"), (req, res, next) => {
 
     var obj = {
