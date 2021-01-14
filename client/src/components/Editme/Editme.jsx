@@ -26,14 +26,15 @@ const Editme = (props) => {
 
   const handleImageSubmit = (event) => {
     event.preventDefault();
-
+    const username = event.target.elements["username"].value;
     const formData = new FormData();
 
     formData.append(
       "file",
       selectedImage,
-      selectedImage.name
+      selectedImage.name,
       // add user id from global context
+      username
     )
 
     axios.post("api/image/", formData)

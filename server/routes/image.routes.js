@@ -39,7 +39,8 @@ router.post('/', upload.single("file"), (req, res, next) => {
         img: {
             data: fs.readFileSync(path.join(__dirname + '/../../uploads/' + req.file.filename)),
             contentType: 'image/png'
-        }
+        },
+        username: req.body.username
     }
 
     imgModel.create(obj, (err, item) => {
