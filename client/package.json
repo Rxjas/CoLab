@@ -8,7 +8,6 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
     "bootstrap": "^4.5.3",
-    "moment": "^2.29.1",
     "pubnub": "^4.29.10",
     "pubnub-react": "^2.1.0",
     "query-string": "^6.13.8",
