@@ -3,6 +3,7 @@ import "./ChatBubble.css";
 
 function ChatBubble(props) {
   // const [sender, setSender] = useState('me');
+  const loggedIn = props.username;
   // include logic to update className of first p tag
   // so className="message me"
   // so they can be styled differently if sent by

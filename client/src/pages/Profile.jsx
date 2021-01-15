@@ -5,6 +5,7 @@ import axios from "axios";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 
+import Navbar from "../components/Navbar";
 import AboutMe from "../components/AboutMe";
 import Messages from "../components/Messages";
 import Matches from "../components/Matches";
@@ -63,6 +64,7 @@ const Profile = (props) => {
 
     return (
       <>
+      <Navbar loggedIn={isLoggedIn}/>
         <Tabs justify variant="pills" className="tabscont" defaultActiveKey="aboutme">
           <Tab eventKey="aboutme" className="tabber" variant="outline-dark" title="About Me">
             <AboutMe

@@ -19,23 +19,25 @@ const AboutMe = (props) => {
   useEffect(() => {
     console.log(props)
     // change image id to the user id of the profile in question, current id of object is a placeholder
-    fetch(`/api/image/${props.username}`)
+    const url = `/api/image/` + props.username;
+    fetch(url)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        // if (data.img.data.data) {
-        //   var base64Flag = 'data:image/jpeg;base64,'
-        //   var imageStr = arrayBufferToBase64(data.img.data.data);
-        //   setImageURL(base64Flag + imageStr)
-        // }
+        // only run if there's an image associated with username
+        if (data.img) {
+          var base64Flag = 'data:image/jpeg;base64,'
+          var imageStr = arrayBufferToBase64(data.img.data.data);
+          setImageURL(base64Flag + imageStr)
+        }
       })
   }, [])
 
   return (
     <>
       <Jumbotron id="jumbo">
-        {edit === true && <Editme info={props.info} imageURL={imageURL} btnclick={() => setEdit(false)} />}
-        {edit === false && <Showme info={props.info} imageURL={imageURL} btnclick={() => setEdit(true)} />}
+        {edit === true && <Editme username={props.username} info={props.info} imageURL={imageURL} btnclick={() => setEdit(false)} />}
+        {edit === false && <Showme username={props.username} info={props.info} imageURL={imageURL} btnclick={() => setEdit(true)} />}
       </Jumbotron>
     </>
   )

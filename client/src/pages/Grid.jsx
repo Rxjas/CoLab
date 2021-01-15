@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 // example: col is 12 wide on xs screens, 6 wide on small and larger
 // <Col xs={12} sm={6}></Col>
 import CardDeck from 'react-bootstrap/CardDeck';
+import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import PersonalCard from "../components/PersonalCard";
 import "./styles/Grid.css";
@@ -38,6 +39,7 @@ const Grid = () => {
 
     return (
       <>
+        <Navbar loggedIn={isLoggedIn}/>
         <Sidebar />
         <CardDeck>
           {/* need to pass through search terms and loop over results */}

@@ -15,7 +15,7 @@ const Showme = (props) => {
         <Col xs={12} sm={6}>
           <h2 className="header2">{props.info.firstname || "firstname"} {props.info.lastname || "lastname"}</h2>
           <p className="details paragraph">{props.info.pronouns || "they/them"}, {props.info.age || 18}</p>
-          <h5 className="header5">{props.info.username || "username"}</h5>
+          <h5 className="header5">{props.username || "username"}</h5>
           <h5 className="header5">{props.info.email || "email@example.com"}</h5>
           <h5 className="header5 title">Roles</h5>
           {"vocalist" || props.info.roles.foreach(role => {

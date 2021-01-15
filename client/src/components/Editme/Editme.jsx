@@ -79,7 +79,7 @@ const Editme = (props) => {
     }
 
     // console.log(formData);
-    axios.put(`/api/user/${props.info.username}`, formData)
+    axios.put(`/api/user/${props.username}`, formData)
 
     props.btnclick();
   }
@@ -118,7 +118,7 @@ const Editme = (props) => {
                   type="input"
                   autoComplete="off"
                   placeholder="please enter username"
-                  defaultValue={props.info.username}
+                  defaultValue={props.username}
                 />
               </Form.Group>
               <Form.Group controlId="firstname">

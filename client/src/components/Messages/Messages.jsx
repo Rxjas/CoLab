@@ -9,8 +9,8 @@ import "./Messages.css";
 
 
 class Messages extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       channels: [],
