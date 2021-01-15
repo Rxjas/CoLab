@@ -34,7 +34,7 @@ const Profile = () => {
     
     if (isLoggedIn) {
       // matches (passed as prop to Matches component) 
-      fetch(`/api/user/matches/exampleUserNames`)
+      fetch(`/api/user/matches/${username}`)
       // fetch(`/api/user/matches/${username}`)
         .then((response) => response.json())
         .then(data => {

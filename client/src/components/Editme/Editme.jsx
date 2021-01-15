@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -11,8 +11,8 @@ import axios from 'axios';
 const Editme = (props) => {
 
   const [selectedImage, setSelectedImage] = useState(null);
-  const [imageUrl, setImageUrl] = useState(null);
-
+  const [imageUrl, setImageUrl] = useState(props.imageURL || null);
+  
   const showImage = () => {
     // add useEffect hook (componentDidMount equivalent) to check DB if there is an image already
     if (selectedImage === null) {

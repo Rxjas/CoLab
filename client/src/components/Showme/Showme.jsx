@@ -10,7 +10,7 @@ const Showme = (props) => {
     <><Container>
       <Row>
         <Col xs={12} sm={6}>
-          <img id="profilepic" src={props.info.image || "/assets/images/placeholder.png"} alt={`${props.info.firstname} ${props.info.lastname}'s profile`} />
+          <img id="profilepic" src={props.imageURL || "/assets/images/placeholder.png"} alt={`${props.info.firstname} ${props.info.lastname}'s profile`} />
         </Col>
         <Col xs={12} sm={6}>
           <h2 className="header2">{props.info.firstname || "firstname"} {props.info.lastname || "lastname"}</h2>

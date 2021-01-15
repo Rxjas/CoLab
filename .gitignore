@@ -7,5 +7,3 @@ node_modules
 .env
 
 client/.eslintcache
-
-uploads

@@ -3,7 +3,8 @@ var path = require('path');
 var multer = require('multer');
 var imgModel = require('./../models/image');
 const router = require('express').Router();
-var ObjectId = require('mongodb').ObjectId
+var ObjectId = require('mongodb').ObjectId;
+const { PromiseProvider } = require('mongoose');
 
 var storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -21,7 +22,7 @@ router
     .get((req, res) => {
         // later, the id will be the user id of the profile picture in question. Current objectId is a demo placeholder
         imgModel
-            .findOne({ '_id': ObjectId("5ffd0872959de44ce0ec52a4") })
+            .findOne({ username: req.params.id })
             .then(data => {
                 res.contentType('json')
                 res.send(data)
