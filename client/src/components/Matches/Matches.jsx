@@ -4,15 +4,10 @@ import PersonalCard from "../PersonalCard";
 import axios from "axios";
 
 const Matches = (props) => {
-  const [matches, setMatches] = useState([]);
+  
 
   useEffect(() => {
-    const route = `/api/user/matches/exampleUserNames`;
-    fetch(route)
-      .then((result) => {
-        console.log(result);
-        // setMatches(result);
-      })
+    
   })
 
   return (

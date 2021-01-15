@@ -10,8 +10,8 @@ const AboutMe = (props) => {
     return (
       <>
         <Jumbotron id="jumbo">
-          {edit === true && <Editme btnclick={() => setEdit(false)} />}
-          {edit === false && <Showme btnclick={() => setEdit(true)} />}
+          {edit === true && <Editme info={props.info} btnclick={() => setEdit(false)} />}
+          {edit === false && <Showme info={props.info} btnclick={() => setEdit(true)} />}
         </Jumbotron>
       </>
     )

@@ -79,6 +79,7 @@ const Editme = (props) => {
     }
 
     console.log(formData);
+    axios.put(`/api/user/${props.info.username}`, formData)
 
     props.btnclick();
   }
@@ -117,7 +118,7 @@ const Editme = (props) => {
                   type="input"
                   autoComplete="off"
                   placeholder="please enter username"
-                  defaultValue={props.username}
+                  defaultValue={props.info.username}
                 />
               </Form.Group>
               <Form.Group controlId="firstname">
@@ -128,7 +129,7 @@ const Editme = (props) => {
                   name="firstname"
                   autoComplete="off"
                   placeholder="please enter first name"
-                  defaultValue={props.firstname}
+                  defaultValue={props.info.firstname}
                 />
               </Form.Group>
               <Form.Group controlId="lastname">
@@ -139,7 +140,7 @@ const Editme = (props) => {
                   name="lastname"
                   autoComplete="off"
                   placeholder="please enter last name"
-                  defaultValue={props.lastname}
+                  defaultValue={props.info.lastname}
                 />
               </Form.Group>
               <Form.Group controlId="age">
@@ -148,7 +149,7 @@ const Editme = (props) => {
                   required
                   type="number"
                   name="age"
-                  defaultValue={props.age || 18}
+                  defaultValue={props.info.age || 18}
                   max={150}
                 />
               </Form.Group>
@@ -164,7 +165,7 @@ const Editme = (props) => {
                   name="email"
                   autoComplete="off"
                   placeholder="example@mail.com"
-                  defaultValue={props.email}
+                  defaultValue={props.info.email}
                 />
               </Form.Group>
               <Form.Group controlId="roles">
@@ -185,7 +186,7 @@ const Editme = (props) => {
                   as="select"
                   name="pronouns"
                   placeholder="they/them"
-                  defaultValue={props.pronouns}
+                  defaultValue={props.info.pronouns}
                 >
                   <option>they/them</option>
                   <option>she/her</option>
