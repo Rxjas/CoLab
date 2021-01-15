@@ -7,7 +7,7 @@ import { Redirect } from 'react-router-dom';
 
 // add request to /api/login on submit
 
-const Login = () => {
+const Login = (props) => {
 
   const [passwordState, setPasswordState] = useState("");
   const [usernameState, setUsernameState] = useState("");
@@ -23,6 +23,8 @@ const Login = () => {
 
   const handleLoginClick = (event) => {
     event.preventDefault();
+    props.handleUsername(usernameState)
+    sendUsername();
     const userData = {
       username: usernameState,
       password: passwordState
@@ -41,6 +43,11 @@ const Login = () => {
           setRedirect('/profile')
         }
       })
+  }
+
+  const sendUsername = () => {
+    console.log(usernameState)
+    props.handleUsername(usernameState)
   }
 
   if (redirect !== "") {

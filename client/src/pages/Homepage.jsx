@@ -51,7 +51,7 @@ class Homepage extends Component {
           <Tabs className="tabhead" defaultActiveKey="login" id="homeTabs">
             <Tab className="" eventKey="login" title="Login">
               <div className="col-xs-11 col-md-6 mr-auto containerDiv">
-                <Login />
+                <Login handleUsername={this.handleUsername}/>
               </div>
             </Tab>
             <Tab className="" eventKey="signUp" title="Sign Up">
