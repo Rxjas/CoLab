@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require("./../models");
+const { User, Image } = require("./../models");
 const passport = require("../config/passport");
 // const { response } = require('express');
 
@@ -19,10 +19,10 @@ router.post('/signup', function (req, res) {
         passport.authenticate('local')(req, res, function () {
             res.sendStatus(200)
         })
-
-
     });
-
+    Image
+      .create({ username: req.body.username })
+      .catch(err => console.log(err));
 });
 
 // authenticate user on login, creating cookie header
