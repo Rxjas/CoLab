@@ -7,11 +7,12 @@ import { Redirect } from 'react-router-dom';
 
 // add request to /api/login on submit
 
-const Login = () => {
+const Login = (props) => {
 
   const [passwordState, setPasswordState] = useState("");
   const [usernameState, setUsernameState] = useState("");
-  const [redirect, setRedirect] = useState("")
+  const [redirect, setRedirect] = useState("");
+  const [errorMessage, setErrorMessage] = useState(null)
 
   const handlePasswordChange = (event) => {
     setPasswordState(event.target.value)
@@ -23,6 +24,8 @@ const Login = () => {
 
   const handleLoginClick = (event) => {
     event.preventDefault();
+    props.handleUsername(usernameState)
+    sendUsername();
     const userData = {
       username: usernameState,
       password: passwordState
@@ -40,7 +43,15 @@ const Login = () => {
           console.log("RIGHT STATUS")
           setRedirect('/profile')
         }
+        if (response.status === 401){
+          setErrorMessage("Username or password incorrect")
+        }
       })
+  }
+
+  const sendUsername = () => {
+    console.log(usernameState)
+    props.handleUsername(usernameState)
   }
 
   if (redirect !== "") {
@@ -48,6 +59,7 @@ const Login = () => {
   }
   return(
     <>
+    {errorMessage}
       <Form>
         <Form.Group controlId="formBasicUsername" onChange={handleUsernameChange}>
           <Form.Label>Username</Form.Label>

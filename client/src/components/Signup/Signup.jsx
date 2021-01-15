@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Redirect } from 'react-router-dom';
@@ -10,9 +10,11 @@ const Signup = (props) => {
     formBasicUsername: "",
     formBasicPassword: ""
   });
-  
+
   const [redirect, setRedirect] = useState("")
- 
+
+  const [signupError, setSignUpError] = useState(null)
+
   const handleFormChange = (event) => {
     const keyOfState = event.target.id;
     const valueOfState = event.target.value;
@@ -20,12 +22,6 @@ const Signup = (props) => {
       ...state,
       [keyOfState]: valueOfState
     })
-  }
-
-  const handleRedirect = () => {
-    if (redirect !== ""){
-      return <Redirect to={redirect} />
-    }
   }
 
   const sendUsername = () => {
@@ -52,19 +48,26 @@ const Signup = (props) => {
       },
       // redirect: 'follow',
       body: JSON.stringify(userData)
-      
+
     }).then(response => {
-      console.log(response)
-      setRedirect("/profile")
-      handleRedirect();
+      return response.json();
+    }).then(data => {
+      console.log(data)
+      if (data.success === false) {
+        setSignUpError(data.error.message)
+      }
+      if (data.success === true) {
+        setRedirect("/profile")
+      }
     })
   }
 
   if (redirect !== "") {
-    return <Redirect to ={redirect} />
+    return <Redirect to={redirect} />
   }
-  return(
+  return (
     <>
+      <p>{signupError}</p>
       <Form>
         <Form.Group controlId="formBasicEmail" onChange={handleFormChange} >
           <Form.Label>Email address</Form.Label>
