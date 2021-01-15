@@ -3,7 +3,6 @@ import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import ChatBubble from './../ChatBubble';
-// import moment from 'moment';
 import "./Convo.css";
 
 class Convo extends Component {
@@ -63,6 +62,9 @@ class Convo extends Component {
 
   handleMessageClick = (event) => {
     event.preventDefault();
+    // change to username DanaStoreSuper for development
+    // const username = "DanaStoreSuper"
+    const username = this.props.username
     if (this.state.messageInput !== "") {
 
 
@@ -72,7 +74,7 @@ class Convo extends Component {
           message: {
             text: this.state.messageInput,
             // to be obtained from global store
-            user: "DanaStoreSuper"
+            user: username
           }
         },
         (status, response) => {
@@ -83,11 +85,11 @@ class Convo extends Component {
             entry: {
               text: this.state.messageInput,
               // to be obtained from global store
-              user: "DanaStoreSuper"
+              user: username
             },
             timetoken: parseInt(response.timetoken)
           })
-          this.setState({ messageHistory: currentState})
+          this.setState({ messageHistory: currentState })
         }
       )
       // clear out input field when message is sent
