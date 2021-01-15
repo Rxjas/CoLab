@@ -129,6 +129,7 @@ class Convo extends Component {
                 <ChatBubble text={messageObj.entry.text}
                   sentByUser={messageObj.entry.user}
                   timeStamp={formattedTimestamp}
+                  username={this.props.username}
                 />
               )
             })}
