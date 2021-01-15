@@ -12,7 +12,7 @@ router.post('/signup', function (req, res) {
     if (err) {
       console.log(err)
       res.json({
-        success: false, message: "Your account could not be saved. Error: ", err
+        success: false, error: err
       })
     }
     // authenticate new user
@@ -21,7 +21,9 @@ router.post('/signup', function (req, res) {
       Image
         .create({ username: req.body.username })
         .catch(err => console.log(err));
-      res.sendStatus(200)
+      res.json({
+        success: true
+      })
     })
   });
 });

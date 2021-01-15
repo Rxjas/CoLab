@@ -11,7 +11,8 @@ const Login = (props) => {
 
   const [passwordState, setPasswordState] = useState("");
   const [usernameState, setUsernameState] = useState("");
-  const [redirect, setRedirect] = useState("")
+  const [redirect, setRedirect] = useState("");
+  const [errorMessage, setErrorMessage] = useState(null)
 
   const handlePasswordChange = (event) => {
     setPasswordState(event.target.value)
@@ -42,6 +43,9 @@ const Login = (props) => {
           console.log("RIGHT STATUS")
           setRedirect('/profile')
         }
+        if (response.status === 401){
+          setErrorMessage("Username or password incorrect")
+        }
       })
   }
 
@@ -55,6 +59,7 @@ const Login = (props) => {
   }
   return(
     <>
+    {errorMessage}
       <Form>
         <Form.Group controlId="formBasicUsername" onChange={handleUsernameChange}>
           <Form.Label>Username</Form.Label>
