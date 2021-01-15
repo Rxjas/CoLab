@@ -39,7 +39,7 @@ const Grid = () => {
 
     return (
       <>
-        <Navbar />
+        <Navbar loggedIn={isLoggedIn}/>
         <Sidebar />
         <CardDeck>
           {/* need to pass through search terms and loop over results */}

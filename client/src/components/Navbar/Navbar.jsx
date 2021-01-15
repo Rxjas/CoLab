@@ -5,9 +5,9 @@ import Nav from "react-bootstrap/Nav";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
-const TheNavbar = () => {
+const TheNavbar = (props) => {
   // this needs to be in a function or something so it can change to true if user is logged in
-  let isLoggedIn = false;
+  let isLoggedIn = props.loggedIn;
 
   return (
     <>

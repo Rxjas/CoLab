@@ -62,7 +62,7 @@ const Profile = () => {
 
     return (
       <>
-      <Navbar />
+      <Navbar loggedIn={isLoggedIn}/>
         <Tabs justify variant="pills" className="tabscont" defaultActiveKey="aboutme">
           <Tab eventKey="aboutme" className="tabber" variant="outline-dark" title="About Me">
             <AboutMe

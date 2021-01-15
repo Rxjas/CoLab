@@ -17,11 +17,12 @@ const AboutMe = (props) => {
 
   useEffect(() => {
     // change image id to the user id of the profile in question, current id of object is a placeholder
-    fetch(`/api/image/${props.info.username}`)
+    const url = `/api/image/` + props.info.username;
+    fetch(url)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        if (data.img.data.data) {
+        if (data.img) {
           var base64Flag = 'data:image/jpeg;base64,'
           var imageStr = arrayBufferToBase64(data.img.data.data);
           setImageURL(base64Flag + imageStr)

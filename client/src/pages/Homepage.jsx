@@ -21,7 +21,7 @@ class Homepage extends Component {
   render() {
     return (
       <>
-        <Navbar />
+        <Navbar loggedIn={false}/>
         {/* // need to add this after the render function (from hackernoon.com by @balasubramanim) */}
         <Jumbotron id="jumbotron">
           <h3>Welcome to CoLab!</h3>
