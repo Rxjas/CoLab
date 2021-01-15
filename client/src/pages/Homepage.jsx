@@ -5,6 +5,7 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
 import queryString from "query-string";
+import Navbar from "../components/Navbar";
 import "./styles/Homepage.css";
 
 class Homepage extends Component {
@@ -20,7 +21,7 @@ class Homepage extends Component {
   render() {
     return (
       <>
-
+        <Navbar />
         {/* // need to add this after the render function (from hackernoon.com by @balasubramanim) */}
         <Jumbotron id="jumbotron">
           <h3>Welcome to CoLab!</h3>
