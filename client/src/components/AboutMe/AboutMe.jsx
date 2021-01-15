@@ -22,6 +22,7 @@ const AboutMe = (props) => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        // only run if there's an image
         if (data.img) {
           var base64Flag = 'data:image/jpeg;base64,'
           var imageStr = arrayBufferToBase64(data.img.data.data);
