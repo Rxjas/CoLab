@@ -7,10 +7,26 @@ import Grid from "./pages/Grid";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
-import queryString from "query-string";
+// import queryString from "query-string";
 import "./index.css";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      username: ""
+    }
+  }
+
+  sendGrandpa = (childData) => {
+    console.log(childData)
+    this.setState({ username: childData })
+  }
+
+  showUsername = () => {
+    console.log(this.state.username)
+  }
+
   render() {
     return (
       <>
@@ -19,9 +35,24 @@ class App extends Component {
             <Navbar />
             <div className="App">
               <Switch>
-                <Route exact path="/" component={Homepage} />
-                <Route exact path="/profile" component={Profile} />
-                <Route exact path="/grid" component={Grid} />
+                <Route
+                  exact path="/"
+                  render={(props) => (
+                    <Homepage {...props} sendGrandpa={this.sendGrandpa} />
+                  )}
+                />
+                <Route
+                  exact path="/profile"
+                  render={(props) => (
+                    <Profile {...props} username={this.state.username} />
+                  )}
+                />
+                <Route 
+                exact path="/grid" 
+                render={(props) => (
+                  <Grid {...props} username={this.state.username} />
+                )}
+                />
               </Switch>
             </div>
             <Footer />
