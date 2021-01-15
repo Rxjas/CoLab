@@ -7,7 +7,8 @@ var imageSchema = new mongoose.Schema({
     {
         data: Buffer,
         contentType: String
-    }
+    },
+    username: String
 });
 
 
