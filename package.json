@@ -11,7 +11,7 @@
     "seed": "node server/seeders/seed.js",
     "install": "cd client && npm i",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run seed && npm run build"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
