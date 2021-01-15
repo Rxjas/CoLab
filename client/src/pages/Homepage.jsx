@@ -8,6 +8,13 @@ import queryString from "query-string";
 import "./styles/Homepage.css";
 
 class Homepage extends Component {
+  constructor() {
+    super();
+    this.state = {
+      passingUsername : ""
+    }
+  }
+
   componentWillMount() {
     console.log(this.props)
     var query = queryString.parse(this.props.location.search);
@@ -17,6 +24,21 @@ class Homepage extends Component {
     }
     console.log(this.props)
   }
+
+  handleUsername = (childData) => {
+    // event.preventDefault();
+    console.log(childData)
+    // this.setState({passingUsername: childData})
+    // this.props.handleUsername()
+    this.setState({passingUsername: childData})
+    this.sendUsernameToGrandpa(childData)
+  }
+
+  sendUsernameToGrandpa = (passData) => {
+    console.log(passData)
+    this.props.sendGrandpa(passData)
+  }
+
   render() {
     return (
       <>
@@ -33,7 +55,7 @@ class Homepage extends Component {
             </Tab>
             <Tab className="" eventKey="signUp" title="Sign Up">
               <div className="col-xs-11 col-md-6 mr-auto containerDiv">
-                <Signup />
+                <Signup handleUsername={this.handleUsername}/>
               </div>
             </Tab>
           </Tabs>
