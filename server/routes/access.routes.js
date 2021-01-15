@@ -5,7 +5,7 @@ const passport = require("../config/passport");
 
 router.post('/signup', function (req, res) {
 
-    Users = new User({ username: req.body.username });
+    Users = new User({ username: req.body.username, email: req.body.email });
 
     // create new user
     User.register(Users, req.body.password, function (err, user) {

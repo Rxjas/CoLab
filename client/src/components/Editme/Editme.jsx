@@ -78,7 +78,7 @@ const Editme = (props) => {
       }
     }
 
-    console.log(formData);
+    // console.log(formData);
     axios.put(`/api/user/${props.info.username}`, formData)
 
     props.btnclick();
@@ -202,6 +202,7 @@ const Editme = (props) => {
                   name="bio"
                   autoComplete="off"
                   rows={3}
+                  defaultValue={props.info.bio}
                 />
               </Form.Group>
               <Form.Group controlId="lookingfor">
@@ -212,6 +213,7 @@ const Editme = (props) => {
                   name="lookingfor"
                   autoComplete="off"
                   rows={3}
+                  defaultValue={props.info.lookingfor}
                 />
               </Form.Group>
               <Button
