@@ -5,6 +5,7 @@ import Showme from "../Showme";
 import Editme from "../Editme";
 
 const AboutMe = (props) => {
+  console.log(props)
   const [edit, setEdit] = useState(false);
   const [imageURL, setImageURL] = useState();
 
@@ -16,6 +17,7 @@ const AboutMe = (props) => {
   };
 
   useEffect(() => {
+    console.log(props)
     // change image id to the user id of the profile in question, current id of object is a placeholder
     const url = `/api/image/` + props.info.username;
     fetch(url)

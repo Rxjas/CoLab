@@ -12,10 +12,10 @@ import Matches from "../components/Matches";
 
 import "./styles/Profile.css";
 
-const Profile = () => {
+const Profile = (props) => {
 
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [username, setUsername] = useState("");
+  // const [username, setUsername] = useState("");
   const [matches, setMatches] = useState([]);
   const [userData, setUserData] = useState({});
 
@@ -27,7 +27,7 @@ const Profile = () => {
         // console.log(data)
         if (data.allowed === "allow") {
           setIsLoggedIn(true)
-          setUsername(data.userLoggedIn)
+          // setUsername(data.userLoggedIn)
         } else {
           setIsLoggedIn(false)
         }
@@ -35,7 +35,9 @@ const Profile = () => {
     
     if (isLoggedIn) {
       // matches (passed as prop to Matches component) 
-      fetch(`/api/user/matches/${username}`)
+      const userNameProp = props.username;
+      console.log(userNameProp)
+      fetch(`/api/user/matches/${userNameProp}`)
       // fetch(`/api/user/matches/${username}`)
         .then((response) => response.json())
         .then(data => {
@@ -44,7 +46,7 @@ const Profile = () => {
         })
   
       // userData
-      fetch(`/api/user/${username}`)
+      fetch(`/api/user/${userNameProp}`)
         .then(response => response.json())
         .then(data => {
           // console.log('/api/user/:username route')
@@ -52,7 +54,7 @@ const Profile = () => {
           setUserData(data.data[0])
         })
     }
-  }, [username, isLoggedIn])
+  }, [isLoggedIn])
 
   if (!isLoggedIn) {
     return (
@@ -67,6 +69,7 @@ const Profile = () => {
           <Tab eventKey="aboutme" className="tabber" variant="outline-dark" title="About Me">
             <AboutMe
               info={userData}
+              username={props.username}
               // username={username}
               // firstname="buster"
               // lastname="scruggs"
@@ -84,12 +87,12 @@ const Profile = () => {
             title="Messages" 
           >
             <Messages
-              username={username}
+              username={props.username}
             />
           </Tab>
           <Tab eventKey="matches" className="tabber" title="Matches">
             <Matches 
-              username={username}
+              username={props.username}
               matches={matches}
             />
           </Tab>

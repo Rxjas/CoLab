@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Redirect } from 'react-router-dom';
 
-const Signup = () => {
+const Signup = (props) => {
 
   const [state, setState] = useState({
     formBasicEmail: "",
@@ -28,8 +28,15 @@ const Signup = () => {
     }
   }
 
+  const sendUsername = () => {
+    console.log(state.formBasicUsername)
+    props.handleUsername(state.formBasicUsername)
+  }
+
   const handleSignUpClick = (event) => {
     event.preventDefault();
+    props.handleUsername(state.formBasicUsername)
+    sendUsername();
     console.log(state)
     const userData = {
       email: state.formBasicEmail,
