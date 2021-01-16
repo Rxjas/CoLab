@@ -61,11 +61,11 @@ const Grid = () => {
             </div>
           </div>
           <div className="row">
-            <CardDeck>
+            <CardDeck id="gridDeck">
               {/* need to pass through search terms and loop over results */}
               {users.map(user => {
                 return (
-                  <div className="col-12 col-lg-6 mt-3 mb-3">
+                  <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-3 mb-3">
                     <PersonalCard
                       currentUser={username}
                       username={user.username}
@@ -73,6 +73,7 @@ const Grid = () => {
                       pronouns={user.pronouns}
                       lookingfor={user.lookingfor}
                       chats={user.chats}
+                      bio={user.bio}
                     />
                   </div>
                 )
