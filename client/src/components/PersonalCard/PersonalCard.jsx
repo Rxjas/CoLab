@@ -45,7 +45,11 @@ const PersonalCard = (props) => {
     const user = currentUser;
     const chatInfo = {channelID, user};
     const path = `/api/user/msg/${currentUser}`;
-    axios.put(path, chatInfo);
+    axios.put(path, {chatInfo});
+    const user2 = props.username;
+    const path2 = `/api/user/msg/${props.username}`;
+    const chatInfo2 = {channelID, user: user2};
+    axios.put(path2, { chatInfo: chatInfo2 });
     setShowConvBtn2(false);
   }
 
