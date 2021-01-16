@@ -39,6 +39,21 @@ router.route('/search/:criteria')
       .catch(err => console.log(err))
   })
 
+  router.route("/msg")
+    .put((req, res) => {
+      console.log("inside msg route")
+      console.log(req.body)
+      // console.log(req.body.chatInfo)
+      User.findOneAndUpdate({ username: req.body.user1 }, { $push: { chats: {channelID: req.body.channelID, user: req.body.user2} }})
+        .then(data => {
+          res.json({ success: true, data })
+          // User.findOneAndUpdate({ username: req.body.user2 }, { $push: { chats: {channelID: req.body.channelID, user: req.body.user1} }})
+          // .then((data) => res.json({ success: true, data: data }))
+          // .catch(err => console.log(err))
+        })
+        .catch(err => console.log(err))
+    })
+
 // api/user/:id   This path is used so you can search by username not the object ID
 router.route('/:id')
   //get specific user
@@ -129,13 +144,6 @@ router.route('/matches/:id')
       })
   });
 
-  router.route("/msg/:id")
-    .put((req, res) => {
-      User.findOneAndUpdate({ username: req.params.id }, { $push: { chats: req.body.chatInfo }})
-        .then(data => {
-          res.json({ success: true })
-        })
-        .catch(err => console.log(err))
-    })
+  
 //export the module
 module.exports = router;

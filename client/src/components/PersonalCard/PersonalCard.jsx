@@ -52,15 +52,27 @@ const PersonalCard = (props) => {
     const btn = event.target;
     btn.setAttribute("class","d-none");
     const channelID = `chats.${props.currentUser}${props.username}`;
-    const user = props.currentUser;
-    const chatInfo = {channelID, user};
-    const path = `/api/user/msg/${props.currentUser}`;
-    axios.put(path, {chatInfo});
+    const user1 = props.currentUser;
     const user2 = props.username;
-    const path2 = `/api/user/msg/${props.username}`;
-    const chatInfo2 = {channelID, user: user2};
-    axios.put(path2, { chatInfo: chatInfo2 });
-    setShowConvBtn2(false);
+    const chatInfo1 = {channelID, user1, user2};
+    const chatInfo2 = {channelID, user1: user2, user2: user1};
+    console.log(chatInfo1)
+    fetch("/api/user/msg", {
+      method: "PUT",
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(chatInfo1)
+    })
+    fetch("/api/user/msg", {
+      method: "PUT",
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(chatInfo2)
+    })
+    // .then(response => response.json())
+    // .then(data => console.log(data));
+    // const path2 = `/api/user/msg/${props.username}`;
+    // const chatInfo2 = {channelID, user: user2};
+    // axios.put(path2, { chatInfo: chatInfo2 });
+    // setShowConvBtn2(false);
   }
 
   return (
@@ -76,11 +88,11 @@ const PersonalCard = (props) => {
         <h4>Looking for...</h4>
         <p>{props.lookingfor}</p>
         {showMatchBtn && (<Button
-          onClick={addMatch}
-        >add</Button>)}
-        {showConvBtn && showConvBtn2 && (<Button 
           onClick={startConvo}
-        >start chat</Button>)}
+        >conversate</Button>)}
+        {/* {showConvBtn && showConvBtn2 && (<Button 
+          onClick={startConvo}
+        >start chat</Button>)} */}
       </Card>
     </>
   )
