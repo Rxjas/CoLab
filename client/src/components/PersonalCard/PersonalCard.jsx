@@ -9,12 +9,12 @@ const PersonalCard = (props) => {
   const [showConvBtn, setShowConvBtn] = useState(false);
   const [showConvBtn2, setShowConvBtn2] = useState(true);
   const [chats, setChats] = useState([]);
-  
+
   // this variable stores the username of whoever is currently logged in
   const currentUser = props.currentUser;
   const path = window.location.pathname;
 
-  
+
   useEffect(() => {
     // console.log("personalcard props chats")
     // console.log(chats)
@@ -50,21 +50,21 @@ const PersonalCard = (props) => {
 
   const startConvo = (event) => {
     const btn = event.target;
-    btn.setAttribute("class","d-none");
+    btn.setAttribute("class", "d-none");
     const channelID = `chats.${props.currentUser}${props.username}`;
     const user1 = props.currentUser;
     const user2 = props.username;
-    const chatInfo1 = {channelID, user1, user2};
-    const chatInfo2 = {channelID, user1: user2, user2: user1};
+    const chatInfo1 = { channelID, user1, user2 };
+    const chatInfo2 = { channelID, user1: user2, user2: user1 };
     console.log(chatInfo1)
     fetch("/api/user/msg", {
       method: "PUT",
-      headers: {'Content-Type': 'application/json'},
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(chatInfo1)
     })
     fetch("/api/user/msg", {
       method: "PUT",
-      headers: {'Content-Type': 'application/json'},
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(chatInfo2)
     })
     // .then(response => response.json())
@@ -77,23 +77,32 @@ const PersonalCard = (props) => {
 
   return (
     <>
-      <Card className="pcFont">
-        <h3 className="pcFont">{props.username} <span id="pronouns">{props.pronouns}</span></h3>
-        <h4 className="pcFont">Roles</h4>
-        <ul>
+      <Card className="cardOuter">
+        <div className="cardBody">
+          <p className="cardName title">{props.username}</p>
+          <div className="row">
+            <p className="cardPronouns">{props.pronouns}</p>
+          </div>
+          <p className="bodysmall">{props.bio}</p>
+          <p className="title body">Roles</p>
+          {/* <div className="row"> */}
           {props.roles.map(role => {
-            return <li>{role}</li>
+            return <div className="bodysmall">{role}</div>
           })}
-        </ul>
-        <h4 className="pcFont">Looking for...</h4>
-        <p>{props.lookingfor}</p>
-        {showMatchBtn && (<Button
-          onClick={startConvo}
-          className="pcFont"
-        >conversate</Button>)}
-        {/* {showConvBtn && showConvBtn2 && (<Button 
+          {/* </div> */}
+          <p className="title body">Looking for...</p>
+          <p className="bodysmall">{props.lookingfor}</p>
+          <div className="row">
+            {showMatchBtn && (<Button
+              onClick={startConvo}
+              className="cardBtn"
+              variant="outline-dark"
+            ><img className="btnImg" src="/assets/images/colab-logo.png" alt="CoLab icon" /> chat</Button>)}
+            {/* {showConvBtn && showConvBtn2 && (<Button 
           onClick={startConvo}
         >start chat</Button>)} */}
+          </div>
+        </div>
       </Card>
     </>
   )

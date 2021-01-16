@@ -1,5 +1,15 @@
 #sidenav {
-  border-radius: 0 10px 10px 0;
+  /* border-radius: 0 0 10px 10px; */
   background: #eee;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
+  width: 100%;
+  /* padding: 0; */
+}
+
+#searchForm {
+  padding: 0.5rem;
+}
+
+#ddBar {
+  margin: 0;
 }

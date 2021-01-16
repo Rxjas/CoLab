@@ -19,14 +19,14 @@ const Sidebar = (props) => {
   return (
     <>
       <div id="sidenav">
-        <div id="user">
+        {/* <div id="user">
           <h5>I am looking to CoLaborate with a ...</h5>
           <div id="autopop" />
-        </div>
-        <div id="seeking">
-          <Form>
-            <Form.Group controlId="instrument">
-              <Form.Label>Select an Instrument</Form.Label>
+        </div> */}
+        {/* <div id="seeking"> */}
+          <Form id="searchForm">
+            <Form.Group id="ddBar" controlId="instrument">
+              <Form.Label>Filter by...</Form.Label>
               <Form.Control
                 as="select"
                 onChange={e => {
@@ -34,7 +34,7 @@ const Sidebar = (props) => {
                   handleSubmit(e);
                 }}
               >
-                <option defaultValue>--</option>
+                <option defaultValue value="">--</option>
                 <option value="vocalist">Vocalist</option>
                 <option value="guitarist">Guitarist</option>
                 <option value="pianist">Pianist</option>
@@ -46,7 +46,7 @@ const Sidebar = (props) => {
               </Form.Control>
             </Form.Group>
           </Form>
-        </div>
+        {/* </div> */}
       </div>
     </>
   );

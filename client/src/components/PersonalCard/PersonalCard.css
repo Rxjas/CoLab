@@ -1,18 +1,50 @@
-.PersonalCard {
-  margin-top: 60px;
-  display: flex;
-  flex-direction: column;
-  height: 200px;
-  background-color: white;
-  transition: 0.3s;
+.cardOuter {
+  border-style:solid;
+  border-width: 3px;
+  border-color: #3a827f;
+  padding: 0;
+  margin: 0!important;
+  border-style: solid;
+  border-width: 0.5rem;
+  border-color: #3a827f;
 }
 
-.container {
-    padding: 2px 16px;
+.cardBody {
+  padding: 1rem;
+  background-color: #92e2c2;
 }
 
-@media only screen and (max-width: 375px) {
-  .pcFont {
-    font-size: 5rem;
-  }
+.title {
+  color: #3a827f;
+  margin: 0;
+  text-shadow: 0 0 0.5rem white;
+}
+
+.body {
+  margin-top: 0.5rem;
+  text-align: left;
+  /* text-decoration: underline double; */
+}
+
+.bodysmall {
+  color: black;
+  text-align: left;
+}
+
+.cardPronouns {
+  color: #3a827f;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cardBtn {
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+}
+
+.btnImg {
+  width: 1.5rem;
+  height: 1.5rem;
 }
