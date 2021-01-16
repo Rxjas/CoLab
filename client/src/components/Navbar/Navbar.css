@@ -1,24 +1,44 @@
-.Navbar {
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid;
-  margin-bottom: 2rem;
-  padding: 1.2rem 0.8rem;
+/* #navbod {
+  background: linear-gradient(to right, teal, #343a40 80px) !important;
+} */
+
+#logo {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
 }
 
-.Navbar-brand {
-  font-size: 2.4rem;
+#title {
+  /* font-family: 'East Sea Dokdo', cursive; */
+  font-family: 'Rock Salt', cursive;
+  font-size: 2rem;
+  padding: 0;
+  color: white;
 }
 
-.Navbar-links {
+.dropdown {
   display: flex;
-  flex-grow: 1;
   justify-content: flex-end;
-  list-style: none;
 }
 
-.Navbar-link {
-  cursor: pointer;
-  font-size: 1.6rem;
-  margin-right: 3.6rem;
+.navtext {
+  font-family: "Monaco", cursive;
+  font-size: 1rem;
+  margin-left: 1rem;
+}
+
+#hambut {
+  outline: none;
+}
+
+#hamberder {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.menulink:active {
+  color: white!important;
+  background-color: #343a40!important;
 }

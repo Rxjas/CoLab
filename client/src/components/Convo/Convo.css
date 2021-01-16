@@ -1,0 +1,28 @@
+#chatWindow {
+  overflow: auto;
+  /* margin-bottom: 5rem; */
+  height: 20rem;
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+#messageInput {
+  border-color: #3a827f;
+  background-color: white;
+}
+
+#sendMess {
+  background-color: white;
+  border-color: #3a827f;
+  /* border-width: 2px; */
+  color: #3a827f;
+}
+
+#sendMess:hover {
+  background-color: #3a827f;
+  color: white;
+}
+
+#sendMess:active {
+  border-color: black;
+}
