@@ -47,7 +47,6 @@ router.post('/allow', checkAuthentication, function (req, res) {
 });
 
 function checkAuthentication(req, res, next) {
-  // console.log(req)
   if (req.isAuthenticated()) {
     //req.isAuthenticated() will return true if user is logged in
     next();
