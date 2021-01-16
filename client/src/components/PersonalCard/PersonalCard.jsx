@@ -77,18 +77,19 @@ const PersonalCard = (props) => {
 
   return (
     <>
-      <Card>
-        <h3>{props.username} <span id="pronouns">{props.pronouns}</span></h3>
-        <h4>Roles</h4>
+      <Card className="pcFont">
+        <h3 className="pcFont">{props.username} <span id="pronouns">{props.pronouns}</span></h3>
+        <h4 className="pcFont">Roles</h4>
         <ul>
           {props.roles.map(role => {
             return <li>{role}</li>
           })}
         </ul>
-        <h4>Looking for...</h4>
+        <h4 className="pcFont">Looking for...</h4>
         <p>{props.lookingfor}</p>
         {showMatchBtn && (<Button
           onClick={startConvo}
+          className="pcFont"
         >conversate</Button>)}
         {/* {showConvBtn && showConvBtn2 && (<Button 
           onClick={startConvo}

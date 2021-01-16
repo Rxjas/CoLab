@@ -1,11 +1,5 @@
 #sidenav {
-  width: 200px;
-  position: fixed;
-  z-index: 1;
-  top: 120px;
-  left: 0px;
   border-radius: 0 10px 10px 0;
   background: #eee;
   overflow-x: hidden;
-  padding: 8px;
 }

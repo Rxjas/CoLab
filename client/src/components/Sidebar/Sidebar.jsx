@@ -20,43 +20,13 @@ const Sidebar = (props) => {
     <>
       <div id="sidenav">
         <div id="user">
-          <h5>I am a...</h5>
+          <h5>I am looking to CoLaborate with a ...</h5>
           <div id="autopop" />
         </div>
         <div id="seeking">
-          <p>looking to CoLaborate with a {instrument}</p>
-          {/* for more categories, need some way to make form change */}
-          {/* maybe a tab, like on profile page... or useState with another form (just a dropdown) */}
           <Form>
-            {/* <Form.Group controlId="genre">
-              <Form.Label>Genre</Form.Label>
-              <Form.Control
-                as="select"
-                onChange={e => {
-                  setGenre(e.target.value);
-                  handleSubmit(e);
-                }}
-              >
-                <option defaultValue>--</option>
-                <option>Rock</option>
-                <option>Hip Hop</option>
-                <option>Pop</option>
-                <option>Jazz</option>
-                <option>Blues</option>
-                <option>Folk</option>
-                <option>Country</option>
-                <option>R&B</option>
-                <option>Classical</option>
-                <option>Soul</option>
-                <option>Metal</option>
-                <option>Punk</option>
-                <option>Indie</option>
-                <option>Electric</option>
-                <option>Dance</option>
-              </Form.Control>
-            </Form.Group> */}
             <Form.Group controlId="instrument">
-              <Form.Label>Instrument</Form.Label>
+              <Form.Label>Select an Instrument</Form.Label>
               <Form.Control
                 as="select"
                 onChange={e => {
@@ -65,32 +35,16 @@ const Sidebar = (props) => {
                 }}
               >
                 <option defaultValue>--</option>
-                <option value="vocalist">Vocals</option>
-                <option value="guitarist">Guitar</option>
-                <option value="pianist">Piano</option>
-                <option value="violinist">Violin</option>
-                <option value="bassist">Bass</option>
-                <option value="saxophonist">Saxophone</option>
-                <option value="percussionist">Percussion</option>
-                <option value="harpist">harpist</option>
+                <option value="vocalist">Vocalist</option>
+                <option value="guitarist">Guitarist</option>
+                <option value="pianist">Pianist</option>
+                <option value="violinist">Violinist</option>
+                <option value="bassist">Bassist</option>
+                <option value="saxophonist">Saxophonist</option>
+                <option value="percussionist">Percussionist</option>
+                <option value="harpist">Harpist</option>
               </Form.Control>
             </Form.Group>
-            {/* <Form.Group controlId="other">
-              <Form.Label>Keywords</Form.Label>
-              <Form.Control
-                as="input"
-                onChange={e => {
-                  setKeyword(e.target.value);
-                  handleSubmit(e);
-                }}
-              />
-              <Form.Text id="keywordHelp" muted>
-                Enter comma-separated keywords (e.g., terms not included in filters)
-              </Form.Text>
-            </Form.Group> */}
-            {/* <Button
-              onClick={props.runParam()}
-            >search</Button> */}
           </Form>
         </div>
       </div>
