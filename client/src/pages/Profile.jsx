@@ -102,11 +102,11 @@ const Profile = (props) => {
   // if not logged in, redirect to login screen. If logged in and username is an empty string, render "loading" div. If both are true, render content
   if (!isLoggedIn) {
     return (
-      // <Redirect to="/" />
-      <div>Not logged in
-        <button onClick={showUsername}>Show username</button>
-        <button onClick={showLoggedIn}>Show loggedin</button>
-      </div>
+      <Redirect to="/" />
+      // <div>Not logged in
+      //   <button onClick={showUsername}>Show username</button>
+      //   <button onClick={showLoggedIn}>Show loggedin</button>
+      // </div>
     )
   } else {
       // if ALL the props are ready, render the main content
