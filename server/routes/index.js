@@ -4,6 +4,7 @@ const pb = require('./pb.routes');
 const img = require('./image.routes');
 const user = require('./user.routes.js');
 const access = require('./access.routes');
+const seed = require('./seed.routes');
 
 var passport = require('passport');
 
@@ -19,5 +20,7 @@ router.use('/api/pubnub', pb);
 router.use('/api/image', img);
 // authorization routes
 router.use('/api/access', access);
+
+router.use('/api/seed', seed);
 
 module.exports = router;
