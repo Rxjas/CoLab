@@ -61,9 +61,15 @@ const Editme = (props) => {
   //   // setImageUrl(fileUrl)
   // }
 
+  const checkEvent = event => {
+    const data = document.getElementById("editForm").serialize();
+    console.log(data)
+  }
+
   const submitForm = event => {
     // handleImageSubmit(event);
-    const formBulk = event.target.elements;
+    // document.body.appendChild(event.target);
+    const formBulk = event.target.parentNode.parentNode.parentNode.parentNode.elements;
     const formData = {
       roles: []
     };
@@ -92,7 +98,8 @@ const Editme = (props) => {
 
   return (
     <>
-      <Form id="editform" onSubmit={submitForm}>
+      <Form id="editform" method="PUT" onSubmit={submitForm}>
+      {/* <Form id="editform" onSubmit={submitForm}> */}
         <Container id="formcont">
           <Row id="picrow">
             <Col xs={12} sm={6}>
@@ -226,6 +233,7 @@ const Editme = (props) => {
               <Button
                 variant="outline-dark"
                 type="submit"
+                onClick={checkEvent}
               >save</Button>
             </Col>
           </Row>
