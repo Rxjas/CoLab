@@ -5,16 +5,29 @@ import "./PersonalCard.css";
 import axios from "axios";
 
 const PersonalCard = (props) => {
-  const [showBtn, setShowBtn] = useState(true);
-
+  const [showMatchBtn, setShowMatchBtn] = useState(true);
+  const [showConvBtn, setShowConvBtn] = useState(false);
+  const [showConvBtn2, setShowConvBtn2] = useState(true);
+  
   // this variable stores the username of whoever is currently logged in
   const currentUser = props.currentUser;
   const path = window.location.pathname;
+
+  // don't let "start chat" button show if there's already a chat started
+  for (let i = 0; i < props.chats.length; i++) {
+    if (props.chats[i].user === currentUser) {
+      setShowConvBtn2(false);
+      break;
+    }
+  }
+
   useEffect(() => {
     if (path === "/grid") {
-      setShowBtn(true)
+      setShowMatchBtn(true);
+      setShowConvBtn(false);
     } else if (path === "/profile") {
-      setShowBtn(false);
+      setShowMatchBtn(false);
+      setShowConvBtn(true);
     }
   }, [path])
   // 
@@ -25,6 +38,15 @@ const PersonalCard = (props) => {
     axios
       .put(route, { matches: props.username })
       .catch(err => console.log(err));
+  }
+
+  const startConvo = () => {
+    const channelID = `chats.${currentUser}${props.username}`;
+    const user = currentUser;
+    const chatInfo = {channelID, user};
+    const path = `/api/user/msg/${currentUser}`;
+    axios.put(path, chatInfo);
+    setShowConvBtn2(false);
   }
 
   return (
@@ -39,9 +61,12 @@ const PersonalCard = (props) => {
         </ul>
         <h4>Looking for...</h4>
         <p>{props.lookingfor}</p>
-        {showBtn && (<Button
+        {showMatchBtn && (<Button
           onClick={addMatch}
         >add</Button>)}
+        {showConvBtn && showConvBtn2 && (<Button 
+          onClick={startConvo}
+        >start chat</Button>)}
       </Card>
     </>
   )
