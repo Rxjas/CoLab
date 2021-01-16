@@ -24,7 +24,9 @@ const Profile = (props) => {
     console.log("STEP 1 RAN")
     // passport
     fetch('/api/access/allow')
-      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+        response.json()})
       .then((data) => {
         console.log(data)
         if (data.allowed === "allow") {
