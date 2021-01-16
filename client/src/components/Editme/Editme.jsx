@@ -67,9 +67,17 @@ const Editme = (props) => {
   }
 
   const submitForm = event => {
+    event.preventDefault();
     // handleImageSubmit(event);
     // document.body.appendChild(event.target);
-    const formBulk = event.target.parentNode.parentNode.parentNode.parentNode.elements;
+    // console.log(event.target);
+    // const form = document.getElementById("editform");
+    const data = new FormData(event.target);
+    // for (var [key, value] of data.entries()) {
+    //   console.log(key, value)
+    // }
+    console.log(event.target.elements)
+    const formBulk = event.target.elements;
     const formData = {
       roles: []
     };
@@ -90,16 +98,16 @@ const Editme = (props) => {
       }
     }
 
-    // console.log(formData);
+    // // console.log(formData);
     axios.put(`/api/user/${props.username}`, formData)
 
     props.btnclick();
-    return false;
+    // return false;
   }
 
   return (
     <>
-      <Form id="editform" method="PUT" onSubmit={submitForm}>
+      <Form id="editform" onSubmit={submitForm}>
       {/* <Form id="editform" onSubmit={submitForm}> */}
         <Container id="formcont">
           <Row id="picrow">
@@ -234,7 +242,7 @@ const Editme = (props) => {
               <Button
                 variant="outline-dark"
                 type="submit"
-                onClick={checkEvent}
+                // onClick={checkEvent}
               >save</Button>
             </Col>
           </Row>

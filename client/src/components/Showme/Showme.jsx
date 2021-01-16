@@ -19,9 +19,9 @@ const Showme = (props) => {
           <h5 className="header5">{props.username || "username"}</h5>
           <h5 className="header5">{props.info.email || "email@example.com"}</h5>
           <h5 className="header5 title">Roles</h5>
-          {"vocalist" || props.info.roles.foreach(role => {
+          {props.info.roles.foreach(role => {
             <p className="paragraph">{role}</p>
-          })}
+          }) || "vocalist"}
           <h5 className="header5 title">Bio</h5>
           <p className="paragraph">{props.info.bio || "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius pariatur architecto saepe ab? Veritatis quam ut vitae nobis, suscipit aut quia molestias voluptatem reiciendis aperiam minima delectus quis, similique architecto!"}</p>
           <h5 className="header5 title">Looking for...</h5>
