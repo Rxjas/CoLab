@@ -54,7 +54,6 @@ const Grid = () => {
 
     return (
       <>
-        <div className="container">
           <Navbar loggedIn={isLoggedIn} />
           <div className="row">
             <div className="col">
@@ -80,7 +79,6 @@ const Grid = () => {
               })}
             </CardDeck>
           </div>
-        </div>
       </>
     );
   } else {
