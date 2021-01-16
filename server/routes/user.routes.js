@@ -39,7 +39,6 @@ router.route('/:id')
 
       .then((data) => {
         console.log(data)
-        console.log(res.header)
         res.json({ success: true, message: data })
       })
 
@@ -92,7 +91,6 @@ router.route('/matches/:id')
             User.find({ username: matchesData })
                 .then(data => {
                     console.log('here are all the users matched' + data);
-                    console.log(res.header())
                     res.json({ success: true, message: data })
                 })
                 .catch(err => {
