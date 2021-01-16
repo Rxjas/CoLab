@@ -8,51 +8,51 @@ import Editme from "../Editme";
 const AboutMe = (props) => {
   console.log(props)
   const [edit, setEdit] = useState(false);
-  const [imageURL, setImageURL] = useState();
+  // const [imageURL, setImageURL] = useState();
 
-  const arrayBufferToBase64 = (buffer) => {
-    var binary = '';
-    var bytes = [].slice.call(new Uint8Array(buffer));
-    bytes.forEach((b) => binary += String.fromCharCode(b));
-    return window.btoa(binary);
-  };
+  // const arrayBufferToBase64 = (buffer) => {
+  //   var binary = '';
+  //   var bytes = [].slice.call(new Uint8Array(buffer));
+  //   bytes.forEach((b) => binary += String.fromCharCode(b));
+  //   return window.btoa(binary);
+  // };
 
-  useEffect(() => {
-    console.log(props)
-    // change image id to the user id of the profile in question, current id of object is a placeholder
-    if (props.username !== "") {
+  // useEffect(() => {
+  //   console.log(props)
+  //   // change image id to the user id of the profile in question, current id of object is a placeholder
+  //   if (props.username !== "") {
 
-      const url = "/api/image/" + props.username;
-      console.log(url);
-      console.log(url);
-      fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-          console.log(data.img)
-          console.log(data.message);
-          // only run if there's an image associated with username
-          if (data.img !== undefined) {
-            var base64Flag = 'data:image/jpeg;base64,'
-            var imageStr = arrayBufferToBase64(data.img.data.data);
-            setImageURL(base64Flag + imageStr)
-          } else {
-            setImageURL("THE DATA WAS NULL")
-          }
-        })
-    }
-  }, [])
+  //     const url = "/api/image/" + props.username;
+  //     console.log(url);
+  //     console.log(url);
+  //     fetch(url)
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         console.log(data);
+  //         console.log(data.img)
+  //         console.log(data.message);
+  //         // only run if there's an image associated with username
+  //         if (data.img !== undefined) {
+  //           var base64Flag = 'data:image/jpeg;base64,'
+  //           var imageStr = arrayBufferToBase64(data.img.data.data);
+  //           setImageURL(base64Flag + imageStr)
+  //         } else {
+  //           setImageURL("THE DATA WAS NULL")
+  //         }
+  //       })
+  //   }
+  // }, [])
 
   const showEverything = () => {
     console.log(props.username);
     console.log(props.info);
-    console.log(imageURL)
+    // console.log(imageURL)
 
   }
 
   showEverything();
 
-  if (imageURL !== undefined) {
+  if (props.info !== null) {
     return (
 
       <>

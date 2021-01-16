@@ -11,55 +11,97 @@ import axios from 'axios';
 const Editme = (props) => {
 
   // FUTURE DEV: IMAGES
-  // const [selectedImage, setSelectedImage] = useState(null);
-  // const [imageUrl, setImageUrl] = useState(props.imageURL || null);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [imageURL, setImageURL] = useState();
   
   console.log(props);
 
+  const arrayBufferToBase64 = (buffer) => {
+    var binary = '';
+    var bytes = [].slice.call(new Uint8Array(buffer));
+    bytes.forEach((b) => binary += String.fromCharCode(b));
+    return window.btoa(binary);
+  };
+
+  const findSavedImage = () => {
+    console.log("IN SAVED IMAGE LAND")
+    const url = "/api/image/" + props.username;
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        console.log(data.img)
+        console.log(data.message);
+        // only run if there's an image associated with username
+        if (data.img !== undefined) {
+          console.log(data.img.data.data)
+          var base64Flag = 'data:image/jpeg;base64,'
+          var imageStr = arrayBufferToBase64(data.img.data.data);
+          setImageURL(base64Flag + imageStr)
+        } else {
+          setImageURL("/assets/images/placeholder.png")
+        }
+      })
+  }
+
+  useEffect(() => {
+    console.log(props)
+    // change image id to the user id of the profile in question, current id of object is a placeholder
+    if (props.username !== "") {
+      findSavedImage();
+    }
+  }, [])
+
+
+
    // FUTURE DEV: IMAGES
-  // const showImage = () => {
+  const showImage = () => {
   //   // add useEffect hook (componentDidMount equivalent) to check DB if there is an image already
-  //   if (selectedImage === null) {
-  //     return (
-  //       <img src="/assets/images/placeholder.png" id="profilepic" alt="placeholder profile pic" />
-  //     )
-  //   } else {
-  //     return <img id="profilepic" src={imageUrl} alt="selected profile pic" />;
-  //   }
-  // }
+    // if (selectedImage === null) {
+    //   return (
+    //     <img src="/assets/images/placeholder.png" id="profilepic" alt="placeholder profile pic" />
+    //   )
+    // } else {
+    //   return <img id="profilepic" src={this.imageUrl} alt="selected profile pic" />;
+    // }
+  }
 
    // FUTURE DEV: IMAGES
-  // const handleImageSubmit = (event) => {
-  //   event.preventDefault();
+  const handleImageSubmit = (event) => {
+    event.preventDefault();
+    console.log("HERE")
 
-  //   const formData = new FormData();
+    const formData = new FormData();
 
-  //   formData.append(
-  //     "file",
-  //     selectedImage,
-  //     selectedImage.name
-  //     // add user id from global context
-  //   )
+    formData.append(
+      "file",
+      selectedImage,
+      selectedImage.name
+      // add user id from global context
+    )
+    console.log(formData)
 
-  //   // send the image to the server
-  //   axios.post("api/image/", formData)
-  //     // Add function to say that the image has been successfully saved
-  //     .then(response => {
-  //       // console.log(response)
-  //       if (response.status === 200) {
-  //         window.alert("Image saved!")
-  //       }
-  //     })
-  //     .catch(err => console.log(err))
-  // }
+    // send the image to the server
+    const url = "/api/image/" + props.username
+    axios.post(url, formData)
+      // Add function to say that the image has been successfully saved
+      .then(response => {
+        console.log(response)
+        if (response.status === 200) {
+          window.alert("Image saved!")
+          findSavedImage();
+        }
+      })
+      .catch(err => console.log(err))
+  }
 
   // prepare image to be sent to the server and to display to the user on upload
-  // const onFileChange = event => {
-  //    // FUTURE DEV: IMAGES
-  //   // setSelectedImage(event.target.files[0]);
-  //   // const fileUrl = URL.createObjectURL(event.target.files[0])
-  //   // setImageUrl(fileUrl)
-  // }
+  const onFileChange = event => {
+     // FUTURE DEV: IMAGES
+    setSelectedImage(event.target.files[0]);
+    const fileUrl = URL.createObjectURL(event.target.files[0])
+    setImageURL(fileUrl)
+  }
 
   const checkEvent = event => {
     const data = document.getElementById("editForm").serialize();
@@ -103,9 +145,9 @@ const Editme = (props) => {
         <Container id="formcont">
           <Row id="picrow">
             <Col xs={12} sm={6}>
-              {/* <img id="profilepic" src="/assets/images/placeholder.png" alt="placeholder profile pic" /> */}
-              {/* <Button id="uploadbut" variant="outline-dark">select...</Button> */}
-              {/* {showImage()} */}
+              <img id="profilepic" src={imageURL} alt="placeholder profile pic" />
+              {/* <Button id="uploadbut" variant="outline-dark">Upload image...</Button> */}
+              {showImage()}
               {/* <Form.Group controlId="photo">
                 <Form.Label>Upload image</Form.Label>
                 <Form.File
@@ -116,11 +158,11 @@ const Editme = (props) => {
                   accept="image/*"
                 ></Form.File>
               </Form.Group> */}
-              {/* <form>
+              <form>
                 <label htmlFor="file">Upload image</label>
                 <input type="file" id="file" onChange={onFileChange} name="file" accept="image/*" />
                 <button onClick={handleImageSubmit}>Save Photo</button>
-              </form> */}
+              </form>
             </Col>
             <Col className="formcol" xs={12} sm={6}>
               {/* Don't allow to change username */}

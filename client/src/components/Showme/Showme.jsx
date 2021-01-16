@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -6,12 +6,52 @@ import Button from "react-bootstrap/Button";
 import "./Showme.css";
 
 const Showme = (props) => {
+
+  const [imageURL, setImageURL] = useState();
+
+  const arrayBufferToBase64 = (buffer) => {
+    var binary = '';
+    var bytes = [].slice.call(new Uint8Array(buffer));
+    bytes.forEach((b) => binary += String.fromCharCode(b));
+    return window.btoa(binary);
+  };
+
+  useEffect(() => {
+    console.log(props)
+    // change image id to the user id of the profile in question, current id of object is a placeholder
+    if (props.username !== "") {
+
+      const url = "/api/image/" + props.username;
+      console.log(url);
+      console.log(url);
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          console.log(data.img)
+          // only run if there's an image associated with username
+          if (data.img !== undefined) {
+            console.log("image here")
+            var base64Flag = 'data:image/jpeg;base64,'
+            var imageStr = arrayBufferToBase64(data.img.data.data);
+            setImageURL(base64Flag + imageStr)
+          } else {
+            console.log("NO IMAGE HERE")
+            setImageURL("/assets/images/placeholder.png")
+          }
+        })
+    }
+  }, [])
+
   console.log(props)
+  if (imageURL !== undefined){
+
+  
   return (
     <><Container>
       <Row>
         <Col xs={12} sm={6}>
-          <img id="profilepic" src={props.imageURL || "/assets/images/placeholder.png"} alt={`${props.info.firstname} ${props.info.lastname}'s profile`} />
+          <img id="profilepic" src={imageURL} alt={`${props.info.firstname} ${props.info.lastname}'s profile`} />
         </Col>
         <Col xs={12} sm={6}>
           <h2 className="header2">{props.info.firstname || "firstname"} {props.info.lastname || "lastname"}</h2>
@@ -36,6 +76,11 @@ const Showme = (props) => {
 
     </>
   )
+} else {
+  return (
+    <div>Loading</div>
+  )
+}
 }
 
 export default Showme;
