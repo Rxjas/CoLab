@@ -117,5 +117,14 @@ router.route('/matches/:id')
         res.json({ success: false })
       })
   });
+
+  router.route("/msg/:id")
+    .put((req, res) => {
+      User.findOneAndUpdate({ username: req.params.id }, { $push: { chats: req.body.chatInfo }})
+        .then(data => {
+          res.json({ success: true })
+        })
+        .catch(err => console.log(err))
+    })
 //export the module
 module.exports = router;

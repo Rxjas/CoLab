@@ -88,9 +88,14 @@ const userSchema = new Schema({
     matches:[],
 
     //TO BE CONTINUED
+    // chats: [{
+    //     involvedUUIDs: { type: Array },
+    //     channelIDs: { type: String }
+    // }],
+
     chats: [{
-        involvedUUIDs: { type: Array },
-        channelIDs: { type: String }
+        channelID: {type: String},
+        user: {type: String}
     }],
 
 },
