@@ -4,4 +4,4 @@ The brand new way to connect like-minded individuals who are looking to collabor
 # Authors
 This app was authored by Kay Murray, Abby Frandsen, Christopher Rojas, Tony Rivas
 
-# Licens
+# License
