@@ -33,7 +33,7 @@ let userSeed = [
     lookingfor: "A cool calm singer for covers",
     chats: [
       {
-        involvedUUIDs: "DanaStoreSuper",
+        user: "DanaStoreSuper",
         channelID: "chats.DanaStoreSuperexampleUserNames"
       }
     ]
@@ -61,11 +61,11 @@ let userSeed = [
     lookingfor: "A cool calm pianist for covers",
     chats: [
       {
-        involvedUUIDs: "exampleUserNames",
+        user: "exampleUserNames",
         channelID: "chats.DanaStoreSuperexampleUserNames"
       },
       {
-        involvedUUIDs: "TomNookConfirmed",
+        user: "TomNookConfirmed",
         channelID: "chats.DanaStoreSuperTomNookConfirmed"
       }
     ]
@@ -93,11 +93,11 @@ let userSeed = [
     lookingfor: "Bells I need and crave bells.",
     chats: [
       {
-        involvedUUIDs: "RealScreamer",
+        user: "RealScreamer",
         channelID: "chats.RealScreamerTomNookConfirmed"
       },
       {
-        involvedUUIDs: "DanaStoreSuper",
+        user: "DanaStoreSuper",
         channelID: "chats.DanaStoreSuperTomNookConfirmed"
       }
     ]
@@ -125,11 +125,11 @@ let userSeed = [
     lookingfor: "I need more loud people for a loud band",
     chats: [
       {
-        involvedUUIDs: "TomNookConfirmed",
+        user: "TomNookConfirmed",
         channelID: "chats.RealScreamerTomNookConfirmed"
       },
       {
-        involvedUUIDs: "RoboT3",
+        user: "RoboT3",
         channelID: "chats.RealScreamerRoboT3"
       }
     ]
@@ -157,11 +157,11 @@ let userSeed = [
     lookingfor: "World domination",
     chats: [
       {
-        involvedUUIDs: "RealScreamer",
+        user: "RealScreamer",
         channelID: "chats.RealScreamerRoboT3"
       },
       {
-        involvedUUIDs: "JBravo",
+        user: "JBravo",
         channelID: "chats.JBravoRoboT3"
       }
     ]
@@ -189,11 +189,11 @@ let userSeed = [
     lookingfor: "New Rock Band",
     chats: [
       {
-        involvedUUIDs: "RoboT3",
+        user: "RoboT3",
         channelID: "chats.JBravoRoboT3"
       },
       {
-        involvedUUIDs: "FreshToast",
+        user: "FreshToast",
         channelID: "chats.FreshToastJBravo"
       }
     ]
@@ -221,11 +221,11 @@ let userSeed = [
     lookingfor: "A jam session partner",
     chats: [
       {
-        involvedUUIDs: "JBravo",
+        user: "JBravo",
         channelID: "chats.FreshToastJBravo"
       },
       {
-        involvedUUIDs: "ultimatepianist",
+        user: "ultimatepianist",
         channelID: "chats.FreshToastultimatepianist"
       }
     ]
@@ -253,11 +253,11 @@ let userSeed = [
     lookingfor: "A singer for covers.",
     chats: [
       {
-        involvedUUIDs: "FreshToast",
+        user: "FreshToast",
         channelID: "chats.FreshToastultimatepianist"
       },
       {
-        involvedUUIDs: "QuickTapper",
+        user: "QuickTapper",
         channelID: "chats.QuickTapperultimatepianist"
       }
     ]
@@ -285,11 +285,11 @@ let userSeed = [
     lookingfor: "A violin instructor",
     chats: [
       {
-        involvedUUIDs: "ultimatepianist",
+        user: "ultimatepianist",
         channelID: "chats.QuickTapperultimatepianist"
       },
       {
-        involvedUUIDs: "WalmartDrummer",
+        user: "WalmartDrummer",
         channelID: "chats.QuickTapperWalmartDrummer"
       }
     ]
@@ -317,7 +317,7 @@ let userSeed = [
     lookingfor: "3 person music group",
     chats: [
       {
-        involvedUUIDs: "QuickTapper",
+        user: "QuickTapper",
         channelID: "chats.QuickTapperWalmartDrummer"
       }
     ]
