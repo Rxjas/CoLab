@@ -235,12 +235,12 @@ const Editme = (props) => {
               </Form.Group>
               <Form.Group controlId="roles">
                 <Form.Label>roles</Form.Label>
-                <Form.Check name="vocalist" type="checkbox" id="vocalist" label="vocalist" />
-                <Form.Check name="guitarist" type="checkbox" id="guitarist" label="guitarist" />
-                <Form.Check name="pianist" type="checkbox" id="pianist" label="pianist" />
-                <Form.Check name="bassist" type="checkbox" id="bassist" label="bassist" />
-                <Form.Check name="saxophonist" type="checkbox" id="saxophonist" label="saxophonist" />
-                <Form.Check name="percussionist" type="checkbox" id="percussionist" label="percussionist" />
+                <Form.Check name="vocalist" type="checkbox" id="vocalist" label="vocalist" checked={props.info.roles.includes("vocalist")}/>
+                <Form.Check name="guitarist" type="checkbox" id="guitarist" label="guitarist" checked={props.info.roles.includes("guitarist")}/>
+                <Form.Check name="pianist" type="checkbox" id="pianist" label="pianist" checked={props.info.roles.includes("pianist")} />
+                <Form.Check name="bassist" type="checkbox" id="bassist" label="bassist" checked={props.info.roles.includes("bassist")} />
+                <Form.Check name="saxophonist" type="checkbox" id="saxophonist" label="saxophonist" checked={props.info.roles.includes("saxophonist")} />
+                <Form.Check name="percussionist" type="checkbox" id="percussionist" label="percussionist" checked={props.info.roles.includes("percussionist")} />
               </Form.Group>
             </Col>
             <Col className="formcol" xs={12} sm={6}>
