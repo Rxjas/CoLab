@@ -57,7 +57,9 @@ const Grid = () => {
         <div className="container">
           <Navbar loggedIn={isLoggedIn} />
           <div className="row">
-            <Sidebar runParam={(param) => runParam(param)} />
+            <div className="col">
+              <Sidebar runParam={(param) => runParam(param)} />
+            </div>
           </div>
           <div className="row">
             <CardDeck>

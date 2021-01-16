@@ -90,6 +90,7 @@ const PersonalCard = (props) => {
         {showMatchBtn && (<Button
           onClick={startConvo}
           className="pcFont"
+          variant="outline-dark"
         >conversate</Button>)}
         {/* {showConvBtn && showConvBtn2 && (<Button 
           onClick={startConvo}
