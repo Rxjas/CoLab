@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+// import Container from "react-bootstrap/Container";
+// import Row from "react-bootstrap/Row";
+// import Col from "react-bootstrap/Col";
 // set sizing for columns like so:
 // example: col is 12 wide on xs screens, 6 wide on small and larger
 // <Col xs={12} sm={6}></Col>
@@ -33,7 +33,7 @@ const Grid = () => {
     fetch('/api/user/')
       .then(response => response.json())
       .then(data => {
-            setUsers(data.data)
+        setUsers(data.data)
       })
   }, [])
 
@@ -42,7 +42,6 @@ const Grid = () => {
     fetch(`/api/user/search/${param}`)
       .then(response => response.json())
       .then(data => {
-        console.log(data)
         setUsers(data)
       })
   }
@@ -55,21 +54,31 @@ const Grid = () => {
 
     return (
       <>
-        <Navbar loggedIn={isLoggedIn}/>
-        <Sidebar runParam={(param) => runParam(param)}/>
-        <CardDeck>
-          {/* need to pass through search terms and loop over results */}
-          {users.map(user => {
-            return <PersonalCard
-              currentUser={username}
-              username={user.username}
-              roles={user.roles}
-              pronouns={user.pronouns} 
-              lookingfor={user.lookingfor}
-              chats={user.chats}
-            />
-          })}
-        </CardDeck>
+        <div className="container">
+          <Navbar loggedIn={isLoggedIn} />
+          <div className="row">
+            <Sidebar runParam={(param) => runParam(param)} />
+          </div>
+          <div className="row">
+            <CardDeck>
+              {/* need to pass through search terms and loop over results */}
+              {users.map(user => {
+                return (
+                  <div className="col-12 col-lg-6 mt-3 mb-3">
+                    <PersonalCard
+                      currentUser={username}
+                      username={user.username}
+                      roles={user.roles}
+                      pronouns={user.pronouns}
+                      lookingfor={user.lookingfor}
+                      chats={user.chats}
+                    />
+                  </div>
+                )
+              })}
+            </CardDeck>
+          </div>
+        </div>
       </>
     );
   } else {
