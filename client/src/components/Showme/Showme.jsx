@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import "./Showme.css";
 
 const Showme = (props) => {
+  console.log(props)
   return (
     <><Container>
       <Row>

@@ -45,11 +45,13 @@ router.get('/allow', checkAuthentication, function (req, res) {
     userLoggedIn: usernameSent
   })
 });
+
 function checkAuthentication(req, res, next) {
   if (req.isAuthenticated()) {
     //req.isAuthenticated() will return true if user is logged in
     next();
   } else {
+    console.log("is the nope/")
     res.json({ allowed: "nope" })
   }
 }

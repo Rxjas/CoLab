@@ -10,53 +10,59 @@ import axios from 'axios';
 
 const Editme = (props) => {
 
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [imageUrl, setImageUrl] = useState(props.imageURL || null);
+  // FUTURE DEV: IMAGES
+  // const [selectedImage, setSelectedImage] = useState(null);
+  // const [imageUrl, setImageUrl] = useState(props.imageURL || null);
   
-  const showImage = () => {
-    // add useEffect hook (componentDidMount equivalent) to check DB if there is an image already
-    if (selectedImage === null) {
-      return (
-        <img src="/assets/images/placeholder.png" id="profilepic" alt="placeholder profile pic" />
-      )
-    } else {
-      return <img id="profilepic" src={imageUrl} alt="selected profile pic" />;
-    }
-  }
+  console.log(props);
 
-  const handleImageSubmit = (event) => {
-    event.preventDefault();
+   // FUTURE DEV: IMAGES
+  // const showImage = () => {
+  //   // add useEffect hook (componentDidMount equivalent) to check DB if there is an image already
+  //   if (selectedImage === null) {
+  //     return (
+  //       <img src="/assets/images/placeholder.png" id="profilepic" alt="placeholder profile pic" />
+  //     )
+  //   } else {
+  //     return <img id="profilepic" src={imageUrl} alt="selected profile pic" />;
+  //   }
+  // }
 
-    const formData = new FormData();
+   // FUTURE DEV: IMAGES
+  // const handleImageSubmit = (event) => {
+  //   event.preventDefault();
 
-    formData.append(
-      "file",
-      selectedImage,
-      selectedImage.name
-      // add user id from global context
-    )
+  //   const formData = new FormData();
 
-    // send the image to the server
-    axios.post("api/image/", formData)
-      // Add function to say that the image has been successfully saved
-      .then(response => {
-        // console.log(response)
-        if (response.status === 200) {
-          window.alert("Image saved!")
-        }
-      })
-      .catch(err => console.log(err))
-  }
+  //   formData.append(
+  //     "file",
+  //     selectedImage,
+  //     selectedImage.name
+  //     // add user id from global context
+  //   )
+
+  //   // send the image to the server
+  //   axios.post("api/image/", formData)
+  //     // Add function to say that the image has been successfully saved
+  //     .then(response => {
+  //       // console.log(response)
+  //       if (response.status === 200) {
+  //         window.alert("Image saved!")
+  //       }
+  //     })
+  //     .catch(err => console.log(err))
+  // }
 
   // prepare image to be sent to the server and to display to the user on upload
-  const onFileChange = event => {
-    setSelectedImage(event.target.files[0]);
-    const fileUrl = URL.createObjectURL(event.target.files[0])
-    setImageUrl(fileUrl)
-  }
+  // const onFileChange = event => {
+  //    // FUTURE DEV: IMAGES
+  //   // setSelectedImage(event.target.files[0]);
+  //   // const fileUrl = URL.createObjectURL(event.target.files[0])
+  //   // setImageUrl(fileUrl)
+  // }
 
   const submitForm = event => {
-    handleImageSubmit(event);
+    // handleImageSubmit(event);
     const formBulk = event.target.elements;
     const formData = {
       roles: []
@@ -92,8 +98,8 @@ const Editme = (props) => {
             <Col xs={12} sm={6}>
               {/* <img id="profilepic" src="/assets/images/placeholder.png" alt="placeholder profile pic" /> */}
               {/* <Button id="uploadbut" variant="outline-dark">select...</Button> */}
-              {showImage()}
-              <Form.Group controlId="photo">
+              {/* {showImage()} */}
+              {/* <Form.Group controlId="photo">
                 <Form.Label>Upload image</Form.Label>
                 <Form.File
                   required
@@ -102,7 +108,7 @@ const Editme = (props) => {
                   name="file"
                   accept="image/*"
                 ></Form.File>
-              </Form.Group>
+              </Form.Group> */}
               {/* <form>
                 <label htmlFor="file">Upload image</label>
                 <input type="file" id="file" onChange={onFileChange} name="file" accept="image/*" />
@@ -110,7 +116,8 @@ const Editme = (props) => {
               </form> */}
             </Col>
             <Col className="formcol" xs={12} sm={6}>
-              <Form.Group controlId="username">
+              {/* Don't allow to change username */}
+              {/* <Form.Group controlId="username">
                 <Form.Label>username</Form.Label>
                 <Form.Control
                   required
@@ -120,7 +127,7 @@ const Editme = (props) => {
                   placeholder="please enter username"
                   defaultValue={props.username}
                 />
-              </Form.Group>
+              </Form.Group> */}
               <Form.Group controlId="firstname">
                 <Form.Label>first name</Form.Label>
                 <Form.Control
