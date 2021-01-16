@@ -34,10 +34,12 @@ router.route('/')
 router.route('/:id')
   //get specific user
   .get((req, res) => {
+    console.log("INSIDE USER ROUTE")
     User.find({ username: req.params.id })
 
       .then((data) => {
         console.log(data)
+        console.log(res.header)
         res.json({ success: true, message: data })
       })
 
@@ -78,6 +80,7 @@ router.route('/matches/:id')
 
   // get request to get matches for a specific user
   .get((req, res) => {
+    console.log("INSIDE MATCHES ROUTE")
     User.find({ username: req.params.id }).exec()
 
         .then(data => {
@@ -89,6 +92,7 @@ router.route('/matches/:id')
             User.find({ username: matchesData })
                 .then(data => {
                     console.log('here are all the users matched' + data);
+                    console.log(res.header())
                     res.json({ success: true, message: data })
                 })
                 .catch(err => {

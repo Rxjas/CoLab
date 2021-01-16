@@ -60,10 +60,10 @@ const Profile = (props) => {
         // fetch(`/api/user/matches/${username}`)
         .then((response) => {
           console.log(response)
-          response.json()})
+          return response.text()})
         .then(data => {
           console.log(data)
-          setMatches(data);
+          setMatches(data.messages);
         })
     }
   }, [isLoggedIn, username])
@@ -81,13 +81,13 @@ const Profile = (props) => {
       fetch(`/api/user/${username}`)
       .then(response => {
         console.log(response)
-        response.json()
+        return response.text()
     })
       .then(data => {
         // console.log('/api/user/:username route')
         console.log(data)
-        console.log(data.data[0])
-        setUserData(data.data[0])
+        console.log(data.message[0])
+        setUserData(data.message[0])
       })
     }
   }, [matches, username])
