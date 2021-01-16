@@ -85,7 +85,7 @@ class Messages extends Component {
   render() {
     return (
       <>
-      <button onClick={this.showState}>Show state</button>
+      {/* <button onClick={this.showState}>Show state</button> */}
         <Jumbotron id="messjum">
           <div>
             <h3>open your chat with...</h3>
