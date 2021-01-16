@@ -2,10 +2,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Redirect } from 'react-router-dom';
-// import { response } from "express";
 // import "./Login.css";
-
-// add request to /api/login on submit
 
 const Login = (props) => {
 
@@ -38,9 +35,7 @@ const Login = (props) => {
       body: JSON.stringify(userData)
     })
       .then((response) => {
-        console.log(response)
         if (response.status === 200){
-          console.log("RIGHT STATUS")
           setRedirect('/profile')
         }
         if (response.status === 401){
@@ -50,7 +45,6 @@ const Login = (props) => {
   }
 
   const sendUsername = () => {
-    console.log(usernameState)
     props.handleUsername(usernameState)
   }
 

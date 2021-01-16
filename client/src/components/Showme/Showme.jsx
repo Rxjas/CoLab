@@ -7,7 +7,6 @@ import "./Showme.css";
 
 const Showme = (props) => {
 
-
   const [imageURL, setImageURL] = useState();
 
   const arrayBufferToBase64 = (buffer) => {
@@ -18,67 +17,58 @@ const Showme = (props) => {
   };
 
   useEffect(() => {
-    console.log(props)
-    // change image id to the user id of the profile in question, current id of object is a placeholder
+
     if (props.username !== "") {
 
       const url = "/api/image/" + props.username;
-      console.log(url);
-      console.log(url);
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
-          console.log(data.img)
           // only run if there's an image associated with username
           if (data.img !== undefined) {
-            console.log("image here")
             var base64Flag = 'data:image/jpeg;base64,'
             var imageStr = arrayBufferToBase64(data.img.data.data);
             setImageURL(base64Flag + imageStr)
           } else {
-            console.log("NO IMAGE HERE")
             setImageURL("/assets/images/placeholder.png")
           }
         })
     }
   }, [])
 
-  console.log(props)
-  if (imageURL !== undefined){
-  
-  return (
-    <><Container>
-      <Row>
-        <Col xs={12} sm={6}>
-          <img id="profilepic" src={imageURL} alt={`${props.info.firstname} ${props.info.lastname}'s profile`} />
-        </Col>
-        <Col xs={12} sm={6}>
-          <h2 className="header2">{props.info.firstname || "firstname"} {props.info.lastname || "lastname"}</h2>
-          <p className="details paragraph">{props.info.pronouns || "they/them"}, {props.info.age || 18}</p>
-          <h5 className="header5">{props.username || "username"}</h5>
-          <h5 className="header5">{props.info.email || "email@example.com"}</h5>
-          <h5 className="header5 title">Roles</h5>
-          {props.info.roles.map(role => <p className="paragraph">{role}</p>)}
-          <h5 className="header5 title">Bio</h5>
-          <p className="paragraph">{props.info.bio || "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius pariatur architecto saepe ab? Veritatis quam ut vitae nobis, suscipit aut quia molestias voluptatem reiciendis aperiam minima delectus quis, similique architecto!"}</p>
-          <h5 className="header5 title">Looking for...</h5>
-          <p className="paragraph">{props.info.lookingfor || "someone to play the best song in the world"}</p>
-          <Button
-            variant="outline-dark"
-            onClick={props.btnclick}
-          >edit</Button>
-        </Col>
-      </Row>
-    </Container>
+  if (imageURL !== undefined) {
+    return (
+      <><Container>
+        <Row>
+          <Col xs={12} sm={6}>
+            <img id="profilepic" src={imageURL} alt={`${props.info.firstname} ${props.info.lastname}'s profile`} />
+          </Col>
+          <Col xs={12} sm={6}>
+            <h2 className="header2">{props.info.firstname || "firstname"} {props.info.lastname || "lastname"}</h2>
+            <p className="details paragraph">{props.info.pronouns || "they/them"}, {props.info.age || 18}</p>
+            <h5 className="header5">{props.username || "username"}</h5>
+            <h5 className="header5">{props.info.email || "email@example.com"}</h5>
+            <h5 className="header5 title">Roles</h5>
+            {props.info.roles.map(role => <p className="paragraph">{role}</p>)}
+            <h5 className="header5 title">Bio</h5>
+            <p className="paragraph">{props.info.bio || "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius pariatur architecto saepe ab? Veritatis quam ut vitae nobis, suscipit aut quia molestias voluptatem reiciendis aperiam minima delectus quis, similique architecto!"}</p>
+            <h5 className="header5 title">Looking for...</h5>
+            <p className="paragraph">{props.info.lookingfor || "someone to play the best song in the world"}</p>
+            <Button
+              variant="outline-dark"
+              onClick={props.btnclick}
+            >edit</Button>
+          </Col>
+        </Row>
+      </Container>
 
-    </>
-  )
-} else {
-  return (
-    <div>Loading</div>
-  )
-}
+      </>
+    )
+  } else {
+    return (
+      <div>Loading</div>
+    )
+  }
 }
 
 export default Showme;

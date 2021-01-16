@@ -26,3 +26,7 @@
 #sendMess:active {
   border-color: black;
 }
+
+#defaultMsg {
+  color: #3a827f;
+}

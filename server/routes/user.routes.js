@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { request } = require('express');
 const { User } = require('../models');
 
 //Restful API Time Full Routes are commented above routers.
@@ -20,7 +19,6 @@ router.route('/')
   .post((req, res) => {
     User.create(req.body)
       .then(newUser => {
-        console.log(newUser);
         res.json({ success: true })
       })
       .catch((err) => {
@@ -39,34 +37,23 @@ router.route('/search/:criteria')
       .catch(err => console.log(err))
   })
 
-  router.route("/msg")
-    .put((req, res) => {
-      console.log("inside msg route")
-      console.log(req.body)
-      // console.log(req.body.chatInfo)
-      User.findOneAndUpdate({ username: req.body.user1 }, { $push: { chats: {channelID: req.body.channelID, user: req.body.user2} }})
-        .then(data => {
-          res.json({ success: true, data })
-          // User.findOneAndUpdate({ username: req.body.user2 }, { $push: { chats: {channelID: req.body.channelID, user: req.body.user1} }})
-          // .then((data) => res.json({ success: true, data: data }))
-          // .catch(err => console.log(err))
-        })
-        .catch(err => console.log(err))
-    })
+router.route("/msg")
+  .put((req, res) => {
+    User.findOneAndUpdate({ username: req.body.user1 }, { $push: { chats: { channelID: req.body.channelID, user: req.body.user2 } } })
+      .then(data => {
+        res.json({ success: true, data })
+      })
+      .catch(err => console.log(err))
+  })
 
 // api/user/:id   This path is used so you can search by username not the object ID
 router.route('/:id')
   //get specific user
   .get((req, res) => {
-    console.log("INSIDE USER ROUTE")
     User.find({ username: req.params.id })
-
       .then((data) => {
-        console.log(data)
         res.json({ success: true, message: data })
-      })
-
-      .catch(err => {
+      }).catch(err => {
         console.log(err)
         res.json({ success: false })
       })
@@ -103,38 +90,34 @@ router.route('/matches/:id')
 
   // get request to get matches for a specific user
   .get((req, res) => {
-    console.log("INSIDE MATCHES ROUTE")
     User.find({ username: req.params.id }).exec()
 
-        .then(data => {
-          console.log(data)
-            // putting array we got from user into variable to make a second query
-            var matchesData = data[0].matches;
+      .then(data => {
+        // putting array we got from user into variable to make a second query
+        var matchesData = data[0].matches;
 
-            //making a second query to find the users from the array of the matches from the user
-            User.find({ username: matchesData })
-                .then(data => {
-                    console.log('here are all the users matched' + data);
-                    res.json({ success: true, message: data })
-                })
-                .catch(err => {
-                    console.log(err)
-                    res.json({ success: false });
-                });
-        })
-        // a catch for the first query
-        .catch(err => {
-            console.log(err);
-            res.json({ success: false })
-        });
-})
+        //making a second query to find the users from the array of the matches from the user
+        User.find({ username: matchesData })
+          .then(data => {
+            res.json({ success: true, message: data })
+          })
+          .catch(err => {
+            console.log(err)
+            res.json({ success: false });
+          });
+      })
+      // a catch for the first query
+      .catch(err => {
+        console.log(err);
+        res.json({ success: false })
+      });
+  })
 
 
   // put request to add matches to array
   .put((req, res) => {
     User.findOneAndUpdate({ username: req.params.id }, { $push: { matches: req.body.matches } })
       .then(data => {
-        console.log(data)
         res.json({ success: true })
 
       })
@@ -144,6 +127,6 @@ router.route('/matches/:id')
       })
   });
 
-  
+
 //export the module
 module.exports = router;

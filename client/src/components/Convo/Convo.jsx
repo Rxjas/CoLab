@@ -18,11 +18,9 @@ class Convo extends Component {
   }
 
   componentDidUpdate() {
-    console.log("did it update on submit")
     if (this.props.renderConvo !== this.state.renderConvo || this.state.needToRender === true) {
 
       if (this.props.renderConvo !== "") {
-        console.log("working")
         this.findMessageHistory();
         let chatWindow = document.getElementById("chatWindow");
         let observer = new MutationObserver(scrollToBottom);
@@ -46,7 +44,6 @@ class Convo extends Component {
       },
       (status, response) => {
         // Received MESSAGE HISTORY
-        console.log(status, response)
         this.setState({ messageHistory: response.messages })
 
         // Stop infinite loop
@@ -62,29 +59,21 @@ class Convo extends Component {
 
   handleMessageClick = (event) => {
     event.preventDefault();
-    // change to username DanaStoreSuper for development
-    // const username = "DanaStoreSuper"
     const username = this.props.username
     if (this.state.messageInput !== "") {
-
-
       this.props.pubState.publish(
         {
           channel: this.props.renderConvo,
           message: {
             text: this.state.messageInput,
-            // to be obtained from global store
             user: username
           }
         },
         (status, response) => {
-          console.log(status);
-          console.log(response)
           const currentState = this.state.messageHistory;
           currentState.push({
             entry: {
               text: this.state.messageInput,
-              // to be obtained from global store
               user: username
             },
             timetoken: parseInt(response.timetoken)
@@ -101,20 +90,16 @@ class Convo extends Component {
 
     if (this.props.renderConvo === "") {
       return (
-        <p>Please click a conversation to render.</p>
+        <p id="defaultMsg">Please click a conversation to render.</p>
       )
     } else {
       return (
         <div>
-          {/* dev team: click a convo to render and then click the following button to see the component send a message in the console */}
-          {/* <h2>Conversation with {}</h2> */}
           <div id="chatWindow" className="container-fluid">
             {/* Map over history in state to render conversation to user */}
             {this.state.messageHistory.map((messageObj) => {
               const divideNano = messageObj.timetoken / 10000;
               const roundNano = Math.ceil(divideNano)
-              // const humanTime = moment.utc(roundNano).local();
-              // const humanString = humanTime._d.toString();
 
               const date = new Date(roundNano);
               const options = {
@@ -124,7 +109,6 @@ class Convo extends Component {
                 minute: "2-digit"
               }
               const formattedTimestamp = date.toLocaleString('en-US', options);
-              // console.log(formattedTimestamp);
               return (
                   <ChatBubble text={messageObj.entry.text}
                     sentByUser={messageObj.entry.user}
@@ -134,11 +118,6 @@ class Convo extends Component {
               )
             })}
           </div>
-
-          {/* <form >
-            <input type="text" id="messageInput" name="messageInput" onChange={this.handleMessageInput} />
-            <button id="sendMess" onClick={this.handleMessageClick}>Send</button>
-          </form> */}
           <InputGroup className="mt-2 justify-content-end">
             <FormControl
               className="col-6"
@@ -155,7 +134,6 @@ class Convo extends Component {
               >send</Button>
             </InputGroup.Append>
           </InputGroup>
-
         </div>
       )
     }

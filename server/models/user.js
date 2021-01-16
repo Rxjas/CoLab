@@ -87,12 +87,6 @@ const userSchema = new Schema({
     //matches array to push usernames of people matched with
     matches:[],
 
-    //TO BE CONTINUED
-    // chats: [{
-    //     involvedUUIDs: { type: Array },
-    //     channelIDs: { type: String }
-    // }],
-
     chats: [{
         channelID: {type: String},
         user: {type: String}
@@ -100,7 +94,6 @@ const userSchema = new Schema({
 
 },
     {
-
         //json magic
         toObject: {
             virtuals: true
