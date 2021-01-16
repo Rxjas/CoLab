@@ -58,9 +58,11 @@ const Profile = (props) => {
 
       fetch(`/api/user/matches/${userNameProp}`)
         // fetch(`/api/user/matches/${username}`)
-        .then((response) => response.json())
+        .then((response) => {
+          console.log(response)
+          response.json()})
         .then(data => {
-          // console.log(data)
+          console.log(data)
           setMatches(data);
         })
     }
@@ -77,9 +79,13 @@ const Profile = (props) => {
       // wait until the matches are set, trigger by matches
       // userData
       fetch(`/api/user/${username}`)
-      .then(response => response.json())
+      .then(response => {
+        console.log(response)
+        response.json()
+    })
       .then(data => {
         // console.log('/api/user/:username route')
+        console.log(data)
         console.log(data.data[0])
         setUserData(data.data[0])
       })
