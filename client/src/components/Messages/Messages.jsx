@@ -16,7 +16,8 @@ class Messages extends Component {
       channels: [],
       pubState: {},
       channelsToSubscribeTo: [],
-      renderConvo: ""
+      renderConvo: "",
+      receivedMessages: []
     }
   }
 
@@ -38,9 +39,14 @@ class Messages extends Component {
       })
       .then(() => {
         this.state.pubState.addListener({
-          message: function (m) {
+          message: (m) => {
             console.log(m)
             console.log(m.channel)
+            console.log(this.state.receivedMessages);
+            const messageReceived = this.state.receivedMessages;
+            messageReceived.push(m)
+            this.setState({ receivedMessages: messageReceived})
+            console.log('AFTER')
           }
         })
       })
@@ -62,7 +68,8 @@ class Messages extends Component {
       },
       function (status, response) {
         console.log(status);
-        console.log(response)
+        console.log(response);
+
       }
     )
   }
@@ -71,9 +78,14 @@ class Messages extends Component {
     this.setState({ renderConvo: childData })
   }
 
+  showState = () => {
+    console.log(this.state.receivedMessages)
+  }
+
   render() {
     return (
       <>
+      <button onClick={this.showState}>Show state</button>
         <Jumbotron id="messjum">
           <div>
             <h3>open your chat with...</h3>
@@ -85,13 +97,14 @@ class Messages extends Component {
                       forChannelId={channel.channelID}
                       withUsers={channel.user}
                       handleRenderClick={this.handleRenderClick}
+   
                     />
                   </div>
                 )
               })}
             </div>
 
-            <Convo pubState={this.state.pubState} renderConvo={this.state.renderConvo} username={this.props.username} />
+            <Convo receivedMessages={this.state.receivedMessages} pubState={this.state.pubState} renderConvo={this.state.renderConvo} username={this.props.username} />
 
           </div>
         </Jumbotron>

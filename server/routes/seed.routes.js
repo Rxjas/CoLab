@@ -2,16 +2,40 @@ const router = require('express').Router();
 const { User } = require('../models');
 var imgModel = require('./../models/image');
 
-router
-    .route('/example1')
-    .get((req, res) => {
 
-        const filter = { username: 'shanna' }
+router
+.route('/help')
+.get((req, res) => {
+
+    const filter = { username: "shanna" }
+    const update = {
+        $push: {
+            chats: {
+                user: "email5",
+                channelID: "chats.shannaemail5"
+            }
+        }
+    }
+    User
+        .findOneAndUpdate(filter, update)
+        .then(data => {
+            res.send(data)
+        }).catch(err => console.log(err))
+})
+
+
+
+router
+    .route('/:username')
+    .get((req, res) => {
+        const newchannelId = "chats.shanna" + req.params.username;
+
+        const filter = { username: req.params.username }
         const update = {
             $push: {
                 chats: {
-                    user: "email1",
-                    channelID: "chats.email1shanna"
+                    user: "shanna",
+                    channelID: newchannelId
                 }
             }
         }
@@ -21,6 +45,9 @@ router
                 res.send(data)
             }).catch(err => console.log(err))
     })
+
+
+
 
 router
     .route('/example2')

@@ -85,6 +85,18 @@ class Convo extends Component {
       event.target.parentNode.parentNode.firstChild.value = "";
     }
   }
+  showNewMessage = () => {
+    if (this.props.receivedMessages.length !== 0){
+      return (
+        <div>{this.props.receivedMessages[0].channel}</div>
+      )
+    }
+    // if (this.props.receivedMessages[0].channel === "chats.shannaemail5"){
+    //   return (
+    //     <div>Appeared!!</div>
+    //   )
+    // }
+  }
 
   render() {
 
@@ -95,6 +107,7 @@ class Convo extends Component {
     } else {
       return (
         <div>
+          {this.showNewMessage()}
           <div id="chatWindow" className="container-fluid">
             {/* Map over history in state to render conversation to user */}
             {this.state.messageHistory.map((messageObj) => {
