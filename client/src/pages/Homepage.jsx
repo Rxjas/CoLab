@@ -4,7 +4,6 @@ import Tab from 'react-bootstrap/Tab';
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
-import queryString from "query-string";
 import Navbar from "../components/Navbar";
 import "./styles/Homepage.css";
 
@@ -16,27 +15,12 @@ class Homepage extends Component {
     }
   }
 
-  componentWillMount() {
-    console.log(this.props)
-    var query = queryString.parse(this.props.location.search);
-    if (query.token) {
-      window.localStorage.setItem("jwt", query.token);
-      this.props.history.push("/");
-    }
-    console.log(this.props)
-  }
-
   handleUsername = (childData) => {
-    // event.preventDefault();
-    console.log(childData)
-    // this.setState({passingUsername: childData})
-    // this.props.handleUsername()
     this.setState({passingUsername: childData})
     this.sendUsernameToGrandpa(childData)
   }
 
   sendUsernameToGrandpa = (passData) => {
-    console.log(passData)
     this.props.sendGrandpa(passData)
   }
 

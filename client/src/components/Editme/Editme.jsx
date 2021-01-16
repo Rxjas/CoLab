@@ -10,11 +10,8 @@ import axios from 'axios';
 
 const Editme = (props) => {
 
-  // FUTURE DEV: IMAGES
   const [selectedImage, setSelectedImage] = useState(null);
   const [imageURL, setImageURL] = useState();
-  
-  console.log(props);
 
   const arrayBufferToBase64 = (buffer) => {
     var binary = '';
@@ -24,17 +21,12 @@ const Editme = (props) => {
   };
 
   const findSavedImage = () => {
-    console.log("IN SAVED IMAGE LAND")
     const url = "/api/image/" + props.username;
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        console.log(data.img)
-        console.log(data.message);
         // only run if there's an image associated with username
         if (data.img !== undefined) {
-          console.log(data.img.data.data)
           var base64Flag = 'data:image/jpeg;base64,'
           var imageStr = arrayBufferToBase64(data.img.data.data);
           setImageURL(base64Flag + imageStr)
@@ -45,31 +37,16 @@ const Editme = (props) => {
   }
 
   useEffect(() => {
-    console.log(props)
-    // change image id to the user id of the profile in question, current id of object is a placeholder
+
     if (props.username !== "") {
       findSavedImage();
     }
+
   }, [])
 
-
-
-   // FUTURE DEV: IMAGES
-  const showImage = () => {
-  //   // add useEffect hook (componentDidMount equivalent) to check DB if there is an image already
-    // if (selectedImage === null) {
-    //   return (
-    //     <img src="/assets/images/placeholder.png" id="profilepic" alt="placeholder profile pic" />
-    //   )
-    // } else {
-    //   return <img id="profilepic" src={this.imageUrl} alt="selected profile pic" />;
-    // }
-  }
-
-   // FUTURE DEV: IMAGES
+  // FUTURE DEV: IMAGES
   const handleImageSubmit = (event) => {
     event.preventDefault();
-    console.log("HERE")
 
     const formData = new FormData();
 
@@ -77,16 +54,13 @@ const Editme = (props) => {
       "file",
       selectedImage,
       selectedImage.name
-      // add user id from global context
     )
-    console.log(formData)
 
     // send the image to the server
     const url = "/api/image/" + props.username
     axios.post(url, formData)
       // Add function to say that the image has been successfully saved
       .then(response => {
-        console.log(response)
         if (response.status === 200) {
           window.alert("Image saved!")
           findSavedImage();
@@ -97,7 +71,6 @@ const Editme = (props) => {
 
   // prepare image to be sent to the server and to display to the user on upload
   const onFileChange = event => {
-     // FUTURE DEV: IMAGES
     setSelectedImage(event.target.files[0]);
     const fileUrl = URL.createObjectURL(event.target.files[0])
     setImageURL(fileUrl)
@@ -112,19 +85,16 @@ const Editme = (props) => {
     event.preventDefault();
     // handleImageSubmit(event);
     // document.body.appendChild(event.target);
-    // console.log(event.target);
     // const form = document.getElementById("editform");
     const data = new FormData(event.target);
     // for (var [key, value] of data.entries()) {
     //   console.log(key, value)
     // }
-    console.log(event.target.elements)
     const formBulk = event.target.elements;
     const formData = {
       roles: []
     };
     for (let i = 0; i < formBulk.length; i++) {
-      console.log(formBulk[i]);
       let element = formBulk[i];
       const key = element.name;
       if (element.type === "checkbox") {
@@ -140,7 +110,6 @@ const Editme = (props) => {
       }
     }
 
-    // // console.log(formData);
     axios.put(`/api/user/${props.username}`, formData)
 
     props.btnclick();
@@ -150,13 +119,12 @@ const Editme = (props) => {
   return (
     <>
       <Form id="editform" onSubmit={submitForm}>
-      {/* <Form id="editform" onSubmit={submitForm}> */}
+        {/* <Form id="editform" onSubmit={submitForm}> */}
         <Container id="formcont">
           <Row id="picrow">
             <Col xs={12} sm={6}>
               <img id="profilepic" src={imageURL} alt="placeholder profile pic" />
               {/* <Button id="uploadbut" variant="outline-dark">Upload image...</Button> */}
-              {showImage()}
               {/* <Form.Group controlId="photo">
                 <Form.Label>Upload image</Form.Label>
                 <Form.File
@@ -235,8 +203,8 @@ const Editme = (props) => {
               </Form.Group>
               <Form.Group controlId="roles">
                 <Form.Label>roles</Form.Label>
-                <Form.Check name="vocalist" type="checkbox" id="vocalist" label="vocalist" checked={props.info.roles.includes("vocalist")}/>
-                <Form.Check name="guitarist" type="checkbox" id="guitarist" label="guitarist" checked={props.info.roles.includes("guitarist")}/>
+                <Form.Check name="vocalist" type="checkbox" id="vocalist" label="vocalist" checked={props.info.roles.includes("vocalist")} />
+                <Form.Check name="guitarist" type="checkbox" id="guitarist" label="guitarist" checked={props.info.roles.includes("guitarist")} />
                 <Form.Check name="pianist" type="checkbox" id="pianist" label="pianist" checked={props.info.roles.includes("pianist")} />
                 <Form.Check name="violinist" type="checkbox" id="violinist" label="violinist" checked={props.info.roles.includes("violinist")} />
                 <Form.Check name="bassist" type="checkbox" id="bassist" label="bassist" checked={props.info.roles.includes("bassist")} />
@@ -286,7 +254,7 @@ const Editme = (props) => {
               <Button
                 variant="outline-dark"
                 type="submit"
-                // onClick={checkEvent}
+              // onClick={checkEvent}
               >save</Button>
             </Col>
           </Row>

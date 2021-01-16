@@ -15,11 +15,9 @@ router
                 }
             }
         }
-        console.log(filter)
         User
             .findOneAndUpdate(filter, update)
             .then(data => {
-                console.log(data)
                 res.send(data)
             }).catch(err => console.log(err))
     })
@@ -27,7 +25,6 @@ router
 router
     .route('/example2')
     .get((req, res) => {
-
         const filter = { username: "shanna" }
         const update = {
             $push: {
@@ -37,11 +34,9 @@ router
                 }
             }
         }
-        console.log(filter)
         User
             .findOneAndUpdate(filter, update)
             .then(data => {
-                console.log(data)
                 res.send(data)
             }).catch(err => console.log(err))
     })
@@ -59,11 +54,9 @@ router
                 }
             }
         }
-        console.log(filter)
         User
             .findOneAndUpdate(filter, update)
             .then(data => {
-                console.log(data)
                 res.send(data)
             }).catch(err => console.log(err))
     })
@@ -71,7 +64,6 @@ router
 router
     .route('/findImages')
     .get((req, res) => {
-        console.log("FINDING IMAGES DATABASE")
         imgModel
             .find({ username: "shanna" })
             .then(data => {

@@ -26,13 +26,6 @@ app.use(require('express-session')({
   saveUninitialized: false
 }));
 
-
-
-// app.use(passport.initialize()); // after (express.static)
-// require("./config/passport");
-
-
-
 // initialize passport
 app.use(passport.initialize());
 app.use(passport.session())
@@ -45,7 +38,6 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname, "../client/build/index.html"));
   });
 }
-
 
 app.listen(PORT, () => {
   console.log('app running on PORT: ' + PORT);

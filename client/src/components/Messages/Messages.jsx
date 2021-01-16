@@ -21,22 +21,15 @@ class Messages extends Component {
   }
 
   componentDidMount() {
-    // on component mount hook sends api request to get db info, maybe send api request to pubnub for each channel to see which have updated
-    // order in order of latest message
-    // change to username DanaStoreSuper for development
-    // const username = "DanaStoreSuper"
     const username = this.props.username
     fetch('/api/pubnub/' + username)
-      // normally, it would be sending a request using the user's username, but DanaStoreSuper is for development
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         const tempNub = new PubNub({
           publishKey: data.pubkey,
           subscribeKey: data.subkey,
           uuid: username
         })
-        console.log(tempNub)
         let subscribeTo = [];
         for (let i = 0; i < data.userinfo.length; i++) {
           subscribeTo.push(data.userinfo[i].channelID)
@@ -57,21 +50,13 @@ class Messages extends Component {
       })
   };
 
-  showState = () => {
-    console.log(this.props)
-  }
-
   sendPracMessage = () => {
-    // change to username DanaStoreSuper for development
-    // const username = "DanaStoreSuper"
     const username = this.props.username
-    console.log("button pushed")
     this.state.pubState.publish(
       {
         channel: this.state.renderConvo,
         message: {
           "text": "practice message",
-          // needs to be user key for history API
           "user": username
         }
       },
@@ -83,7 +68,6 @@ class Messages extends Component {
   }
 
   handleRenderClick = (childData) => {
-    // event.preventDefault();
     this.setState({ renderConvo: childData })
   }
 
@@ -92,9 +76,6 @@ class Messages extends Component {
       <>
         <Jumbotron id="messjum">
           <div>
-            {/* For  development purposes*/}
-            <button onClick={this.showState}>Console.log username</button>
-
             {this.state.channels.map(channel => {
               return (
                 <Channel
@@ -104,12 +85,7 @@ class Messages extends Component {
                 />
               )
             })}
-
-            {/* p tag symbolizing what conversation gets rendered */}
-            <p>{this.state.renderConvo}</p>
-
             <Convo pubState={this.state.pubState} renderConvo={this.state.renderConvo} username={this.props.username}/>
-
           </div>
         </Jumbotron>
       </>
