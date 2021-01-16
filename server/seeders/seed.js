@@ -334,3 +334,8 @@ db.User.deleteMany({})
     console.error(err);
     process.exit(1);
   });
+
+db.Image.deleteMany({})
+  .then(() => {
+    console.log("deleted")
+  })

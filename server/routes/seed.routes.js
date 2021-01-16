@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../models');
+var imgModel = require('./../models/image');
 
 router
     .route('/example1')
@@ -65,6 +66,17 @@ router
                 console.log(data)
                 res.send(data)
             }).catch(err => console.log(err))
+    })
+
+router
+    .route('/findImages')
+    .get((req, res) => {
+        console.log("FINDING IMAGES DATABASE")
+        imgModel
+            .find({ username: "shanna" })
+            .then(data => {
+                res.send(data)
+            })
     })
 
 module.exports = router;
