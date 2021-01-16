@@ -25,7 +25,6 @@ const Signup = (props) => {
   }
 
   const sendUsername = () => {
-    console.log(state.formBasicUsername)
     props.handleUsername(state.formBasicUsername)
   }
 
@@ -33,14 +32,11 @@ const Signup = (props) => {
     event.preventDefault();
     props.handleUsername(state.formBasicUsername)
     sendUsername();
-    console.log(state)
     const userData = {
       email: state.formBasicEmail,
       username: state.formBasicUsername,
       password: state.formBasicPassword
     }
-    console.log(userData)
-    console.log('lick');
     fetch('/api/access/signup', {
       method: 'POST',
       headers: {
@@ -52,7 +48,6 @@ const Signup = (props) => {
     }).then(response => {
       return response.json();
     }).then(data => {
-      console.log(data)
       if (data.success === false) {
         setSignUpError(data.error.message)
       }
