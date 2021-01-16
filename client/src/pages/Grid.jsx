@@ -33,8 +33,6 @@ const Grid = () => {
     fetch('/api/user/')
       .then(response => response.json())
       .then(data => {
-            console.log("users:");
-            // console.log(data.data);
             setUsers(data.data)
       })
   }, [])

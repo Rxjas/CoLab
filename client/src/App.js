@@ -4,10 +4,8 @@ import GlobalProvider from "./utils/GlobalContext";
 import Homepage from "./pages/Homepage";
 import Profile from "./pages/Profile";
 import Grid from "./pages/Grid";
-// import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import queryString from "query-string";
 import "./index.css";
 
 class App extends Component {
@@ -19,12 +17,7 @@ class App extends Component {
   }
 
   sendGrandpa = (childData) => {
-    console.log(childData)
     this.setState({ username: childData })
-  }
-
-  showUsername = () => {
-    console.log(this.state.username)
   }
 
   render() {
@@ -32,7 +25,6 @@ class App extends Component {
       <>
         <Router>
           <GlobalProvider>
-            {/* <Navbar /> */}
             <div className="App">
               <Switch>
                 <Route

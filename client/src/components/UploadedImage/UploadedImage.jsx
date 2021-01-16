@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 const UploadedImage = () => {
+    // COMPONENT IS TO HOLD CODE ONLY
 
     // hold the uploadedImage
     const [uploadImage, setUploadImage] = useState(null);

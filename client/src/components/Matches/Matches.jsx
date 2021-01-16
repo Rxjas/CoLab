@@ -1,19 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./Matches.css";
 import PersonalCard from "../PersonalCard";
-import axios from "axios";
 
 const Matches = (props) => {
-  
-
-  useEffect(() => {
-    
-  })
+  // ENTIRE COMPONENT IS FOR FUTURE DEVELOPMENT
 
   return (
     <>
-      {/* <p>my matches yus</p> */}
-      {/* put matches here */}
       <PersonalCard 
         username="musicman"
         pronouns="he/him"
