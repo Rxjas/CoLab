@@ -16,6 +16,7 @@ const Grid = () => {
 
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [username, setUsername] = useState("");
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     fetch('/api/access/allow')
@@ -29,7 +30,18 @@ const Grid = () => {
           setIsLoggedIn(false)
         }
       })
+    fetch('/api/user/')
+      .then(response => response.json())
+      .then(data => {
+            console.log("users:");
+            console.log(data.data);
+            setUsers(data.data)
+      })
   }, [])
+
+  const runParam = (param) => {
+
+  }
 
   if (!isLoggedIn) {
     return (
@@ -40,9 +52,19 @@ const Grid = () => {
     return (
       <>
         <Navbar loggedIn={isLoggedIn}/>
-        <Sidebar />
+        <Sidebar runParam={(param) => runParam(param)}/>
         <CardDeck>
           {/* need to pass through search terms and loop over results */}
+          {users.map(user => {
+            return <PersonalCard
+              currentUser={username}
+              username={user.username}
+              roles={user.roles}
+              pronouns={user.pronouns} 
+              lookingfor={user.lookingfor}
+              chats={user.chats}
+            />
+          })}
           {/* {element.map(infos => {
         <PersonalCard
           {{ infos }} <-- is that how we deconstruct an object within react parenthesis?

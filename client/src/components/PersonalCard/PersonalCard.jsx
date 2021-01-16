@@ -8,20 +8,17 @@ const PersonalCard = (props) => {
   const [showMatchBtn, setShowMatchBtn] = useState(true);
   const [showConvBtn, setShowConvBtn] = useState(false);
   const [showConvBtn2, setShowConvBtn2] = useState(true);
+  const [chats, setChats] = useState([]);
   
   // this variable stores the username of whoever is currently logged in
   const currentUser = props.currentUser;
   const path = window.location.pathname;
 
-  // don't let "start chat" button show if there's already a chat started
-  for (let i = 0; i < props.chats.length; i++) {
-    if (props.chats[i].user === currentUser) {
-      setShowConvBtn2(false);
-      break;
-    }
-  }
-
+  
   useEffect(() => {
+    console.log("personalcard props chats")
+    console.log(chats)
+    setChats(props.chats);
     if (path === "/grid") {
       setShowMatchBtn(true);
       setShowConvBtn(false);
@@ -29,9 +26,19 @@ const PersonalCard = (props) => {
       setShowMatchBtn(false);
       setShowConvBtn(true);
     }
+    // don't let "start chat" button show if there's already a chat started
+    // for (let i = 0; i < chats.length; i++) {
+    //   if (chats[i].user === currentUser) {
+    //     setShowConvBtn2(false);
+    //     break;
+    //   }
+    // }
   }, [path])
   // 
-  const addMatch = () => {
+  const addMatch = (event) => {
+    console.log(event.target)
+    const btn = event.target;
+    btn.setAttribute("class", "d-none")
     const route = `/api/user/match/${currentUser}`;
     // const matches = props.username;
     console.log(path)
@@ -40,7 +47,9 @@ const PersonalCard = (props) => {
       .catch(err => console.log(err));
   }
 
-  const startConvo = () => {
+  const startConvo = (event) => {
+    const btn = event.target;
+    btn.setAttribute("class","d-none");
     const channelID = `chats.${currentUser}${props.username}`;
     const user = currentUser;
     const chatInfo = {channelID, user};
