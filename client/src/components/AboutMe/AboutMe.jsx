@@ -61,7 +61,7 @@ const AboutMe = (props) => {
 
         <Jumbotron id="jumbo">
           {/* // add back to props for editme and showme: imageURL={imageURL} */}
-          {edit === true && <Editme username={props.username} info={props.info} btnclick={() => setEdit(false)} />}
+          {edit === true && <Editme username={props.username} info={props.info} btnclick={() => {setEdit(false); window.location.reload()}} />}
           {edit === false && <Showme username={props.username} info={props.info} btnclick={() => setEdit(true)} />}
         </Jumbotron>
       </>
