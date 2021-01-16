@@ -97,7 +97,7 @@ const PersonalCard = (props) => {
               onClick={startConvo}
               className="cardBtn"
               variant="outline-dark"
-            >conversate</Button>)}
+            ><img className="btnImg" src="/assets/images/colab-logo.png" alt="CoLab icon" /> chat</Button>)}
             {/* {showConvBtn && showConvBtn2 && (<Button 
           onClick={startConvo}
         >start chat</Button>)} */}
