@@ -93,22 +93,26 @@ class Messages extends Component {
         <Jumbotron id="messjum">
           <div>
             {/* For  development purposes*/}
-            <button onClick={this.showState}>Console.log username</button>
-
-            {this.state.channels.map(channel => {
-              return (
-                <Channel
-                  forChannelId={channel.channelID}
-                  withUsers={channel.user}
-                  handleRenderClick={this.handleRenderClick}
-                />
-              )
-            })}
+            {/* <button onClick={this.showState}>Console.log username</button> */}
+            <h3>open your chat with...</h3>
+            <div id="buttonsRow" className="row">
+              {this.state.channels.map(channel => {
+                return (
+                  <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    <Channel
+                      forChannelId={channel.channelID}
+                      withUsers={channel.user}
+                      handleRenderClick={this.handleRenderClick}
+                    />
+                  </div>
+                )
+              })}
+            </div>
 
             {/* p tag symbolizing what conversation gets rendered */}
-            <p>{this.state.renderConvo}</p>
+            {/* <p>{this.state.renderConvo}</p> */}
 
-            <Convo pubState={this.state.pubState} renderConvo={this.state.renderConvo} username={this.props.username}/>
+            <Convo pubState={this.state.pubState} renderConvo={this.state.renderConvo} username={this.props.username} />
 
           </div>
         </Jumbotron>

@@ -107,8 +107,8 @@ class Convo extends Component {
       return (
         <div>
           {/* dev team: click a convo to render and then click the following button to see the component send a message in the console */}
-          <h2>Conversation</h2>
-          <div id="chatWindow">
+          {/* <h2>Conversation with {}</h2> */}
+          <div id="chatWindow" className="container-fluid">
             {/* Map over history in state to render conversation to user */}
             {this.state.messageHistory.map((messageObj) => {
               const divideNano = messageObj.timetoken / 10000;
@@ -126,11 +126,11 @@ class Convo extends Component {
               const formattedTimestamp = date.toLocaleString('en-US', options);
               // console.log(formattedTimestamp);
               return (
-                <ChatBubble text={messageObj.entry.text}
-                  sentByUser={messageObj.entry.user}
-                  timeStamp={formattedTimestamp}
-                  username={this.props.username}
-                />
+                  <ChatBubble text={messageObj.entry.text}
+                    sentByUser={messageObj.entry.user}
+                    timeStamp={formattedTimestamp}
+                    username={this.props.username}
+                  />
               )
             })}
           </div>
