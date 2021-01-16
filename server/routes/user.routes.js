@@ -29,6 +29,15 @@ router.route('/')
       })
   });
 
+// get users based on search criteria
+router.route('/search/:criteria')
+  .get((req, res) => {
+    User.find({ roles: req.params.criteria })
+      .then(data => {
+        res.json(data);
+      })
+      .catch(err => console.log(err))
+  })
 
 // api/user/:id   This path is used so you can search by username not the object ID
 router.route('/:id')
