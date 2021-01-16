@@ -37,25 +37,52 @@ router
             .catch(error => console.log(error))
     })
 
-router.post('/', upload.single("file"), (req, res, next) => {
+router.post('/:username', upload.single("file"), (req, res, next) => {
 
+    console.log(req.params.username)
     var obj = {
-        name: req.body.name,
+        username: req.params.username,
         img: {
             data: fs.readFileSync(path.join(__dirname + '/../../uploads/' + req.file.filename)),
             contentType: 'image/png'
         }
     }
+    imgModel.findOne({ username: req.params.username })
+        .then((data) => {
+            console.log(data)
+            if (data === null){
+                console.log("BIG DULL DUD")
+                imgModel.create(obj, (err, item) => {
+                    if (err) {
+                        console.log(err);
+                    }
+                    else {
+                        console.log("SUCCESSfully saved")
+                        res.send("COMPLETE")
+                    }
+                });
+            } else {
+                imgModel.deleteOne({ username: req.params.username })
+                .then(data => {
+                    console.log(data)
+                    imgModel.create(obj, (err, item) => {
+                        if (err) {
+                            console.log(err);
+                        }
+                        else {
+                            console.log("SUCCESSfully saved")
+                            res.send("COMPLETE")
+                        }
+                    }).then(data => {
+                        console.log(data)
+                        res.send("excellent")
+                    })
+                })
+            }
+        })
+        .catch(err => console.log(err))
 
-    imgModel.create(obj, (err, item) => {
-        if (err) {
-            console.log(err);
-        }
-        else {
 
-            res.redirect('/');
-        }
-    });
 });
 
 
