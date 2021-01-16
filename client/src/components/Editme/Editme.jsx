@@ -94,6 +94,7 @@ const Editme = (props) => {
     axios.put(`/api/user/${props.username}`, formData)
 
     props.btnclick();
+    return false;
   }
 
   return (
