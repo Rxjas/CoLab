@@ -21,12 +21,16 @@ const Profile = (props) => {
 
   // on mount, find username
   useEffect(() => {
-    console.log("STEP 1 RAN")
+    console.log("STEP 1 RAN");
+    console.log(document.cookie)
     // passport
-    fetch('/api/access/allow')
+    fetch('/api/access/allow', {
+      method: 'POST'
+    })
       .then((response) => {
         console.log(response);
-        response.json()})
+        return response.json()
+      })
       .then((data) => {
         console.log(data)
         if (data.allowed === "allow") {
