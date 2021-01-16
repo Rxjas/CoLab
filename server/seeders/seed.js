@@ -21,20 +21,20 @@ let userSeed = [
     roles: ["Pianist", "violinist"],
     age: 28,
     bio: "I am a pianist classicaly trained and big brained",
- 
-      instagram: "Test@working",
-      twitter: "Test@working",
-      soundcloud: "Test@working",
-      spotify: "Test@working",
-      bandcamp: "Test@working",
-      youtube: "Test@working",
-      audiomack: "Test@working",
+
+    instagram: "Test@working",
+    twitter: "Test@working",
+    soundcloud: "Test@working",
+    spotify: "Test@working",
+    bandcamp: "Test@working",
+    youtube: "Test@working",
+    audiomack: "Test@working",
 
     lookingfor: "A cool calm singer for covers",
     chats: [
       {
-        involvedUUIDs: ["DanaStoreSuper"],
-        channelID: "chats.room1"
+        involvedUUIDs: "DanaStoreSuper",
+        channelID: "chats.DanaStoreSuperexampleUserNames"
       }
     ]
   },//end of john doe user
@@ -50,23 +50,23 @@ let userSeed = [
     age: 28,
     bio: "I am a Vocalist classicaly trained and big brained",
 
-      instagram: "Test@working",
-      twitter: "Test@working",
-      soundcloud: "Test@working",
-      spotify: "Test@working",
-      bandcamp: "Test@working",
-      youtube: "Test@working",
-      audiomack: "Test@working",
+    instagram: "Test@working",
+    twitter: "Test@working",
+    soundcloud: "Test@working",
+    spotify: "Test@working",
+    bandcamp: "Test@working",
+    youtube: "Test@working",
+    audiomack: "Test@working",
 
     lookingfor: "A cool calm pianist for covers",
     chats: [
       {
-        involvedUUIDs: ["exampleUserNames"],
-        channelID: "chats.room1"
+        involvedUUIDs: "exampleUserNames",
+        channelID: "chats.DanaStoreSuperexampleUserNames"
       },
       {
-        involvedUUIDs: ["TomNookConfirmed", "RoboT3"],
-        channelID: "chats.room4"
+        involvedUUIDs: "TomNookConfirmed",
+        channelID: "chats.DanaStoreSuperTomNookConfirmed"
       }
     ]
   },//end of Dana Happy user
@@ -82,23 +82,23 @@ let userSeed = [
     age: 28,
     bio: "I am a Racoon from Animal Crossing",
 
-      instagram: "Test@working",
-      twitter: "Test@working",
-      soundcloud: "Test@working",
-      spotify: "Test@working",
-      bandcamp: "Test@working",
-      youtube: "Test@working",
-      audiomack: "Test@working",
+    instagram: "Test@working",
+    twitter: "Test@working",
+    soundcloud: "Test@working",
+    spotify: "Test@working",
+    bandcamp: "Test@working",
+    youtube: "Test@working",
+    audiomack: "Test@working",
 
     lookingfor: "Bells I need and crave bells.",
     chats: [
       {
-        involvedUUIDs: ["RealScreamer"],
-        channelID: "chats.room2"
+        involvedUUIDs: "RealScreamer",
+        channelID: "chats.RealScreamerTomNookConfirmed"
       },
       {
-        involvedUUIDs: ["DanaStoreSuper", "RoboT3"],
-        channelID: "chats.room4"
+        involvedUUIDs: "DanaStoreSuper",
+        channelID: "chats.DanaStoreSuperTomNookConfirmed"
       }
     ]
   }, //end of Tom Nook user
@@ -114,23 +114,23 @@ let userSeed = [
     age: 28,
     bio: "I am a man that plays loud and screams loud",
 
-      instagram: "Test@working",
-      twitter: "Test@working",
-      soundcloud: "Test@working",
-      spotify: "Test@working",
-      bandcamp: "Test@working",
-      youtube: "Test@working",
-      audiomack: "Test@working",
+    instagram: "Test@working",
+    twitter: "Test@working",
+    soundcloud: "Test@working",
+    spotify: "Test@working",
+    bandcamp: "Test@working",
+    youtube: "Test@working",
+    audiomack: "Test@working",
 
     lookingfor: "I need more loud people for a loud band",
     chats: [
       {
-        involvedUUIDs: ["TomNookConfirmed"],
-        channelID: "chats.room2"
+        involvedUUIDs: "TomNookConfirmed",
+        channelID: "chats.RealScreamerTomNookConfirmed"
       },
       {
-        involvedUUIDs: ["RoboT3"],
-        channelID: "chats.room3"
+        involvedUUIDs: "RoboT3",
+        channelID: "chats.RealScreamerRoboT3"
       }
     ]
   },//end of Timouthy Loud user
@@ -146,23 +146,23 @@ let userSeed = [
     age: 28,
     bio: "I am a robot. Very big brained.",
 
-      instagram: "Test@working",
-      twitter: "Test@working",
-      soundcloud: "Test@working",
-      spotify: "Test@working",
-      bandcamp: "Test@working",
-      youtube: "Test@working",
-      audiomack: "Test@working",
+    instagram: "Test@working",
+    twitter: "Test@working",
+    soundcloud: "Test@working",
+    spotify: "Test@working",
+    bandcamp: "Test@working",
+    youtube: "Test@working",
+    audiomack: "Test@working",
 
     lookingfor: "World domination",
     chats: [
       {
-        involvedUUIDs: ["RealScreamer"],
-        channelID: "chats.room3"
+        involvedUUIDs: "RealScreamer",
+        channelID: "chats.RealScreamerRoboT3"
       },
       {
-        involvedUUIDs: ["exampleUserNames", "DanaStoreSuper"],
-        channelID: "chats.room4"
+        involvedUUIDs: "JBravo",
+        channelID: "chats.JBravoRoboT3"
       }
     ]
   },//end of ROBOTT3
@@ -178,24 +178,24 @@ let userSeed = [
     age: 22,
     bio: "I'm a mild mannered man ready to start a band that will really rock the socks off people",
 
-      instagram: "https://www.instagram.com/",
-      twitter: "https://twitter.com/?lang=en",
-      soundcloud: "https://soundcloud.com/",
-      spotify: "https://www.spotify.com/us/",
-      bandcamp: "https://bandcamp.com/",
-      youtube: "https://www.youtube.com/",
-      audiomack: "https://audiomack.com/",
+    instagram: "https://www.instagram.com/",
+    twitter: "https://twitter.com/?lang=en",
+    soundcloud: "https://soundcloud.com/",
+    spotify: "https://www.spotify.com/us/",
+    bandcamp: "https://bandcamp.com/",
+    youtube: "https://www.youtube.com/",
+    audiomack: "https://audiomack.com/",
 
     lookingfor: "New Rock Band",
     chats: [
-      // {
-      //   involvedUUIDs: ["RealScreamer"],
-      //   channelID: "chats.room3"
-      // },
-      // {
-      //   involvedUUIDs: ["exampleUserNames", "DanaStoreSuper"],
-      //   channelID: "chats.room4"
-      // }
+      {
+        involvedUUIDs: "RoboT3",
+        channelID: "chats.JBravoRoboT3"
+      },
+      {
+        involvedUUIDs: "FreshToast",
+        channelID: "chats.FreshToastJBravo"
+      }
     ]
   },//end og Johnny bravo
   {
@@ -210,24 +210,24 @@ let userSeed = [
     age: 25,
     bio: "Trying to find another person who would like to just hangout and jam.",
 
-      instagram: "https://www.instagram.com/",
-      twitter: "https://twitter.com/?lang=en",
-      soundcloud: "https://soundcloud.com/",
-      spotify: "https://www.spotify.com/us/",
-      bandcamp: "https://bandcamp.com/",
-      youtube: "https://www.youtube.com/",
-      audiomack: "https://audiomack.com/",
+    instagram: "https://www.instagram.com/",
+    twitter: "https://twitter.com/?lang=en",
+    soundcloud: "https://soundcloud.com/",
+    spotify: "https://www.spotify.com/us/",
+    bandcamp: "https://bandcamp.com/",
+    youtube: "https://www.youtube.com/",
+    audiomack: "https://audiomack.com/",
 
     lookingfor: "A jam session partner",
     chats: [
-      // {
-      //   involvedUUIDs: ["RealScreamer"],
-      //   channelID: "chats.room3"
-      // },
-      // {
-      //   involvedUUIDs: ["exampleUserNames", "DanaStoreSuper"],
-      //   channelID: "chats.room4"
-      // }
+      {
+        involvedUUIDs: "JBravo",
+        channelID: "chats.FreshToastJBravo"
+      },
+      {
+        involvedUUIDs: "ultimatepianist",
+        channelID: "chats.FreshToastultimatepianist"
+      }
     ]
   },//end of ronald money
   {
@@ -242,24 +242,24 @@ let userSeed = [
     age: 18,
     bio: "I'm a piano player with a passion for making piano covers of songs I like.",
 
-      instagram: "https://www.instagram.com/",
-      twitter: "https://twitter.com/?lang=en",
-      soundcloud: "https://soundcloud.com/",
-      spotify: "https://www.spotify.com/us/",
-      bandcamp: "https://bandcamp.com/",
-      youtube: "https://www.youtube.com/",
-      audiomack: "https://audiomack.com/",
+    instagram: "https://www.instagram.com/",
+    twitter: "https://twitter.com/?lang=en",
+    soundcloud: "https://soundcloud.com/",
+    spotify: "https://www.spotify.com/us/",
+    bandcamp: "https://bandcamp.com/",
+    youtube: "https://www.youtube.com/",
+    audiomack: "https://audiomack.com/",
 
     lookingfor: "A singer for covers.",
     chats: [
-      // {
-      //   involvedUUIDs: ["RealScreamer"],
-      //   channelID: "chats.room3"
-      // },
-      // {
-      //   involvedUUIDs: ["exampleUserNames", "DanaStoreSuper"],
-      //   channelID: "chats.room4"
-      // }
+      {
+        involvedUUIDs: "FreshToast",
+        channelID: "chats.FreshToastultimatepianist"
+      },
+      {
+        involvedUUIDs: "QuickTapper",
+        channelID: "chats.QuickTapperultimatepianist"
+      }
     ]
   },//end of jeremy cosco
   {
@@ -274,24 +274,24 @@ let userSeed = [
     age: 23,
     bio: "I'm a new violinist and I really want to get much better!",
 
-      instagram: "https://www.instagram.com/",
-      twitter: "https://twitter.com/?lang=en",
-      soundcloud: "https://soundcloud.com/",
-      spotify: "https://www.spotify.com/us/",
-      bandcamp: "https://bandcamp.com/",
-      youtube: "https://www.youtube.com/",
-      audiomack: "https://audiomack.com/",
+    instagram: "https://www.instagram.com/",
+    twitter: "https://twitter.com/?lang=en",
+    soundcloud: "https://soundcloud.com/",
+    spotify: "https://www.spotify.com/us/",
+    bandcamp: "https://bandcamp.com/",
+    youtube: "https://www.youtube.com/",
+    audiomack: "https://audiomack.com/",
 
     lookingfor: "A violin instructor",
     chats: [
-      // {
-      //   involvedUUIDs: ["RealScreamer"],
-      //   channelID: "chats.room3"
-      // },
-      // {
-      //   involvedUUIDs: ["exampleUserNames", "DanaStoreSuper"],
-      //   channelID: "chats.room4"
-      // }
+      {
+        involvedUUIDs: "ultimatepianist",
+        channelID: "chats.QuickTapperultimatepianist"
+      },
+      {
+        involvedUUIDs: "WalmartDrummer",
+        channelID: "chats.QuickTapperWalmartDrummer"
+      }
     ]
   },//end of marie ring
   {
@@ -306,24 +306,20 @@ let userSeed = [
     age: 22,
     bio: "Hanging out and having a good time with oldies and newies.",
 
-      instagram: "https://www.instagram.com/",
-      twitter: "https://twitter.com/?lang=en",
-      soundcloud: "https://soundcloud.com/",
-      spotify: "https://www.spotify.com/us/",
-      bandcamp: "https://bandcamp.com/",
-      youtube: "https://www.youtube.com/",
-      audiomack: "https://audiomack.com/",
+    instagram: "https://www.instagram.com/",
+    twitter: "https://twitter.com/?lang=en",
+    soundcloud: "https://soundcloud.com/",
+    spotify: "https://www.spotify.com/us/",
+    bandcamp: "https://bandcamp.com/",
+    youtube: "https://www.youtube.com/",
+    audiomack: "https://audiomack.com/",
 
     lookingfor: "3 person music group",
     chats: [
-      // {
-      //   involvedUUIDs: ["RealScreamer"],
-      //   channelID: "chats.room3"
-      // },
-      // {
-      //   involvedUUIDs: ["exampleUserNames", "DanaStoreSuper"],
-      //   channelID: "chats.room4"
-      // }
+      {
+        involvedUUIDs: "QuickTapper",
+        channelID: "chats.QuickTapperWalmartDrummer"
+      }
     ]
   }// end of cade england
 ]
