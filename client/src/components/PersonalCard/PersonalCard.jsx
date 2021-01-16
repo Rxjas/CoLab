@@ -8,20 +8,17 @@ const PersonalCard = (props) => {
   const [showMatchBtn, setShowMatchBtn] = useState(true);
   const [showConvBtn, setShowConvBtn] = useState(false);
   const [showConvBtn2, setShowConvBtn2] = useState(true);
+  const [chats, setChats] = useState([]);
   
   // this variable stores the username of whoever is currently logged in
   const currentUser = props.currentUser;
   const path = window.location.pathname;
 
-  // don't let "start chat" button show if there's already a chat started
-  for (let i = 0; i < props.chats.length; i++) {
-    if (props.chats[i].user === currentUser) {
-      setShowConvBtn2(false);
-      break;
-    }
-  }
-
+  
   useEffect(() => {
+    // console.log("personalcard props chats")
+    // console.log(chats)
+    setChats(props.chats);
     if (path === "/grid") {
       setShowMatchBtn(true);
       setShowConvBtn(false);
@@ -29,22 +26,35 @@ const PersonalCard = (props) => {
       setShowMatchBtn(false);
       setShowConvBtn(true);
     }
+    // don't let "start chat" button show if there's already a chat started
+    // for (let i = 0; i < chats.length; i++) {
+    //   if (chats[i].user === currentUser) {
+    //     setShowConvBtn2(false);
+    //     break;
+    //   }
+    // }
   }, [path])
   // 
-  const addMatch = () => {
-    const route = `/api/user/match/${currentUser}`;
+  const addMatch = (event) => {
+    console.log(props)
+    const btn = event.target;
+    const currentUser = props.currentUser
+    btn.setAttribute("class", "d-none")
+    const route = `/api/user/matches/${currentUser}`;
     // const matches = props.username;
-    console.log(path)
+    console.log(route)
     axios
       .put(route, { matches: props.username })
       .catch(err => console.log(err));
   }
 
-  const startConvo = () => {
-    const channelID = `chats.${currentUser}${props.username}`;
-    const user = currentUser;
+  const startConvo = (event) => {
+    const btn = event.target;
+    btn.setAttribute("class","d-none");
+    const channelID = `chats.${props.currentUser}${props.username}`;
+    const user = props.currentUser;
     const chatInfo = {channelID, user};
-    const path = `/api/user/msg/${currentUser}`;
+    const path = `/api/user/msg/${props.currentUser}`;
     axios.put(path, {chatInfo});
     const user2 = props.username;
     const path2 = `/api/user/msg/${props.username}`;

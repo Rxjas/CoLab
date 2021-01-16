@@ -16,97 +16,70 @@ const Grid = () => {
 
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [username, setUsername] = useState("");
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch('/api/access/allow')
+    fetch('/api/access/allow', { method: "POST" })
       .then((response) => response.json())
       .then((data) => {
         console.log(data)
         if (data.allowed === "allow") {
-          setIsLoggedIn(true);
           setUsername(data.userLoggedIn)
+          setIsLoggedIn(true);
         } else {
           setIsLoggedIn(false)
         }
       })
+    fetch('/api/user/')
+      .then(response => response.json())
+      .then(data => {
+            console.log("users:");
+            // console.log(data.data);
+            setUsers(data.data)
+      })
   }, [])
+
+  const runParam = (param) => {
+    console.log(param)
+    fetch(`/api/user/search/${param}`)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        setUsers(data)
+      })
+  }
 
   if (!isLoggedIn) {
     return (
       <Redirect to="/" />
     )
-  } else {
+  } else if (username !== "") {
 
     return (
       <>
         <Navbar loggedIn={isLoggedIn}/>
-        <Sidebar />
+        <Sidebar runParam={(param) => runParam(param)}/>
         <CardDeck>
           {/* need to pass through search terms and loop over results */}
-          {/* {element.map(infos => {
-        <PersonalCard
-          {{ infos }} <-- is that how we deconstruct an object within react parenthesis?
-        />
-      })} */}
-          {/* demo cards for styling */}
-          <PersonalCard
-            username="musicman"
-            pronouns="he/him"
-            roles={["vocalist", "pianist", "guitarist"]}
-            lookingfor="a good singer"
-          />
-          <PersonalCard
-            username="musicman"
-            pronouns="he/him"
-            roles={["vocalist", "pianist", "guitarist"]}
-            lookingfor="a good singer"
-          />
-          <PersonalCard
-            username="musicman"
-            pronouns="he/him"
-            roles={["vocalist", "pianist", "guitarist"]}
-            lookingfor="a good singer"
-          />
-          <PersonalCard
-            username="musicman"
-            pronouns="he/him"
-            roles={["vocalist", "pianist", "guitarist"]}
-            lookingfor="a good singer"
-          />
-          <PersonalCard
-            username="musicman"
-            pronouns="he/him"
-            roles={["vocalist", "pianist", "guitarist"]}
-            lookingfor="a good singer"
-          />
-          <PersonalCard
-            username="musicman"
-            pronouns="he/him"
-            roles={["vocalist", "pianist", "guitarist"]}
-            lookingfor="a good singer"
-          />
-          <PersonalCard
-            username="musicman"
-            pronouns="he/him"
-            roles={["vocalist", "pianist", "guitarist"]}
-            lookingfor="a good singer"
-          />
-          <PersonalCard
-            username="musicman"
-            pronouns="he/him"
-            roles={["vocalist", "pianist", "guitarist"]}
-            lookingfor="a good singer"
-          />
-          <PersonalCard
-            username="musicman"
-            pronouns="he/him"
-            roles={["vocalist", "pianist", "guitarist"]}
-            lookingfor="a good singer"
-          />
+          {users.map(user => {
+            return <PersonalCard
+              currentUser={username}
+              username={user.username}
+              roles={user.roles}
+              pronouns={user.pronouns} 
+              lookingfor={user.lookingfor}
+              chats={user.chats}
+            />
+          })}
         </CardDeck>
-        <p>the grid</p>
       </>
     );
+  } else {
+    return (
+      <>
+        <div>Loading...</div>
+      </>
+    )
   }
 };
 

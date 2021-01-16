@@ -238,9 +238,11 @@ const Editme = (props) => {
                 <Form.Check name="vocalist" type="checkbox" id="vocalist" label="vocalist" checked={props.info.roles.includes("vocalist")}/>
                 <Form.Check name="guitarist" type="checkbox" id="guitarist" label="guitarist" checked={props.info.roles.includes("guitarist")}/>
                 <Form.Check name="pianist" type="checkbox" id="pianist" label="pianist" checked={props.info.roles.includes("pianist")} />
+                <Form.Check name="violinist" type="checkbox" id="violinist" label="violinist" checked={props.info.roles.includes("violinist")} />
                 <Form.Check name="bassist" type="checkbox" id="bassist" label="bassist" checked={props.info.roles.includes("bassist")} />
                 <Form.Check name="saxophonist" type="checkbox" id="saxophonist" label="saxophonist" checked={props.info.roles.includes("saxophonist")} />
                 <Form.Check name="percussionist" type="checkbox" id="percussionist" label="percussionist" checked={props.info.roles.includes("percussionist")} />
+                <Form.Check name="harpist" type="checkbox" id="harpist" label="harpist" checked={props.info.roles.includes("harpist")} />
               </Form.Group>
             </Col>
             <Col className="formcol" xs={12} sm={6}>

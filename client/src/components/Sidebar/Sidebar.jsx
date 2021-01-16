@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 import "./Sidebar.css";
 // import FilterMusic from "../FilterMusic";
 
-const Sidebar = () => {
-  const [genre, setGenre] = useState('');
+const Sidebar = (props) => {
+  // const [genre, setGenre] = useState('');
   const [instrument, setInstrument] = useState('');
-  const [keyword, setKeyword] = useState('');
+  // const [keyword, setKeyword] = useState('');
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(`search terms: ${genre} + ${instrument} + ${keyword}`)
+    // setInstrument(e.target.value);
+    console.log(e.target.value)
+    props.runParam(e.target.value);
   }
 
   return (
@@ -21,11 +24,11 @@ const Sidebar = () => {
           <div id="autopop" />
         </div>
         <div id="seeking">
-          <p>looking to CoLaborate with a {genre} {instrument}</p>
+          <p>looking to CoLaborate with a {instrument}</p>
           {/* for more categories, need some way to make form change */}
           {/* maybe a tab, like on profile page... or useState with another form (just a dropdown) */}
           <Form>
-            <Form.Group controlId="genre">
+            {/* <Form.Group controlId="genre">
               <Form.Label>Genre</Form.Label>
               <Form.Control
                 as="select"
@@ -51,7 +54,7 @@ const Sidebar = () => {
                 <option>Electric</option>
                 <option>Dance</option>
               </Form.Control>
-            </Form.Group>
+            </Form.Group> */}
             <Form.Group controlId="instrument">
               <Form.Label>Instrument</Form.Label>
               <Form.Control
@@ -65,12 +68,14 @@ const Sidebar = () => {
                 <option value="vocalist">Vocals</option>
                 <option value="guitarist">Guitar</option>
                 <option value="pianist">Piano</option>
+                <option value="violinist">Violin</option>
                 <option value="bassist">Bass</option>
                 <option value="saxophonist">Saxophone</option>
                 <option value="percussionist">Percussion</option>
+                <option value="harpist">harpist</option>
               </Form.Control>
             </Form.Group>
-            <Form.Group controlId="other">
+            {/* <Form.Group controlId="other">
               <Form.Label>Keywords</Form.Label>
               <Form.Control
                 as="input"
@@ -82,7 +87,10 @@ const Sidebar = () => {
               <Form.Text id="keywordHelp" muted>
                 Enter comma-separated keywords (e.g., terms not included in filters)
               </Form.Text>
-            </Form.Group>
+            </Form.Group> */}
+            {/* <Button
+              onClick={props.runParam()}
+            >search</Button> */}
           </Form>
         </div>
       </div>
