@@ -65,68 +65,7 @@ const Grid = () => {
               chats={user.chats}
             />
           })}
-          {/* {element.map(infos => {
-        <PersonalCard
-          {{ infos }} <-- is that how we deconstruct an object within react parenthesis?
-        />
-      })} */}
-          {/* demo cards for styling */}
-          <PersonalCard
-            username="musicman"
-            pronouns="he/him"
-            roles={["vocalist", "pianist", "guitarist"]}
-            lookingfor="a good singer"
-          />
-          <PersonalCard
-            username="musicman"
-            pronouns="he/him"
-            roles={["vocalist", "pianist", "guitarist"]}
-            lookingfor="a good singer"
-          />
-          <PersonalCard
-            username="musicman"
-            pronouns="he/him"
-            roles={["vocalist", "pianist", "guitarist"]}
-            lookingfor="a good singer"
-          />
-          <PersonalCard
-            username="musicman"
-            pronouns="he/him"
-            roles={["vocalist", "pianist", "guitarist"]}
-            lookingfor="a good singer"
-          />
-          <PersonalCard
-            username="musicman"
-            pronouns="he/him"
-            roles={["vocalist", "pianist", "guitarist"]}
-            lookingfor="a good singer"
-          />
-          <PersonalCard
-            username="musicman"
-            pronouns="he/him"
-            roles={["vocalist", "pianist", "guitarist"]}
-            lookingfor="a good singer"
-          />
-          <PersonalCard
-            username="musicman"
-            pronouns="he/him"
-            roles={["vocalist", "pianist", "guitarist"]}
-            lookingfor="a good singer"
-          />
-          <PersonalCard
-            username="musicman"
-            pronouns="he/him"
-            roles={["vocalist", "pianist", "guitarist"]}
-            lookingfor="a good singer"
-          />
-          <PersonalCard
-            username="musicman"
-            pronouns="he/him"
-            roles={["vocalist", "pianist", "guitarist"]}
-            lookingfor="a good singer"
-          />
         </CardDeck>
-        <p>the grid</p>
       </>
     );
   }
