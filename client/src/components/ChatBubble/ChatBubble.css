@@ -1,5 +1,10 @@
 .messageDiv {
   /* padding-left: 1rem; */
+  display: inline-block;
+}
+
+.containMe {
+  display: inline-block;
 }
 
 .sentby {

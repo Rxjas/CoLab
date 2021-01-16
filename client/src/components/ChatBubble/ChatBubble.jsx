@@ -8,16 +8,28 @@ function ChatBubble(props) {
   // so className="message me"
   // so they can be styled differently if sent by
   // person who is currently logged in
+  let displayRight = "";
+  let bubbClass = "";
+  if (loggedIn === props.sentByUser) {
+    displayRight = "displayRight";
+    bubbClass = "me"
+  }
   return (
-    <div className="col-8">
+    <>
+      {/* <div className={`col ${justifyClass}`}> */}
       {/* <br /> */}
-      <div className="messageDiv">
-        <p className="sentby">{props.sentByUser}</p>
-        <p className="message">{props.text}</p>
-        <p className="timestamp">{props.timeStamp}</p>
+      <div classname={`row`}>
+        {/* <div className={`messageDiv col-8`}> */}
+        <div className={`containMe ${displayRight}`}>
+            <p className="sentby">{props.sentByUser}</p>
+            <p className={`message ${bubbClass}`}>{props.text}</p>
+            <p className="timestamp">{props.timeStamp}</p>
+        </div>
+        {/* </div>
+        <div id="emptyspace" className={`col-4 ${displayRight}`}></div> */}
       </div>
-    </div>
-
+      {/* </div> */}
+    </>
   )
 };
 
