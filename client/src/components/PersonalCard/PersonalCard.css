@@ -1,7 +1,7 @@
 .PersonalCard {
   margin-top: 60px;
   width: 30%;
-  display: flex
+  display: flex;
   flex-direction: column;
   height: 200px;
   background-color: white;

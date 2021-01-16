@@ -19,13 +19,13 @@ const Grid = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch('/api/access/allow')
+    fetch('/api/access/allow', { method: "POST" })
       .then((response) => response.json())
       .then((data) => {
         console.log(data)
         if (data.allowed === "allow") {
-          setIsLoggedIn(true);
           setUsername(data.userLoggedIn)
+          setIsLoggedIn(true);
         } else {
           setIsLoggedIn(false)
         }
@@ -34,20 +34,26 @@ const Grid = () => {
       .then(response => response.json())
       .then(data => {
             console.log("users:");
-            console.log(data.data);
+            // console.log(data.data);
             setUsers(data.data)
       })
   }, [])
 
   const runParam = (param) => {
-
+    console.log(param)
+    fetch(`/api/user/search/${param}`)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        setUsers(data)
+      })
   }
 
   if (!isLoggedIn) {
     return (
       <Redirect to="/" />
     )
-  } else {
+  } else if (username !== "") {
 
     return (
       <>
@@ -68,6 +74,12 @@ const Grid = () => {
         </CardDeck>
       </>
     );
+  } else {
+    return (
+      <>
+        <div>Loading...</div>
+      </>
+    )
   }
 };
 

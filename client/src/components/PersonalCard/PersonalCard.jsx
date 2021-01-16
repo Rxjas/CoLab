@@ -16,8 +16,8 @@ const PersonalCard = (props) => {
 
   
   useEffect(() => {
-    console.log("personalcard props chats")
-    console.log(chats)
+    // console.log("personalcard props chats")
+    // console.log(chats)
     setChats(props.chats);
     if (path === "/grid") {
       setShowMatchBtn(true);
@@ -36,12 +36,13 @@ const PersonalCard = (props) => {
   }, [path])
   // 
   const addMatch = (event) => {
-    console.log(event.target)
+    console.log(props)
     const btn = event.target;
+    const currentUser = props.currentUser
     btn.setAttribute("class", "d-none")
-    const route = `/api/user/match/${currentUser}`;
+    const route = `/api/user/matches/${currentUser}`;
     // const matches = props.username;
-    console.log(path)
+    console.log(route)
     axios
       .put(route, { matches: props.username })
       .catch(err => console.log(err));
@@ -50,10 +51,10 @@ const PersonalCard = (props) => {
   const startConvo = (event) => {
     const btn = event.target;
     btn.setAttribute("class","d-none");
-    const channelID = `chats.${currentUser}${props.username}`;
-    const user = currentUser;
+    const channelID = `chats.${props.currentUser}${props.username}`;
+    const user = props.currentUser;
     const chatInfo = {channelID, user};
-    const path = `/api/user/msg/${currentUser}`;
+    const path = `/api/user/msg/${props.currentUser}`;
     axios.put(path, {chatInfo});
     const user2 = props.username;
     const path2 = `/api/user/msg/${props.username}`;

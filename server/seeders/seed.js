@@ -18,7 +18,7 @@ let userSeed = [
     pronouns: "He/Him",
     email: "john@1234.com",
     password: "123test",
-    roles: ["Pianist", "violinist"],
+    roles: ["pianist", "violinist"],
     age: 28,
     bio: "I am a pianist classicaly trained and big brained",
 
@@ -46,7 +46,7 @@ let userSeed = [
     pronouns: "She/Her",
     email: "Dana28@1234.com",
     password: "12345test",
-    roles: ["Vocalist", "violinist"],
+    roles: ["vocalist", "violinist"],
     age: 28,
     bio: "I am a Vocalist classicaly trained and big brained",
 
@@ -78,7 +78,7 @@ let userSeed = [
     pronouns: "They/them",
     email: "RealTomNook@1234.com",
     password: "123Money",
-    roles: ["Harp", "Vocal", "Everything"],
+    roles: ["harpist", "vocalist", "Everything"],
     age: 28,
     bio: "I am a Racoon from Animal Crossing",
 
@@ -110,7 +110,7 @@ let userSeed = [
     pronouns: "He/Him",
     email: "LOUDLOUD@1234.com",
     password: "123LOUD",
-    roles: ["Bassist", "Screamer", "Choir"],
+    roles: ["bassist", "Screamer", "Choir"],
     age: 28,
     bio: "I am a man that plays loud and screams loud",
 
@@ -174,7 +174,7 @@ let userSeed = [
     pronouns: "He/Him",
     email: "jbravo@123.com",
     password: "mrclassic123",
-    roles: ["Lead Guitar", "Bass", "Violin"],
+    roles: ["guitarist", "bassist", "violinist"],
     age: 22,
     bio: "I'm a mild mannered man ready to start a band that will really rock the socks off people",
 
@@ -206,7 +206,7 @@ let userSeed = [
     pronouns: "He/Him",
     email: "moneyronald@123.com",
     password: "goodPassword1",
-    roles: ["vocals", "Bass", "Spanish Guitar"],
+    roles: ["vocalist", "bassist", "guitarist"],
     age: 25,
     bio: "Trying to find another person who would like to just hangout and jam.",
 
@@ -270,7 +270,7 @@ let userSeed = [
     pronouns: "Her/She",
     email: "Marie4@123.com",
     password: "mrclassic123",
-    roles: ["Violin"],
+    roles: ["violinist"],
     age: 23,
     bio: "I'm a new violinist and I really want to get much better!",
 
@@ -302,7 +302,7 @@ let userSeed = [
     pronouns: "He/Him",
     email: "cadeeengland@123.com",
     password: "mrclassic123",
-    roles: ["Bass", "Violin"],
+    roles: ["bassist", "violinist"],
     age: 22,
     bio: "Hanging out and having a good time with oldies and newies.",
 
