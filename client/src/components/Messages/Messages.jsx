@@ -30,6 +30,7 @@ class Messages extends Component {
       // normally, it would be sending a request using the user's username, but DanaStoreSuper is for development
       .then(response => response.json())
       .then(data => {
+        console.log(data);
         const tempNub = new PubNub({
           publishKey: data.pubkey,
           subscribeKey: data.subkey,
@@ -95,14 +96,10 @@ class Messages extends Component {
             <button onClick={this.showState}>Console.log username</button>
 
             {this.state.channels.map(channel => {
-              let concatArray = channel.involvedUUIDs[0];
-              for (let i = 1; i < channel.involvedUUIDs.length; i++) {
-                concatArray = concatArray + ", " + channel.involvedUUIDs[i]
-              }
               return (
                 <Channel
                   forChannelId={channel.channelID}
-                  withUsers={concatArray}
+                  withUsers={channel.user}
                   handleRenderClick={this.handleRenderClick}
                 />
               )
