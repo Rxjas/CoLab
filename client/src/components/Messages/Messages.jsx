@@ -17,11 +17,12 @@ class Messages extends Component {
       pubState: {},
       channelsToSubscribeTo: [],
       renderConvo: "",
-      receivedMessages: []
+      receivedMessage: ""
     }
   }
 
   componentDidMount() {
+    console.log("MAY RESUBSCRIBE")
     const username = this.props.username
     fetch('/api/pubnub/' + username)
       .then(response => response.json())
@@ -39,14 +40,20 @@ class Messages extends Component {
       })
       .then(() => {
         this.state.pubState.addListener({
+          // when a message is received through listener (included messages sent from current user)
           message: (m) => {
             console.log(m)
-            console.log(m.channel)
-            console.log(this.state.receivedMessages);
-            const messageReceived = this.state.receivedMessages;
-            messageReceived.push(m)
-            this.setState({ receivedMessages: messageReceived})
-            console.log('AFTER')
+            // format received message so the Convo component can render it correctly
+            const receivedNewMessage = {
+              entry: {
+                text: m.message.text,
+                user: m.publisher
+              },
+              timetoken: m.timetoken,
+              channelID: m.channel
+            };
+            // send received message to the Convo component
+            this.setState({ receivedMessage: receivedNewMessage})
           }
         })
       })
@@ -78,14 +85,9 @@ class Messages extends Component {
     this.setState({ renderConvo: childData })
   }
 
-  showState = () => {
-    console.log(this.state.receivedMessages)
-  }
-
   render() {
     return (
       <>
-      <button onClick={this.showState}>Show state</button>
         <Jumbotron id="messjum">
           <div>
             <h3>open your chat with...</h3>
@@ -104,7 +106,7 @@ class Messages extends Component {
               })}
             </div>
 
-            <Convo receivedMessages={this.state.receivedMessages} pubState={this.state.pubState} renderConvo={this.state.renderConvo} username={this.props.username} />
+            <Convo receivedMessage={this.state.receivedMessage} pubState={this.state.pubState} renderConvo={this.state.renderConvo} username={this.props.username} />
 
           </div>
         </Jumbotron>

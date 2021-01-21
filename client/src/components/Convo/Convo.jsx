@@ -17,9 +17,8 @@ class Convo extends Component {
     }
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
     if (this.props.renderConvo !== this.state.renderConvo || this.state.needToRender === true) {
-
       if (this.props.renderConvo !== "") {
         this.findMessageHistory();
         let chatWindow = document.getElementById("chatWindow");
@@ -29,6 +28,18 @@ class Convo extends Component {
         function scrollToBottom() {
           chatWindow.scrollTop = chatWindow.scrollHeight;
         }
+      }
+    }
+    if (this.props.receivedMessage !== prevProps.receivedMessage){
+      if (this.props.receivedMessage.channelID === this.props.renderConvo){
+        const currentMessages = this.state.messageHistory;
+        const formatNewMessage = {
+          entry: this.props.receivedMessage.entry,
+          timetoken: this.props.receivedMessage.timetoken
+        }
+        console.log(formatNewMessage)
+        currentMessages.push(formatNewMessage);
+        this.setState({ messageHistory: currentMessages})
       }
     }
   }
@@ -70,32 +81,12 @@ class Convo extends Component {
           }
         },
         (status, response) => {
-          const currentState = this.state.messageHistory;
-          currentState.push({
-            entry: {
-              text: this.state.messageInput,
-              user: username
-            },
-            timetoken: parseInt(response.timetoken)
-          })
-          this.setState({ messageHistory: currentState })
+          console.log(status, response)
         }
       )
       // clear out input field when message is sent
       event.target.parentNode.parentNode.firstChild.value = "";
     }
-  }
-  showNewMessage = () => {
-    if (this.props.receivedMessages.length !== 0){
-      return (
-        <div>{this.props.receivedMessages[0].channel}</div>
-      )
-    }
-    // if (this.props.receivedMessages[0].channel === "chats.shannaemail5"){
-    //   return (
-    //     <div>Appeared!!</div>
-    //   )
-    // }
   }
 
   render() {
@@ -107,7 +98,6 @@ class Convo extends Component {
     } else {
       return (
         <div>
-          {this.showNewMessage()}
           <div id="chatWindow" className="container-fluid">
             {/* Map over history in state to render conversation to user */}
             {this.state.messageHistory.map((messageObj) => {
